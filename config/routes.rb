@@ -6,5 +6,6 @@ registrations: 'users/registrations'
 }
 
 root to: "homes#top"
+get 'about' => 'homes#about'
   
 end
