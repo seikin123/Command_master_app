@@ -11,7 +11,7 @@ get 'about' => 'homes#about'
 resources :users do
   collection do #idは付与しない
     get 'unsubscribe' #退会画面
-    patch 'withdraw' #is_asciveを更新する
+    patch 'withdraw' #is_aciveを更新する
   end
 end
 
