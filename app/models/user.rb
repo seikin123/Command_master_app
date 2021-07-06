@@ -5,4 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   attachment :profile_image
+  
+  # 
+  def active_for_authentication?
+    super && (self.is_active == true)
+  end
 end
