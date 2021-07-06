@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'questions/index'
+    get 'questions/show'
+    get 'questions/edit'
+  end
 devise_for :users, controllers: {
 sessions:      'users/sessions',
 passwords:     'users/passwords',
