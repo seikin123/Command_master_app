@@ -6,7 +6,7 @@ class User < ApplicationRecord
          
   attachment :profile_image
   
-  validates :name, :email
+  validates :name, presence: true, length: {maximum: 20, minimum: 2}, uniqueness: true
   
   # trueならfalseを返すようにしている
   def active_for_authentication?
