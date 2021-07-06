@@ -15,6 +15,10 @@ resources :users do
   end
 end
 
-
+  
+  
+  devise_for :admins, controllers: {
+    sessions: 'admins/sessions'
+  }
   
 end
