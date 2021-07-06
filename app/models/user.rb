@@ -8,7 +8,7 @@ class User < ApplicationRecord
   
   validates :name, presence: true, length: {maximum: 20, minimum: 2}, uniqueness: true
   
-  # trueならfalseを返すようにしている
+  # 退会メソッド trueならfalseを返すようにしている
   def active_for_authentication?
     super && (self.is_active == true)
   end

@@ -7,9 +7,9 @@
 <%= @user.name %>
 
 <h3>レベル</h3>
-<%= @user.level %>
+<h3>Lv. <%= @user.level %></h3>
 
 <h3>経験値</h3>
-<%= @user.experience_point %><br>
+ <h3>EXP. <%= @user.experience_point %></h3><br>
 
 <%= link_to "編集", edit_user_path(@user), class:"btn btn-outline-secondary btn-block fas fa-user-cog" %>
