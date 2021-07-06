@@ -7,9 +7,9 @@ RSpec.feature "ユーザー機能", type: :feature do
     end
   end
   
-  scenario 'ユーザー情報を編集することができる' do
-    # sign_in @user
-    visit user_path(current_user)
+  scenario 'ユーザー情報を編集することができる' do 
+    sign_in @user #ここ NoMethodError:undefined method `sign_in' forとなる
+    visit user_path(@user) 
     click_on '編集'
     
     fill_in "name",         with: "変更"
