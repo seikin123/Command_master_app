@@ -8,7 +8,7 @@ registrations: 'users/registrations'
 root to: "homes#top"
 get 'about' => 'homes#about'
 
-resources :users do
+resources :users, only: [:show, :edit, :update] do
   collection do #idは付与しない
     get 'unsubscribe' #退会画面
     patch 'withdraw' #is_aciveを更新する
