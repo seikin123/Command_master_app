@@ -13,5 +13,23 @@ RSpec.describe User, type: :model do
     end
   end
   
+  describe '無効なユーザー' do
+    it '名前がなければ無効' do
+      user = User.new(name: nil)
+      user.valid?
+      expect(user.errors[:name]).to include("を入力してください")
+    end
   
+    it 'メールアドレスがなければ無効' do
+      user = User.new(email: nil)
+      user.valid?
+      expect(user.errors[:email]).to include("を入力してください")
+    end
+    
+    it 'パスワードが入力されていなければ無効' do
+      user = User.new(password: nil)
+      user.valid?
+      expect(user.errors[:password]).to include("を入力してください")
+    end
+  end
 end
