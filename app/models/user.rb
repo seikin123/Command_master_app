@@ -6,7 +6,9 @@ class User < ApplicationRecord
          
   attachment :profile_image
   
-  # 
+  validates :name, :email
+  
+  # trueならfalseを返すようにしている
   def active_for_authentication?
     super && (self.is_active == true)
   end
