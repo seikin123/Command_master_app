@@ -20,6 +20,13 @@ class UsersController < ApplicationController
     end
   end
   
+  def withdraw
+    user = current_user
+    user.update(is_active: false)
+    reset_session
+    redirect_to root_path
+  end
+  
  private
   def user_params
     params.require(:user).permit(:name, :profile_image, :is_active, :level, :experience_point)
