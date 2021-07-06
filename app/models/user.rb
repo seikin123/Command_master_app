@@ -7,7 +7,7 @@ class User < ApplicationRecord
   attachment :profile_image
   
   validates :name, presence: true, length: {maximum: 20, minimum: 2}, uniqueness: true
-  
+
   # 退会メソッド trueならfalseを返すようにしている
   def active_for_authentication?
     super && (self.is_active == true)
