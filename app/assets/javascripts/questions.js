@@ -6,17 +6,18 @@ let json_question = {
   "alt": false,
   "shift": false
 }
+
 let questions =  [{
   "id": "1",
   "category_id": "1",
-  "question_value": "Chromeの検索する際のショートカットキー はなんですか",
-  "answer": "a",
+  "question_value": "Vscodeの検索する際のショートカットキー はなんですか",
+  "answer": "c",
   "shift": false
 },
 {
   "id": "2",
   "category_id": "1",
-  "question_value": "Chromeの全選択をする際のショートカットキー はなんですか",
+  "question_value": "Vscodeの全選択をする際のショートカットキー はなんですか",
   "answer": "ctrl + a",
   "shift": false
 },
@@ -31,7 +32,7 @@ window.addEventListener("keypress", function(e){
     questions.forEach(question => {
       console.log(question.answer);
       console.log(e);
-      if (e.key == question.answer && e.ctrlKey){
+      if (e.key == question.answer && e.ctrlKey){  //答えのキー
         alert("正解");
       }
     })
