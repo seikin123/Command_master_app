@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'questions/index'
+  get 'questions/show'
   namespace :admin do
     get 'questions/index'
     get 'questions/show'
