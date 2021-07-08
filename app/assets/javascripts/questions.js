@@ -1,39 +1,73 @@
 // 正解の答え
-let json_question = {
-  "key": "v",
-  "ctrl": true,
-  "meta": false,
-  "alt": false,
-  "shift": false
-}
-
+// let json_question = {
+//   "key": "v",
+//   "ctrl": true,
+//   "meta": false,
+//   "alt": false,
+//   "shift": false
+// }
+// $(function() {
+      
+      //次の問題へ 
+// function changeQuestionWord() {
+   // 次の問題の実装
+  // }    
+  
+// 問題
 let questions =  [{
   "id": "1",
   "category_id": "1",
-  "question_value": "Vscodeの検索する際のショートカットキー はなんですか",
+  "question_value": "Vscodeのコピーする際のショートカットキー はなんですか",
   "answer": "c",
-  "shift": false
+  "shiftKey": true,
+  "score": 10
 },
 {
   "id": "2",
   "category_id": "1",
   "question_value": "Vscodeの全選択をする際のショートカットキー はなんですか",
-  "answer": "ctrl + a",
-  "shift": false
+  "answer": "a",
+  "shiftKey": true,
+  "score": 10
+},
+{
+  "id": "3",
+  "category_id": "1",
+  "question_value": "Vscodeのペーストする際のショートカットキー はなんですか",
+  "answer": "v",
+  "shiftKey": true,
+  "score": 10
 },
 ]
 
-// window.getElementById("question").textContent(questions[0].question_value);
+let i = 0;
+let ans = 0;
 $(document).ready(function () {
-  $("#question").text(questions[0].question_value)
+  
+  function changeText(){
+    $("#question").text(questions[i].question_value);
+    $("#ans").text(ans);
+  };
+  function addScore(score){
+    ans += score;
+  };
+  function test(test){
+    console.log()
+  };
+  changeText();
+  window.addEventListener("keypress", function(e){
+    if (e.key === questions[i].answer && e.ctrlKey){  //答えのキー
+      console.log("true");
+      addScore(questions[i].score);
+      i++;
+      changeText();
+    }
+  });
 });
 
-window.addEventListener("keypress", function(e){
-    questions.forEach(question => {
-      console.log(question.answer);
-      console.log(e);
-      if (e.key == question.answer && e.ctrlKey){  //答えのキー
-        alert("正解");
-      }
-    })
-  });
+
+  
+  
+
+  
+  
