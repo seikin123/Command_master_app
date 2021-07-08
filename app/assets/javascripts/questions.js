@@ -19,7 +19,7 @@ let questions =  [{
   "category_id": "1",
   "question_value": "Vscodeのコピーする際のショートカットキー はなんですか",
   "answer": "c",
-  "shiftKey": true,
+  "metaKey": true,
   "score": 10
 },
 {
@@ -38,6 +38,7 @@ let questions =  [{
   "shiftKey": true,
   "score": 10
 },
+
 ]
 
 let i = 0;
@@ -55,8 +56,8 @@ $(document).ready(function () {
     console.log()
   };
   changeText();
-  window.addEventListener("keypress", function(e){
-    if (e.key === questions[i].answer && e.ctrlKey){  //答えのキー
+  window.addEventListener("keydown", function(e){
+    if ((e.key === questions[i].answer && e.ctrlKey) || (e.key === questions[i].answer && e.metaKey)) {  //答えのキー
       console.log("true");
       addScore(questions[i].score);
       i++;
