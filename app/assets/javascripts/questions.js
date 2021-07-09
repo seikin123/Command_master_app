@@ -81,6 +81,7 @@ $(document).ready(function () {
   function test(test){
     console.log()
   };
+  
   changeText();
   window.addEventListener("keydown", function(e){
     if ((e.key === questions[i].answer && e.ctrlKey) || (e.key === questions[i].answer && e.metaKey)) {  //答えのキー
@@ -93,14 +94,14 @@ $(document).ready(function () {
 });
 
 // スペースキーを押したら、スタート
-  $(document).on('keypress', function(e){
-    if (!start_game && e.key) { 
-      start_game = true;
-      start_time = performance.now();
-      return;
-    } else if (!start_game) {
-      return;
-    };
+  // $(document).on('keypress', function(e){
+  //   if (!start_game && e.key) { 
+  //     start_game = true;
+  //     start_time = performance.now();
+  //     return;
+  //   } else if (!start_game) {
+  //     return;
+  //   };
 
   
   
