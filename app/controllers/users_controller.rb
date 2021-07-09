@@ -1,3 +1,4 @@
+require_relative '../level/calcuserlevel.rb'#レベルあっぷ処理
 class UsersController < ApplicationController
   before_action :authenticate_user!
   
