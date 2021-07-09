@@ -3,7 +3,7 @@ class CalcUserLevel
   def self.calc_user_level(user, total_exp)
     level_setting = LevelSetting.find_by(level: user.level + 1)
 ​
-    if level_setting.present? && level_setting.thresold <= user.experience_point #userの経験値を闘値を超えたら
+    if level_setting.present? && level_setting.thresold <= user.experience_point #次のレベルの閾値を超えていればレベルアップさせる
       total_exp -= level_setting.thresold
       user.update(level: user.level += 1, experience_point: total_exp)
 ​
