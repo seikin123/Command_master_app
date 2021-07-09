@@ -63,9 +63,12 @@ let questions =  [{
   "score": 10
 },
 ]
-
+let start_game = false;
 let i = 0;
 let ans = 0;
+
+  
+    
 $(document).ready(function () {
   
   function changeText(){
@@ -89,9 +92,15 @@ $(document).ready(function () {
   });
 });
 
-
-  
-  
+// スペースキーを押したら、スタート
+  $(document).on('keypress', function(e){
+    if (!start_game && e.key) { 
+      start_game = true;
+      start_time = performance.now();
+      return;
+    } else if (!start_game) {
+      return;
+    };
 
   
   
