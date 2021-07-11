@@ -66,3 +66,4 @@ gem "refile-mini_magick"
 gem "jquery-rails"
 gem 'enum_help'
 gem "rack-user_agent"
+gem 'seed-fu'
