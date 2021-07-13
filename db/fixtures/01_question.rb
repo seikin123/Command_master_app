@@ -2,22 +2,9 @@
 Question.seed(:id,
  { id: 1, user_id: 1, category_id: 1, problem: 'コピーする際のコマンド', answer_key: 'c', pc_type: 0 },
  { id: 2, user_id: 1, category_id: 1, problem: '全選択をする際のコマンド', answer_key: 'a', pc_type: 0 },
+ { id: 3, user_id: 1, category_id: 1, problem: 'ペーストする際のコマンド', answer_key: 'a', pc_type: 0 },
 )
-# let questions =  [{
-#   "id": "1",
-#   "category_id": "1",
-#   "question_value": "Vscodeのコピーする際のショートカットキー はなんですか",
-#   "answer_key": "c",
-#   "score": 10
-# },
-# {
-#   "id": "2",
-#   "category_id": "1",
-#   "question_value": "Vscodeの全選択をする際のショートカットキー",
-#   "answer": "a",
-#   // "shiftKey": true,
-#   "score": 10
-# },
+
 # {
 #   "id": "3",
 #   "category_id": "1",
