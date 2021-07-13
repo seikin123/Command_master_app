@@ -17,7 +17,7 @@ let questions =  [{
   "id": "1",
   "category_id": "1",
   "question_value": "Vscodeのコピーする際のショートカットキー はなんですか",
-  "answer": "c",
+  "answer_key": "c",
   // "metaKey": true,
   "score": 10
 },
@@ -25,7 +25,7 @@ let questions =  [{
   "id": "2",
   "category_id": "1",
   "question_value": "Vscodeの全選択をする際のショートカットキー",
-  "answer": "a",
+  "answer_key": "a",
   // "shiftKey": true,
   "score": 10
 },
@@ -33,7 +33,7 @@ let questions =  [{
   "id": "3",
   "category_id": "1",
   "question_value": "Vscodeのペーストする際のショートカットキー",
-  "answer": "v",
+  "answer_key": "v",
   "shiftKey": true,
   "score": 10
 },
@@ -41,7 +41,7 @@ let questions =  [{
   "id": "4",
   "category_id": "1",
   "question_value": "Vscodeの一つ前に戻す処理際のショートカットキー",
-  "answer": "z",
+  "answer_key": "z",
   "shiftKey": true,
   "score": 10
 },
@@ -49,7 +49,7 @@ let questions =  [{
   "id": "5",
   "category_id": "1",
   "question_value": "Vscodeの選択範囲を切り取りのショートカットキー",
-  "answer": "x",
+  "answer_key": "x",
   "shiftKey": true,
   "score": 10
 },
@@ -57,7 +57,7 @@ let questions =  [{
   "id": "6",
   "category_id": "1",
   "question_value": "Vscodeの指定した行にジャンプのショートカットキー",
-  "answer": "g",
+  "answer_key": "g",
   "shiftKey": true,
   "score": 10
 },
@@ -65,12 +65,51 @@ let questions =  [{
   "id": "7",
   "category_id": "1",
   "question_value": "Vscodeの検索する際のショートカットキー",
-  "answer": "f",
+  "answer_key": "f",
   "shiftKey": true,
   "score": 10
 },
 ]
 
+//   $(document).ready(function () {
+    
+//     $('#js-q').on('keydown', function (e) {
+//     console.log(e);
+//   // $.trim()で値の前後の空白を削除 
+//   // var answer = $.trim(textField.val());
+//     });
+// });
+
+
+
+
+// $(document).ready(function () {
+  
+//   function changeText(){
+//     // $("#question").text(questions[i].problem;
+//     // $("#ans").text(ans);
+//   };
+//   function addScore(score){
+//     ans += score;
+//   };
+//   function test(test){
+//     console.log()
+//   };
+//   changeText();
+//   window.addEventListener("keypress", function(e){
+//     if (e.key === answer_key && e.ctrlKey){  //答えのキー
+//       console.log("true");
+//       // addScore(questions[i].score);
+//       i++;
+//       // changeText();
+//     }
+//   });
+// });
+
+
+
+
+// jsのみの挙動
 let start_game = false;
 let i = 0;
 let ans = 0;
@@ -78,7 +117,7 @@ let start_time = 0; // <<--ゲームがスタートしたかを判断する変�
 
 
 $(document).ready(function () {
-  // console.log("document.ready")
+  console.log("document.ready")
 
   function changeText(){
     $("#question").text(questions[i].question_value);
@@ -116,7 +155,8 @@ $(document).ready(function () {
       text = command + text;
     }
     $("#input").text(text);
-    if ((e.key === questions[i].answer && e.ctrlKey) || (e.key === questions[i].answer && e.metaKey)) {  //答えのキー
+    
+    if ((e.key === questions[i].answer_key && e.ctrlKey) || (e.key === questions[i].answer_key && e.metaKey)) {  //答えのキー
       console.log("true");
       $("#input").text('');  //入力されたキーを表示
       addScore(questions[i].score);  //スコア加点
