@@ -7,75 +7,16 @@
 //   "shift": false
 // }
 
-
-
 // const answer_key = JSON.parse(Json);
 // const $startMessage = $('#start-message');
 
-// // 問題
-// let questions =  [{
-//   "id": "1",
-//   "category_id": "1",
-//   "question_value": "Vscodeのコピーする際のショートカットキー はなんですか",
-//   "answer_key": "c",
-//   // "metaKey": true,
-//   "score": 10
-// },
-// {
-//   "id": "2",
-//   "category_id": "1",
-//   "question_value": "Vscodeの全選択をする際のショートカットキー",
-//   "answer_key": "a",
-//   // "shiftKey": true,
-//   "score": 10
-// },
-// {
-//   "id": "3",
-//   "category_id": "1",
-//   "question_value": "Vscodeのペーストする際のショートカットキー",
-//   "answer_key": "v",
-//   "shiftKey": true,
-//   "score": 10
-// },
-// {
-//   "id": "4",
-//   "category_id": "1",
-//   "question_value": "Vscodeの一つ前に戻す処理際のショートカットキー",
-//   "answer_key": "z",
-//   "shiftKey": true,
-//   "score": 10
-// },
-// {
-//   "id": "5",
-//   "category_id": "1",
-//   "question_value": "Vscodeの選択範囲を切り取りのショートカットキー",
-//   "answer_key": "x",
-//   "shiftKey": true,
-//   "score": 10
-// },
-// {
-//   "id": "6",
-//   "category_id": "1",
-//   "question_value": "Vscodeの指定した行にジャンプのショートカットキー",
-//   "answer_key": "g",
-//   "shiftKey": true,
-//   "score": 10
-// },
-// {
-//   "id": "7",
-//   "category_id": "1",
-//   "question_value": "Vscodeの検索する際のショートカットキー",
-//   "answer_key": "f",
-//   "shiftKey": true,
-//   "score": 10
-// },
-// ]
 window.onload = function () {
   const Json = document.querySelector('#questions_json').value;
   const questions = JSON.parse(Json);
   const answer_key = questions.answer_key;
   console.log(questions[0].answer_key);
 }
+// キー判定の処理
     let i = 0;
   document.addEventListener("keydown", e => {
     e.preventDefault();
