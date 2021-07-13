@@ -1,15 +1,19 @@
 <h1>Questions#index</h1>
-<!--<div id="qform">-->
-    <!--<= render 'form', question: @question %>-->
-<!--</div>-->
-<p id="start-message">「スペースキー」を押すとスタートします</p>
-<p id="question" style="display: none;"></p>
-<p id="ans" style="display: none;"></p>
-<p id="input"></p>
-<div class="finish" style="display: none;">終了しました。</div>
 
-<!--<div class="contents">-->
-<!--  <ul class="js-q">-->
-<!--  <%= render 'questions/question', question: @questions %>-->
-<!--  </ul>-->
-<!--</div>-->
+<!--<p id="start-message">「スペースキー」を押すとスタートします</p>-->
+<!--<p id="question" style="display: none;"></p>-->
+<!--<p id="ans" style="display: none;"></p>-->
+
+<!--<div class="finish" style="display: none;">終了しました。</div>-->
+
+<% @questions.each do |q| %>
+
+  <%= q.problem %>
+  
+  
+
+<% end %>
+<p id="input"></p>+<p id="inpot"></p>
+<h1>
+<input type="hidden" id="questions_json" value="<%= @questions_json %>">
+</h1>
