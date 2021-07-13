@@ -30,34 +30,8 @@ window.onload = function () {
       console.log("true");
       // console.log(questions[i].answer_key);
       $("#input").text('');
-      $("#inpot").text('');
     }
   });
-// $(document).ready(function () {
-  
-//   function changeText(){
-//     // $("#question").text(questions[i].problem;
-//     // $("#ans").text(ans);
-//   };
-//   function addScore(score){
-//     ans += score;
-//   };
-//   function test(test){
-//     console.log()
-//   };
-//   changeText();
-//   window.addEventListener("keypress", function(e){
-//     if (e.key === answer_key && e.ctrlKey){  //答えのキー
-//       console.log("true");
-//       // addScore(questions[i].score);
-//       i++;
-//       // changeText();
-//     }
-//   });
-// });
-
-
-
 
 // jsのみの挙動
 // let start_game = false;
