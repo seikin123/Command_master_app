@@ -1,0 +1,9 @@
+
+<%= form_with model:[question, Answer.new], url: questions_path, method: :post do |f| %>
+  <%= f.hidden_field :id, :value => question.id %>
+  <p id="question"><%= question.problem %></p>
+  <p><%= f.text_field :answer, class: 'js-text_field' %></p>
+  <div id="keyData"></div>
+  <p><%= f.submit %></p>
+
+<% end %>
