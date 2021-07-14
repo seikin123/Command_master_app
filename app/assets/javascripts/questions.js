@@ -7,7 +7,6 @@
 //   "shift": false
 // }
 
-// const answer_key = JSON.parse(Json);
 // const $startMessage = $('#start-message');
 
 window.onload = function () {
@@ -15,6 +14,8 @@ window.onload = function () {
   const questions = JSON.parse(Json);
   const answer_key = questions.answer_key;
   console.log(questions[0].answer_key);
+  const pc = document.querySelector('#pc_type').value;
+  console.log(pc);
 }
 // キー判定の処理
     let i = 0;
