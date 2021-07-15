@@ -27,6 +27,8 @@ window.onload = function () {
     text = command + text;
     }
     $("#input").text(text);
+    //入力されたキーが小文字でないと反応しないため、let event_key = e.key.toLowerCase();
+    //問題に答えのキー登録しておき、else ifで特殊キーが押されたらそのキーを表示させるようにする
     if ((e.key === questions[i].answer_key && e.ctrlKey) || (e.key === questions[i].answer_key && e.metaKey)) {  //答えのキー
       console.log("true");
       // console.log(questions[i].answer_key);
