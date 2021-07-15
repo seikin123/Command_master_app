@@ -1,3 +1,4 @@
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -12,4 +13,6 @@ class User < ApplicationRecord
   def active_for_authentication?
     super && (self.is_active == true)
   end
+  
+  
 end
