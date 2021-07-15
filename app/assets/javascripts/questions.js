@@ -13,28 +13,28 @@ window.onload = function () {
   const Json = document.querySelector('#questions_json').value;
   const questions = JSON.parse(Json);
   const answer_key = questions.answer_key;
-  console.log(questions[0].answer_key);
+  // console.log(questions[0].answer_key);
   const pc = document.querySelector('#pc_type').value;
-  console.log(pc);
+  console.log(questions);
 }
 // キー判定の処理
-    let i = 0;
-  document.addEventListener("keydown", e => {
-    e.preventDefault();
-    let text = e.key;
-    let command = ' ';
-    if (e.ctrlKey){
-    text = command + text;
-    }
-    $("#input").text(text);
-    //入力されたキーが小文字でないと反応しないため、let event_key = e.key.toLowerCase();
-    //問題に答えのキー登録しておき、else ifで特殊キーが押されたらそのキーを表示させるようにする
-    if ((e.key === questions[i].answer_key && e.ctrlKey) || (e.key === questions[i].answer_key && e.metaKey)) {  //答えのキー
-      console.log("true");
-      // console.log(questions[i].answer_key);
-      $("#input").text('');
-    }
-  });
+  //   let i = 0;
+  // document.addEventListener("keydown", e => {
+  //   e.preventDefault();
+  //   let text = e.key;
+  //   let command = ' ';
+  //   if (e.ctrlKey){
+  //   text = command + text;
+  //   }
+  //   $("#input").text(text);
+  //   //入力されたキーが小文字でないと反応しないため、let event_key = e.key.toLowerCase();
+  //   //問題に答えのキー登録しておき、else ifで特殊キーが押されたらそのキーを表示させるようにする
+  //   if ((e.key === questions[i].answer_key && e.ctrlKey) || (e.key === questions[i].answer_key && e.metaKey)) {  //答えのキー
+  //     console.log("true");
+  //     // console.log(questions[i].answer_key);
+  //     $("#input").text('');
+  //   }
+  // });
 
 // jsのみの挙動
 // let start_game = false;
