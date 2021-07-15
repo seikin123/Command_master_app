@@ -1,0 +1,22 @@
+<h1>Questions#index</h1>
+
+<!--<p id="start-message">「スペースキー」を押すとスタートします</p>-->
+<!--<p id="question" style="display: none;"></p>-->
+<!--<p id="ans" style="display: none;"></p>-->
+
+<!--<div class="finish" style="display: none;">終了しました。</div>-->
+
+<% @questions.each do |q| %>
+
+  <%= q.problem %>
+  
+  
+
+<% end %>
+<p id="input"></p>+<p id="inpot"></p>
+
+<!--jsにデータを渡している-->
+<h1>
+<input type="hidden" id="questions_json" value="<%= @questions_json %>">
+</h1>
+<input type="hidden" id="pc_type" value="<%= @pc_type %>">
