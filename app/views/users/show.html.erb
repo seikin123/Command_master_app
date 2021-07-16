@@ -1,4 +1,5 @@
-<h2>Mypage</h2>
+<div class="container">
+  <h2>Mypage</h2>
 
 <h3>プロフィール画像</h3>
 <%= attachment_image_tag @user, :profile_image_id, size: "100x100", fallback: "no_image.jpg"%>
@@ -12,4 +13,5 @@
 <h3>経験値</h3>
  <h3>EXP. <%= @user.experience_point %></h3><br>
 
-<%= link_to "編集", edit_user_path(@user), class:"btn btn-outline-secondary btn-block fas fa-user-cog" %>
+<%= link_to "編集", edit_user_path(@user),  class:"fas fa-cog fa-lg" %>
+</div>
