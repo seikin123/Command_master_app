@@ -20,7 +20,7 @@ window.onload = function () {
   console.log(questions[0].problem);
 }
 // キー判定の処理
-    
+
   document.addEventListener("keydown", e => {
     e.preventDefault();
     let i = 0;
@@ -67,7 +67,7 @@ window.onload = function () {
 //   changeText();
 //   document.addEventListener("keydown", e => {
 //     e.preventDefault(); //ブラウザでのキーの反応を防ぐ
-//     if (!start_game && e.keyCode === 32) { 
+//     if (!start_game && e.keyCode === 32) {
 //       $("#start-message").hide();
 //       $("#question").show();
 //       $("#ans").show();
@@ -84,7 +84,7 @@ window.onload = function () {
     //   text = command + text;
     // }
     // $("#input").text(text);
-    
+
 //     if ((e.key === questions[i].answer_key && e.ctrlKey) || (e.key === questions[i].answer_key && e.metaKey)) {  //答えのキー
 //       console.log("true");
 //       $("#input").text('');  //入力されたキーを表示
