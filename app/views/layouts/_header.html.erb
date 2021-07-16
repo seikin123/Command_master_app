@@ -1,7 +1,7 @@
 <header>
   <nav class="header-nav navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand p-3" href="/">Command_master</a>
+      <a class="navbar-brand p-4" href="/">Command_master</a>
       <% if user_signed_in? %>
         <span>ようこそ！<%= current_user.name %>さん</span>
       <% end %>
@@ -9,12 +9,13 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
+        <nav class="navbar-nav col-9 col-s-10">
         <% if user_signed_in? %>
-          <li class="nav-item"><%= link_to "マイページ", user_path(current_user) %></li>
-          <li class="nav-item"><%= link_to "お問い合わせ" %></li>
           <li class="nav-item"><%= link_to "練習する", questions_path %></li>
-          <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          <li class="nav-item"><%= link_to "HOME", root_path %></li>
+          <li class="nav-item"><%= link_to "MY PAGE", user_path(current_user) %></li>
+          <li class="nav-item"><%= link_to "MAIL", inquiry_path %></li>
+          <li class="nav-item"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
         <% elsif admin_signed_in? %>
           <li class="nav-item"><%= link_to "会員一覧" %></li>
           <li class="nav-item"><%= link_to "問題一覧" %></li>
@@ -23,11 +24,11 @@
           <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
         <% else %>
           <li class="nav-item"><%= link_to "About", about_path %></li>
-          <li class="nav-item"><%= link_to "練習する"  %></li>
-          <li class="nav-item"><%= link_to "新規登録", new_user_registration_path %></li>
-          <li class="nav-item"><%= link_to "ログイン", new_user_session_path %></li>
+          <li class="nav-item"><%= link_to "練習する", questions_path %></li>
+          <li class="nav-item"><%= link_to "Signup", new_user_registration_path %></li>
+          <li class="nav-item"><%= link_to "Login", new_user_session_path %></li>
         <% end %>
-        </ul>
+        </nav>
       </div>
     </div>
   </nav>

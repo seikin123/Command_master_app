@@ -14,3 +14,23 @@
  *= require_self
  */
 @import "bootstrap";
+
+ .jumbotron { background:url(vs2.jpeg) center no-repeat; background-size: cover; height: 400px;}
+ 
+ 
+ body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
+}
+
+.command {
+    color :lightgray;
+}
+
+footer {
+  background-color: lightgray;
+}
