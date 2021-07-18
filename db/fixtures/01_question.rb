@@ -1,6 +1,7 @@
 #問題
 Question.seed(:id,
 #Mac
+ # { category_id: 1, synchro_key: 'Meta', problem: 'コピーする際のコマンド', answer_key: 'c', pc_type: 0, third_key: 'x'},
  { category_id: 1, synchro_key: 'Meta', problem: 'コピーする際のコマンド', answer_key: 'c', pc_type: 0 },
  { category_id: 1, synchro_key: 'Meta', problem: '全選択をする際のコマンド', answer_key: 'a', pc_type: 0 },
  { category_id: 1, synchro_key: 'Meta', problem: 'ペーストする際のコマンド', answer_key: 'v', pc_type: 0 },

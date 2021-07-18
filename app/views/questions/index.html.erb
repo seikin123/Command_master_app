@@ -1,11 +1,12 @@
 <h1>Questions</h1>
-<p id="time-message"></p>
-<p id="start-message">「スペースキー」を押すとスタートします</p>
+<div id="time-message"></div>
+<div id="start-message">「スペースキー」を押すとスタートします</div>
 
 <span>⌘とwは同時に押さないでください<br>
-⌘ Command / ⌥ Option / ⇧ Shift / ⌃ Control / Delete Fn + ⌫</span>
-
- <div id="questions">
+<p></p>
+⌘ Command / ⌥ Option / ⇧ Shift / ⌃ Control / ⏎ Enter /Delete Fn + ⌫</span>
+<p id="none">
+<div id="questions">
     <% @questions_json.each_with_index do |question, idx| %>
         <div id="question-<%= idx %>" class="questions-item" style="<%= idx == 0 ? '' : 'display: none;' %>">
             <%= question.problem %>
@@ -16,7 +17,7 @@
 <div class="finish" style="display: none;">終了しました。</div>
 
 <div id="input"></div>
-
+</p>
 
 <!--jsにデータを渡している-->
 <input type="hidden" id="questions_json" value="<%= @questions_json.to_json %>">
