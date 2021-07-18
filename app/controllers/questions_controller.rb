@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.new.questions(request.os)
-    @questions_json = @questions.to_json
+    @questions_json = @questions.shuffle #ランダムに出力
     @pc_type = set_pc_type
     # index = 1
     #   Answer.where(user_id: current_user)
