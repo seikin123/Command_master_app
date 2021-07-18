@@ -1,9 +1,28 @@
 #問題
 Question.seed(:id,
- { id: 1, user_id: 1, category_id: 1, problem: 'コピーする際のコマンド', answer_key: 'c', pc_type: 0 },
- { id: 2, user_id: 1, category_id: 1, problem: '全選択をする際のコマンド', answer_key: 'a', pc_type: 0 },
- { id: 3, user_id: 1, category_id: 1, problem: 'ペーストする際のコマンド', answer_key: 'v', pc_type: 0 },
- { id: 4, user_id: 1, category_id: 1, problem: '一つ前に戻す処理際のコマンド', answer_key: 'z', pc_type: 0 },
+#Mac
+ { category_id: 1, synchro_key: 'Meta', problem: 'コピーする際のコマンド', answer_key: 'c', pc_type: 0 },
+ { category_id: 1, synchro_key: 'Meta', problem: '全選択をする際のコマンド', answer_key: 'a', pc_type: 0 },
+ { category_id: 1, synchro_key: 'Meta', problem: 'ペーストする際のコマンド', answer_key: 'v', pc_type: 0 },
+ { category_id: 1, synchro_key: 'Meta', problem: '一つ前に戻す処理際のコマンド', answer_key: 'z', pc_type: 0 },
+ { category_id: 1, synchro_key: 'Meta', problem: 'カーソル行の下に空行を挿入', answer_key: 'Enter', pc_type: 0 },
+ { category_id: 1, synchro_key: 'Meta', problem: '単語の部分削除のコマンド(カーソル位置より左側）', answer_key: 'Backspace', pc_type: 0 },
+ { category_id: 1, synchro_key: 'Alt', problem: 'カーソル行／選択行をまるっと上移動(複数行対応)', answer_key: 'ArrowUp', pc_type: 0 },
+ { category_id: 1, synchro_key: 'Alt', problem: 'カーソル行／選択行をまるっと下移動(複数行対応)', answer_key: 'ArrowDown', pc_type: 0 },
+ { category_id: 1, synchro_key: 'Meta', problem: '単語の先頭にジャンプ', answer_key: 'ArrowLeft', pc_type: 0 },
+ { category_id: 1, synchro_key: 'Meta', problem: '単語の末尾にジャンプ', answer_key: 'ArrowRight', pc_type: 0 },
+ 
+#Windows
+ { category_id: 1, synchro_key: 'Control', problem: 'コピーする際のコマンド', answer_key: 'c', pc_type: 1 },
+ { category_id: 1, synchro_key: 'Control', problem: '全選択をする際のコマンド', answer_key: 'a', pc_type: 1 },
+ { category_id: 1, synchro_key: 'Control', problem: 'ペーストする際のコマンド', answer_key: 'v', pc_type: 1 },
+ { category_id: 1, synchro_key: 'Control', problem: '一つ前に戻す処理際のコマンド', answer_key: 'z', pc_type: 1 },
+ { category_id: 1, synchro_key: 'Control', problem: 'カーソル行の下に空行を挿入', answer_key: 'Enter', pc_type: 1 },
+ { category_id: 1, synchro_key: 'Control', problem: '単語の部分削除のコマンド(カーソル位置より左側）', answer_key: 'Backspace', pc_type: 1 },
+ { category_id: 1, synchro_key: 'Alt', problem: 'カーソル行／選択行をまるっと上移動(複数行対応)', answer_key: 'ArrowUp', pc_type: 1 },
+ { category_id: 1, synchro_key: 'Alt', problem: 'カーソル行／選択行をまるっと下移動(複数行対応)', answer_key: 'ArrowDown', pc_type: 1 },
+ { category_id: 1, synchro_key: 'Control', problem: '単語の先頭にジャンプ', answer_key: 'ArrowLeft', pc_type: 1 },
+ { category_id: 1, synchro_key: 'Control', problem: '単語の末尾にジャンプ', answer_key: 'ArrowRight', pc_type: 1 },
  
 )
 
