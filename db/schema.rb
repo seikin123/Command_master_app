@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_11_102927) do
+ActiveRecord::Schema.define(version: 2021_07_17_112943) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2021_07_11_102927) do
     t.integer "pc_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "synchro_key"
   end
 
   create_table "users", force: :cascade do |t|
