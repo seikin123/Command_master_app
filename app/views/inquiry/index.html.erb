@@ -18,7 +18,7 @@
   <table class="table">
     <tr>
       <th>名前<span class="text-danger">（必須）</span></th>
-      <th><%= f.text_field :name, class:"form-control" %></th>
+      <th><%= f.text_field :name, class:"form-control addon-wrapping" %></th>
     </tr>
     <tr>
       <th>メールアドレス<span class="text-danger">（必須）</span></th>
@@ -31,4 +31,11 @@
   </table>
   <%= f.submit '確認', class: 'btn btn-primary' %>
 <% end %>
+</div>
+
+<div class="input-group flex-nowrap">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="addon-wrapping">名前<span class="text-danger">（必須）</span></span>
+  </div>
+  <input type="text" class="form-control" placeholder="名前" aria-label="名前" aria-describedby="addon-wrapping">
 </div>
