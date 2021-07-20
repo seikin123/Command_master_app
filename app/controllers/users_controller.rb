@@ -27,6 +27,9 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
   
+  def create
+    
+  end
  private
   def user_params
     params.require(:user).permit(:name, :profile_image, :is_active, :level, :experience_point)
