@@ -6,6 +6,7 @@ $(document).ready(function () {
   const input = document.querySelector('#input');
   const $timeMessage = $('#time-message'); 
   
+  var point = 0;
   var i = 0; //問題文
   var start_game = false;　//ゲームスタート
   var start_time = 0; //時間の設定
@@ -14,28 +15,40 @@ $(document).ready(function () {
   })*/　  
   
   
-  //終了判定・タイマー
+  //タイマー・終了判定が出たら
   function finishAnswer() {
     $(".finish").show();
     const end_time = performance.now();
     const typing_time = ( (end_time - start_time) / 1000).toFixed(2);
     $timeMessage.text('かかった時間：'+typing_time+'秒');
+    // $.ajax({
+    //     url: '/users',
+    //     type: 'POST',
+    //     data: {
+    //         user: {
+    //             user_id: document.querySelector('.user_id').value,
+    //             point: point
+    //         }
+    //     },
+    //     dataType: 'json'
+    // });
   }
    
    // キー判定の処理
-document.addEventListener("keydown", e => {
+ document.addEventListener("keydown", e => {
     console.log(keys)
     e.preventDefault();
     keys.push(e.key);
     console.log(keys)
-  });
-  document.addEventListener("keydown", e => {
+ });
+  document.addEventListener("keyup", e => {
     if( keys.length > 3){
       keys = [];
       // return false;
     }else if(keys.length == 1){
       if (!start_game && e.keyCode === 32) { 
         $("#start-message").hide();
+        $("#none").show();
         start_game = true;
         start_time = performance.now();
     }else if(start_game){
@@ -85,23 +98,42 @@ document.addEventListener("keydown", e => {
     } 
 });
 
-  $.ajax({
-        url: '/user_',
-        type: 'POST',
-        data: {
-            user_time_attack: {
-                user_id: document.querySelector('.user_id').value,
-                finish_time: clearTime,
-                miss_count: missCount,
-                incorrect_answer: timeUpCount,
-                addition_time: additionTime,
-                result_time: resultTime
-            }
-        },
-        dataType: 'json'
-    });
-  }
+//   $(function(){
+//   // id="link-mark"の箇所(いいねボタン)をクリックしたら
+//   $('#').on('click', function(){
+//     // 非同期でlikes#createに処理を送信＋その時に店舗情報(question_id)を渡す
+//     $.ajax({
+//       url: '/users',
+//       type: 'POST',
+//       data: {_id: $(this).data('shop_id')
+        
+//       }
+//     })
+//     処理が上手く行ったらボタンを切り替えて
+//     .done((data) => {
+//       if ($(this).text() === 'いいね！') {
+//         $(this).text('いいね！を取り消す').removeClass('btn-primary').addClass('btn-secondary');
+//       } 
+//     })
+//     // 処理が上手く行かなかったら失敗の旨を伝えるアラートを表示
+//     .fail((data) => {
+//       alert('失敗しました');
+//     })
+//   });
+// });
 
+
+  // $.ajax({
+  //       url: '/users',
+  //       type: 'POST',
+  //       data: {
+  //           user: {
+  //               user_id: document.querySelector('.user_id').value,
+  //               point: point
+  //           }
+  //       },
+  //       dataType: 'json'
+  //   });
 
 
 
