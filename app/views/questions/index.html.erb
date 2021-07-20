@@ -3,9 +3,8 @@
 <div id="start-message">「スペースキー」を押すとスタートします</div>
 
 <span>⌘とwは同時に押さないでください<br>
-<p></p>
-⌘ Command / ⌥ Option / ⇧ Shift / ⌃ Control / ⏎ Enter /Delete Fn + ⌫</span>
-<p id="none">
+  ⌘ Command / ⌥ Option / ⇧ Shift / ⌃ Control / ⏎ Enter /Delete Fn + ⌫</span>
+
 <div id="questions">
     <% @questions_json.each_with_index do |question, idx| %>
         <div id="question-<%= idx %>" class="questions-item" style="<%= idx == 0 ? '' : 'display: none;' %>">
@@ -17,8 +16,9 @@
 <div class="finish" style="display: none;">終了しました。</div>
 
 <div id="input"></div>
-</p>
 
 <!--jsにデータを渡している-->
 <input type="hidden" id="questions_json" value="<%= @questions_json.to_json %>">
 <input type="hidden" id="pc_type" value="<%= @pc_type %>">
+
+<%= javascript_include_tag 'questions.js' %>
