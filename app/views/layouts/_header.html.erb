@@ -9,9 +9,10 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <nav class="navbar-nav col-9 col-s-10">
+        <nav class="navbar navbar-light">
         <% if user_signed_in? %>
           <li class="nav-item"><%= link_to "練習する", questions_path %></li>
+          <li class="nav-item"><%= link_to "コマンド一覧表" %></li>
           <li class="nav-item"><%= link_to "HOME", root_path %></li>
           <li class="nav-item"><%= link_to "MY PAGE", user_path(current_user) %></li>
           <li class="nav-item"><%= link_to "MAIL", inquiry_path %></li>
@@ -34,3 +35,4 @@
   </nav>
 
 </header>
+
