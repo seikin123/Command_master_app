@@ -3,7 +3,7 @@ class CommandsController < ApplicationController
   
   def index
     @questions = Question.new.questions(request.os)
-
+    # @questions = Question.all
     @questions_json = @questions
   end
   
