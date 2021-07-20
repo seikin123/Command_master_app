@@ -1,0 +1,8 @@
+<div class="container">
+    <h2>カテゴリー一覧</h2>
+    
+    <% @categories.each do |category| %>
+    
+    <p><%= link_to category.name, categories_path(category.id) %></p>
+    <% end %>
+</div>
