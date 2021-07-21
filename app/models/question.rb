@@ -1,5 +1,6 @@
 class Question < ApplicationRecord
-  has_many :categories
+  #カテゴリー
+  belongs_to :categories
   #いいね機能
   has_many :likes, dependent: :destroy
   has_many :like_users, through: :likes, source: :user
@@ -10,11 +11,11 @@ class Question < ApplicationRecord
   
   enum pc_type: { Mac: 0, Windows: 1 }
 
-  def questions(pc_type) #osの判定
+  def  self.select_pc_type(pc_type) #osの判定
     if pc_type == 'Mac OSX'
-      Question.where(pc_type: 'Mac')
+      self.where(pc_type: 'Mac')
     else
-      Question.where(pc_type: 'Windows')
+      self.where(pc_type: 'Windows')
     end
   end
 end

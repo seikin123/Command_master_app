@@ -1,13 +1,21 @@
 class QuestionsController < ApplicationController
 
   def index
-    @questions = Question.new.questions(request.os)
-    @questions_json = @questions.shuffle #ランダムに出力
-    @pc_type = set_pc_type
-    # index = 1
-    #   Answer.where(user_id: current_user)
-    # @question = Question.find(index)
+      @questions_json = Question.select_pc_type(request.os)
+      @pc_type = set_pc_type
+      @categories = Category.all
+    if params[:category_id].present?
+      @category = Category.find(params[:category_id])
+      @questions_json = @category.questions.select_pc_type(request.os)
+    end
+    @user_id = current_user
+    # byebug
   end
+      # @products = @category.products
+      # index = 1
+      #   Answer.where(user_id: current_user)
+      # @question = Question.find(index)
+  
 
   def create
   #   a = Answer.new()# answer_params

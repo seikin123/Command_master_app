@@ -1,24 +1,39 @@
-<h1>Questions</h1>
-<div id="time-message"></div>
-<div id="start-message">「スペースキー」を押すとスタートします</div>
-
-<span>⌘とwは同時に押さないでください<br>
-  ⌘ Command / ⌥ Option / ⇧ Shift / ⌃ Control / ⏎ Enter /Delete Fn + ⌫</span>
-
-<div id="questions">
-    <% @questions_json.each_with_index do |question, idx| %>
-        <div id="question-<%= idx %>" class="questions-item" style="<%= idx == 0 ? '' : 'display: none;' %>">
-            <%= question.problem %>
-       </div>
-    <% end %>
-</div>
-
-<div class="finish" style="display: none;">終了しました。</div>
-
-<div id="input"></div>
-
-<!--jsにデータを渡している-->
-<input type="hidden" id="questions_json" value="<%= @questions_json.to_json %>">
-<input type="hidden" id="pc_type" value="<%= @pc_type %>">
-
+<body style="padding: 0px;">
+<!--<div class="wrapper">-->
+ <!--<div class="content row" style="height: auto !important;">-->
+        <h1>Questions</h1>
+        <div id="time-message"></div>
+        
+        <div id="start-message">「スペースキー」を押すとスタートします</div>
+        
+        <div class="leftnav col-3 col-s-12">
+            <div class="leftnav__inner">
+             <span>⌘とwは同時に押さないでください<br>
+              ⌘ Command / ⌥ Option / ⇧ Shift / ⌃ Control / ⏎ Enter /Delete Fn + ⌫</span>
+            </div>
+        </div>
+        <div id="ans"></div>
+        <!--<div class="main col-6 col-s-12" id="questions">-->
+                 <% @questions_json.each_with_index do |question, idx| %>
+                   <div id="question-<%= idx %>" class="questions-item" style="<%= idx == 0 ? '' : 'display: none;' %>">
+                     <%= question.problem %>
+                   </div>
+                 <% end %>
+                 <div class="finish" style="display: none;">終了しました。</div>
+            <div id="input"></div>
+        <!--</div>-->
+    
+    
+        <div class="rightnav col-3 col-s-12">
+            <h3></h3>
+        </div>
+        
+    
+        <!--jsにデータを渡している-->
+        <input type="hidden" id="questions_json" value="<%= @questions_json.to_json %>">
+        <input type="hidden" id="pc_type" value="<%= @pc_type %>">
+        <input type="hidden" id="user_id" value="<%= @user_id %>">
+<!--  </div>-->
+<!--</div>-->
+</body>
 <%= javascript_include_tag 'questions.js' %>
