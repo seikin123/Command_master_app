@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
   
   def create
-    @question = Question.find(params[:uestion_id])
+    @question = Question.find(params[:question_id])
     @like = current_user.likes.find_by(question: @question)
     toggle
   end

@@ -12,15 +12,16 @@
     </thead>
       <tbody>
         <% @questions.each do |question| %>
-      <tr id="question_<%= question.id %>">
-        <td><%= question.id %></td>
-        <td><%= link_to question.problem, command_path(question.id) %></td>
-        <td style="font-size: 20px;"><%= question.display_key %></td>
-        <td><%= render 'likes/like', question: question %></td>
-      </tr>
-    </tbody>
-    
-    <% end %>
-    
+        
+        <tr id="question_<%= question.id %>">
+          <td><%= question.id %></td>
+          <td><%= link_to question.problem, command_path(question.id) %></td>
+          <td style="font-size: 20px;"><%= question.display_key %></td>
+          <td><%= render 'likes/like', question: question %></td>
+        </tr>
+      </tbody>
+      <% end %>
   </table>
 </div>
+
+<%= javascript_include_tag 'like.js' %>
