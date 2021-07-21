@@ -28,10 +28,15 @@ class UsersController < ApplicationController
   end
   
   def create
-    
+    if current_user.nil?
+      @user = User.new(user_params)
+    # byebug
+      @user.save!
+    end
   end
+  
  private
   def user_params
-    params.require(:user).permit(:name, :profile_image, :is_active, :level, :experience_point)
+    params.require(:user).permit(:name, :profile_image, :is_active, :level, :experience_point, :point)
   end
 end

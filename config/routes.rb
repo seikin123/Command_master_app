@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :users do
+    collection do #idは付与しない
+      get 'unsubscribe' #退会画面
+      patch 'withdraw' #is_aciveを更新する
+    end
+  end
   resources :categories
   resources :commands
   resources :questions
@@ -23,12 +29,7 @@ get 'about' => 'homes#about'
   post  'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
   post  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
   
-  resources :users do
-    collection do #idは付与しない
-      get 'unsubscribe' #退会画面
-      patch 'withdraw' #is_aciveを更新する
-    end
-  end
+
   
   devise_for :admins, controllers: {
     sessions: 'admins/sessions'
