@@ -1,3 +1,9 @@
 class Category < ApplicationRecord
-  belongs_to :question
+
+  has_many :questions
+  
+  attachment :category_image
+  
+
+
 end

@@ -4,36 +4,56 @@ $(document).ready(function () {
   const questions = JSON.parse(Json);
   const pc = document.querySelector('#pc_type').value;
   const input = document.querySelector('#input');
-  const $timeMessage = $('#time-message'); 
-  
-  var point = 0;
+  const $timeMessage = $('#time-message');
+
+  var ans = 0;
+  // var point = 0;
+  var p = 0;
   var i = 0; //問題文
   var start_game = false;　//ゲームスタート
   var start_time = 0; //時間の設定
   var keys = []; //入力されたキーを保存しておく配列
+
   /*$(document).on('keydown', function(){
-  })*/　  
-  
-  
+  })*/
+  function addScore(point){
+    $("#ans").text(ans);
+    console.log('ans')
+    console.log('addScore is called!!!')
+    ans += point;
+  };
+
   //タイマー・終了判定が出たら
   function finishAnswer() {
     $(".finish").show();
+    $("#ans").text('');
     const end_time = performance.now();
     const typing_time = ( (end_time - start_time) / 1000).toFixed(2);
     $timeMessage.text('かかった時間：'+typing_time+'秒');
-    // $.ajax({
-    //     url: '/users',
-    //     type: 'POST',
-    //     data: {
-    //         user: {
-    //             user_id: document.querySelector('.user_id').value,
-    //             point: point
-    //         }
-    //     },
-    //     dataType: 'json'
-    // });
+        // 非同期でusers#createに処理を送信＋その時にプレイ情報(question_id)を渡す
+    $.ajax({
+      url: '/users',
+      type: 'POST',
+      data: {
+        user: {
+          point: p,
+          // performance:  performance
+      }
+      },
+      dataType: 'json'
+    })
+    // 処理が上手く行ったらボタンを切り替えて
+    .done((data) => {
+      alert('成功しました');
+    })
+    // 処理が上手く行かなかったら失敗の旨を伝えるアラートを表示
+    .fail((data) => {
+      alert('失敗しました');
+    })
   }
-   
+  
+  
+
    // キー判定の処理
  document.addEventListener("keydown", e => {
     console.log(keys)
@@ -42,13 +62,14 @@ $(document).ready(function () {
     console.log(keys)
  });
   document.addEventListener("keyup", e => {
-    if( keys.length > 3){
+    if( keys.length > 2){
       keys = [];
-      // return false;
+      return false;
     }else if(keys.length == 1){
-      if (!start_game && e.keyCode === 32) { 
+      if (!start_game && e.keyCode === 32) {
         $("#start-message").hide();
-        $("#none").show();
+        $("#ans").show();
+
         start_game = true;
         start_time = performance.now();
     }else if(start_game){
@@ -57,11 +78,14 @@ $(document).ready(function () {
           console.log(questions[i].synchro_key);
           console.log("true" + k);
           $("#input").text('');
+          addScore(questions[p].point);  //スコア加点
+            p++;
           $('#question-' + i).hide();
               i += 1;
           $('#question-' + i).show();
         }
       }
+
       keys = [];
     }else if(keys.length == 2 && start_game){ //答えのキーが二つの場合
       $('#input').text(keys.join(' '));
@@ -69,21 +93,8 @@ $(document).ready(function () {
         if(k === questions[i].answer_key) { //2つ目の答え
           console.log("true" + k);
           $("#input").text('');
-          $('#question-' + i).hide();
-            i += 1;
-          $('#question-' + i).show();
-        if (questions.length <= i){ //問題終了判定
-          finishAnswer();
-        }
-      }
-    });
-      keys = [];
-    }else if(keys.length == 3 && start_game){
-      $('#input').text(keys.join(' '));
-      keys.forEach(function(k){
-      if(k === questions[i].answer_key) { //3つ目の答えがある場合
-          console.log("true" + k);
-          $("#input").text('');
+          addScore(questions[p].point);  //スコア加点
+          p++;
           $('#question-' + i).hide();
             i += 1;
           $('#question-' + i).show();
@@ -95,8 +106,26 @@ $(document).ready(function () {
       keys = [];
     } else {
       keys = [];
-    } 
+    }
+ });
 });
+
+    //   keys = [];
+    // }else if(keys.length == 3 && start_game){
+    //   $('#input').text(keys.join(' '));
+    //   keys.forEach(function(k){
+    //   if(k === questions[i].answer_key) { //3つ目の答えがある場合
+    //       console.log("true" + k);
+    //       $("#input").text('');
+    //       $('#question-' + i).hide();
+    //         i += 1;
+    //       $('#question-' + i).show();
+    //     if (questions.length <= i){ //問題終了判定
+    //       finishAnswer();
+    //     }
+    //   }
+    // });
+
 
 //   $(function(){
 //   // id="link-mark"の箇所(いいねボタン)をクリックしたら
@@ -106,14 +135,14 @@ $(document).ready(function () {
 //       url: '/users',
 //       type: 'POST',
 //       data: {_id: $(this).data('shop_id')
-        
+
 //       }
 //     })
 //     処理が上手く行ったらボタンを切り替えて
 //     .done((data) => {
 //       if ($(this).text() === 'いいね！') {
 //         $(this).text('いいね！を取り消す').removeClass('btn-primary').addClass('btn-secondary');
-//       } 
+//       }
 //     })
 //     // 処理が上手く行かなかったら失敗の旨を伝えるアラートを表示
 //     .fail((data) => {
@@ -138,7 +167,7 @@ $(document).ready(function () {
 
 
     /*keys.forEach(function(k){
-      if (!start_game && e.keyCode === 32) { 
+      if (!start_game && e.keyCode === 32) {
         $("#start-message").hide();
         $('#questions').show();
         $('#question-' + i).show();
@@ -166,7 +195,7 @@ $(document).ready(function () {
   /*document.addEventListener("keydown", e => {
       e.preventDefault();
       console.log(e.key)
-      if (!start_game && e.keyCode === 32) { 
+      if (!start_game && e.keyCode === 32) {
       $("#start-message").hide();
       $('#questions').show();
       $('#question-' + i).show();
@@ -191,10 +220,10 @@ $(document).ready(function () {
           $('#question-' + i).show();
         }
     });*/
-});
 
 
-    //正解 
+
+    //正解
   // var synchro = { meta: '', ctrl: '', alt: '', shift: '' }
   //   Mac/windows切り替え
   //   window.onload = () => {
