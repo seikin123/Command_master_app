@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_19_075913) do
+ActiveRecord::Schema.define(version: 2021_07_21_102250) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2021_07_19_075913) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "category_image_id"
   end
 
   create_table "level_settings", force: :cascade do |t|
@@ -46,11 +47,11 @@ ActiveRecord::Schema.define(version: 2021_07_19_075913) do
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "Question_id"
+    t.integer "question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["Question_id"], name: "index_likes_on_Question_id"
-    t.index ["user_id", "Question_id"], name: "index_likes_on_user_id_and_question_id", unique: true
+    t.index ["question_id"], name: "index_likes_on_question_id"
+    t.index ["user_id", "question_id"], name: "index_likes_on_user_id_and_question_id", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(version: 2021_07_19_075913) do
     t.datetime "updated_at", null: false
     t.string "synchro_key"
     t.string "display_key"
+    t.integer "point"
   end
 
   create_table "users", force: :cascade do |t|
@@ -80,6 +82,7 @@ ActiveRecord::Schema.define(version: 2021_07_19_075913) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "point"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
