@@ -26,10 +26,10 @@ Question.seed(:id,
  # {id: 20, category_id: 1, synchro_key: 'Control', answer_key: 'ArrowRight', problem: '単語の末尾にジャンプ', pc_type: 1 },
  
  #cloud9
- {id:21, category_id: 2, synchro_key: 'Meta', answer_key: 'c', problem: 'Cloud9のコマンド', display_key: 'cloud9', pc_type: 0 },
- {id:22, category_id: 2, synchro_key: 'Meta', answer_key: 'c', problem: 'Cloud9のコマンド', display_key: 'cloud9', pc_type: 0 },
+ {id:21, category_id: 2, synchro_key: 'Control', answer_key: 'c', problem: 'Cloud9のコマンド', display_key: 'cloud9', pc_type: 0 },
+ {id:22, category_id: 2, synchro_key: 'Control', answer_key: 'c', problem: 'Cloud9のコマンド', display_key: 'cloud9', pc_type: 0 },
  #Excel
- {id:23, category_id: 3, synchro_key: 'Meta', answer_key: 'c', problem: 'Excelのコマンド', display_key: '⌘ ', pc_type: 0 },
+ {id:23, category_id: 3, synchro_key: '', answer_key: 'c', problem: 'Excelのコマンド', display_key: '⌘ ', pc_type: 0 },
  {id:24, category_id: 3, synchro_key: 'Meta', answer_key: 'c', problem: 'Excelのコマンド', display_key: '⌘ ', pc_type: 0 },
 )
 

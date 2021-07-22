@@ -8,7 +8,7 @@ $(document).ready(function () {
 
   var ans = 0;
   // var point = 0;
-  var p = 0;
+  var point = 0;
   var i = 0; //問題文
   var start_game = false;　//ゲームスタート
   var start_time = 0; //時間の設定
@@ -78,8 +78,8 @@ $(document).ready(function () {
           console.log(questions[i].synchro_key);
           console.log("true" + k);
           $("#input").text('');
-          addScore(questions[p].point);  //スコア加点
-            p++;
+          addScore(questions[point].point);  //スコア加点
+            point++;
           $('#question-' + i).hide();
               i += 1;
           $('#question-' + i).show();
@@ -93,8 +93,8 @@ $(document).ready(function () {
         if(k === questions[i].answer_key) { //2つ目の答え
           console.log("true" + k);
           $("#input").text('');
-          addScore(questions[p].point);  //スコア加点
-          p++;
+          addScore(questions[point].point);  //スコア加点
+          point++;
           $('#question-' + i).hide();
             i += 1;
           $('#question-' + i).show();

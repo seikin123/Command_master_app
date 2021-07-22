@@ -1,39 +1,75 @@
-<body style="padding: 0px;">
-<!--<div class="wrapper">-->
- <!--<div class="content row" style="height: auto !important;">-->
-        <h1>Questions</h1>
-        <div id="time-message"></div>
-        
-        <div id="start-message">「スペースキー」を押すとスタートします</div>
-        
-        <div class="leftnav col-3 col-s-12">
-            <div class="leftnav__inner">
-             <span>⌘とwは同時に押さないでください<br>
-              ⌘ Command / ⌥ Option / ⇧ Shift / ⌃ Control / ⏎ Enter /Delete Fn + ⌫</span>
-            </div>
+ <div class="wrapper">
+   <div class="row contentWidth">
+     <div class="bread col-9 col-s-12">
+       <div class="bread__inner">
+         <ul>
+           <li class="bread__li"><%= %></li>
+           <li class="bread__li"></li>
+           <li class="bread__li"></li>
+         </ul>
+       </div>
+     </div>
+   
+   <div class="level col-3 col-s-12 pl-s10 pr-s10">
+     <div class="dispPoint">
+       <div class="row">
+         <div class="col-5">
+           
+         </div>
+         <div class="col-7">
+           
+         </div>
+       </div>
+     </div>
+   </div>
+  </div>
+  <div class="col-12">
+    <div class="mx-auto test-box">
+   <div class="container row justify-content">
+    
+
+        <div class="leftnav col-3">
+             <span>⌘とwは同時に押さないでください</span>
+              <p>⌘ Command</p>
+              <p>⌥ Option</p>
+              <p>/ ⇧ Shift</p>
+              <p>/ ⌃ Control</p>
+              <p>/ ⏎ Enter </p>
+              <p>/Delete Fn + ⌫</p>
+             
         </div>
-        <div id="ans"></div>
-        <!--<div class="main col-6 col-s-12" id="questions">-->
-                 <% @questions_json.each_with_index do |question, idx| %>
-                   <div id="question-<%= idx %>" class="questions-item" style="<%= idx == 0 ? '' : 'display: none;' %>">
-                     <%= question.problem %>
-                   </div>
-                 <% end %>
-                 <div class="finish" style="display: none;">終了しました。</div>
-            <div id="input"></div>
-        <!--</div>-->
-    
-    
-        <div class="rightnav col-3 col-s-12">
-            <h3></h3>
-        </div>
-        
-    
+       <div class="main col-6" style="height: auto !important;">
+         <div class="main__inner">
+           <div class="question__wrap">
+             
+              <h1>Questions</h1>
+                <div id="start-message">「スペースキー」を押すとスタートします</div>
+                  <div id="ans"></div>
+                    <!--<div id="questions">-->
+                      <% @questions_json.each_with_index do |question, idx| %>
+                     <div id="question-<%= idx %>" class="questions-item" style="<%= idx == 0 ? '' : 'display: none;' %>">
+                       <span class="questions"><%= question.problem %></span>
+                     </div>
+                       <% end %>
+                   <div class="finish" style="display: none;">終了しました。</div>
+                  </div>
+                <div id="input"></div>
+             </div>
+           
+          </div>
+           <div class="rightnav col-3 col-s-12">
+            <h3>使い方</h3>
+            <div id="time-message"></div>
+           </div>
+    </div>
+    </div>
+  </div>
+</div>
         <!--jsにデータを渡している-->
         <input type="hidden" id="questions_json" value="<%= @questions_json.to_json %>">
         <input type="hidden" id="pc_type" value="<%= @pc_type %>">
         <input type="hidden" id="user_id" value="<%= @user_id %>">
 <!--  </div>-->
-<!--</div>-->
-</body>
+
 <%= javascript_include_tag 'questions.js' %>
+
