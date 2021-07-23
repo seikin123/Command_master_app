@@ -1,0 +1,30 @@
+
+      <h4>ジャンル一覧・追加</h4>
+    
+    <!--<= render 'customers/shared/error_messages', resource: @genre %>-->
+    
+      <%= form_with model: [:admin, @category], local:true do |f| %>
+      
+        <%= f.text_field :name, placeholder: "カテゴリー名" %>
+        <%= f.submit '新規登録', class: "btn  btn-sm btn-secondary" %>
+      
+      <% end %>
+    
+
+
+              <td>カテゴリー</td>
+        <table>
+          </thead>
+          <tbody>
+            <% @categories.each do |categories| %>
+            <tr>
+              <th>
+                <td><%= categories.name %></td>
+                <td><%= categories.category_image %></td>
+                <td><%= link_to "編集", edit_admin_category_path(categories.id) %>
+                </td>
+              </th>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>

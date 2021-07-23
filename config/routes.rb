@@ -38,9 +38,7 @@ get 'about' => 'homes#about'
   }
   
   namespace :admin do
-    get 'questions/index'
-    get 'questions/show'
-    get 'questions/edit'
+    resources :categories, only: [:index, :edit, :create]
   end
     
 
