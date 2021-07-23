@@ -5,8 +5,10 @@ $(document).ready(function () {
   const pc = document.querySelector('#pc_type').value;
   const input = document.querySelector('#input');
   const $timeMessage = $('#time-message');
+  const command = document.querySelector('#command');
+  
 
-  var ans = 0;
+  var answer = 0;
   // var point = 0;
   var point = 0;
   var i = 0; //問題文
@@ -17,16 +19,40 @@ $(document).ready(function () {
   /*$(document).on('keydown', function(){
   })*/
   function addScore(point){
-    $("#ans").text(ans);
+    $("#ans").text(answer);
     console.log('ans')
     console.log('addScore is called!!!')
-    ans += point;
+    answer += point;
   };
+  
+  // 正解したときのメッセージ
+  function trueFlash() {
+     toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": true,
+        "progressBar": false,
+        "positionClass": "toast-top-full-width",
+        "preventDuplicates": true,
+        "onclick": null,
+        "showDuration": "3000",
+        "hideDuration": "1000",
+        "timeOut": "1000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+    // Command: toastr["success"]('正解!!!')
+    Command: toastr["success"](`${questions[i].display_key} 正解!!!`)
+    command.innerHTML = `<span id="right">${questions[i].display_key}</span>`;
+  }
 
   //タイマー・終了判定が出たら
   function finishAnswer() {
     $(".finish").show();
-    $("#ans").text('');
+    $("#answer").text('');
     const end_time = performance.now();
     const typing_time = ( (end_time - start_time) / 1000).toFixed(2);
     $timeMessage.text('かかった時間：'+typing_time+'秒');
@@ -52,7 +78,6 @@ $(document).ready(function () {
     // })
   }
   
-  
 
    // キー判定の処理
  document.addEventListener("keydown", e => {
@@ -64,22 +89,25 @@ $(document).ready(function () {
   document.addEventListener("keyup", e => {
     if( keys.length > 2){
       keys = [];
+      trueFlash();
       return false;
     }else if(keys.length == 1){
       if (!start_game && e.keyCode === 32) {
-        $("#start-message").hide();
-        $("#ans").show();
+        $(".start-message").hide();
+        $("#answer").show();
 
         start_game = true;
         start_time = performance.now();
     }else if(start_game){
+      console.log(questions[i].display_key)
         $('#input').text(keys[0]);
-        if(keys[0] === questions[i].synchro_key) { //特殊キー
+        if(keys[0] === event.metaKey) { //特殊キー
           console.log(questions[i].synchro_key);
           console.log("true" + k);
           $("#input").text('');
           addScore(questions[point].point);  //スコア加点
             point++;
+            
           $('#question-' + i).hide();
               i += 1;
           $('#question-' + i).show();
@@ -91,8 +119,10 @@ $(document).ready(function () {
       $('#input').text(keys.join(' '));
       keys.forEach(function(k){
         if(k === questions[i].answer_key) { //2つ目の答え
+          trueFlash();
           console.log("true" + k);
           $("#input").text('');
+          trueFlash();
           addScore(questions[point].point);  //スコア加点
           point++;
           $('#question-' + i).hide();
