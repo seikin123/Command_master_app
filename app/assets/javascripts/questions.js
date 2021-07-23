@@ -31,25 +31,25 @@ $(document).ready(function () {
     const typing_time = ( (end_time - start_time) / 1000).toFixed(2);
     $timeMessage.text('かかった時間：'+typing_time+'秒');
         // 非同期でusers#createに処理を送信＋その時にプレイ情報(question_id)を渡す
-    $.ajax({
-      url: '/users',
-      type: 'POST',
-      data: {
-        user: {
-          point: p,
-          // performance:  performance
-      }
-      },
-      dataType: 'json'
-    })
-    // 処理が上手く行ったらボタンを切り替えて
-    .done((data) => {
-      alert('成功しました');
-    })
-    // 処理が上手く行かなかったら失敗の旨を伝えるアラートを表示
-    .fail((data) => {
-      alert('失敗しました');
-    })
+    // $.ajax({
+    //   url: '/users',
+    //   type: 'POST',
+    //   data: {
+    //     user: {
+    //       point: p,
+    //       // performance:  performance
+    //   }
+    //   },
+    //   dataType: 'json'
+    // })
+    // // 処理が上手く行ったらボタンを切り替えて
+    // .done((data) => {
+    //   alert('成功しました');
+    // })
+    // // 処理が上手く行かなかったら失敗の旨を伝えるアラートを表示
+    // .fail((data) => {
+    //   alert('失敗しました');
+    // })
   }
   
   
@@ -166,60 +166,61 @@ $(document).ready(function () {
 
 
 
-    /*keys.forEach(function(k){
-      if (!start_game && e.keyCode === 32) {
-        $("#start-message").hide();
-        $('#questions').show();
-        $('#question-' + i).show();
-        start_game = true;
-      // start_time = performance.now();
-            return;
-      } else if (!start_game) {
-        return;
-      }*/
-      /*let text = e.key;
-      let command = ' ';
-      if (e.ctrlKey || e.metakey){
-          text = command + text;
-      }*/
-      /*$("#input").text(text);
-      console.log(i)
-      if (event.metaKey && e.key === questions[i].answer_key) {
-          console.log("true");
-          $("#input").text('');
-          $('#question-' + i).hide();
-          i += 1;
-          $('#question-' + i).show();
-        }
-    });*/
-  /*document.addEventListener("keydown", e => {
-      e.preventDefault();
-      console.log(e.key)
-      if (!start_game && e.keyCode === 32) {
-      $("#start-message").hide();
-      $('#questions').show();
-      $('#question-' + i).show();
-        start_game = true;
-      // start_time = performance.now();
-            return;
-          } else if (!start_game) {
-            return;
-          }
-      let text = e.key;
-      let command = ' ';
-      if (e.ctrlKey || e.metakey){
-          text = command + text;
-      }
-      $("#input").text(text);
-      console.log(i)
-      if (event.metaKey && e.key === questions[i].answer_key) {
-          console.log("true");
-          $("#input").text('');
-          $('#question-' + i).hide();
-          i += 1;
-          $('#question-' + i).show();
-        }
-    });*/
+    // keys.forEach(function(k){
+    //   if (!start_game && e.keyCode === 32) {
+    //     $("#start-message").hide();
+    //     $('#questions').show();
+    //     $('#question-' + i).show();
+    //     start_game = true;
+    //   // start_time = performance.now();
+    //         return;
+    //   } else if (!start_game) {
+    //     return;
+    //   }
+    //   let text = e.key;
+    //   let command = ' ';
+    //   if (e.ctrlKey || e.metakey){
+    //       text = command + text;
+    //   }
+    //   $("#input").text(text);
+    //   console.log(i)
+    //   if (event.metaKey && e.key === questions[i].answer_key) {
+    //       console.log("true");
+    //       $("#input").text('');
+    //       $('#question-' + i).hide();
+    //       i += 1;
+    //       $('#question-' + i).show();
+    //     }
+    // });
+    
+  // document.addEventListener("keydown", e => {
+  //     e.preventDefault();
+  //     console.log(e.key)
+  //     if (!start_game && e.keyCode === 32) {
+  //     $("#start-message").hide();
+  //     $('#questions').show();
+  //     $('#question-' + i).show();
+  //       start_game = true;
+  //     // start_time = performance.now();
+  //           return;
+  //         } else if (!start_game) {
+  //           return;
+  //         }
+  //     let text = e.key;
+  //     let command = ' ';
+  //     if (e.ctrlKey || e.metakey){
+  //         text = command + text;
+  //     }
+  //     $("#input").text(text);
+  //     console.log(i)
+  //     if (event.metaKey && e.key === questions[i].answer_key) {
+  //         console.log("true");
+  //         $("#input").text('');
+  //         $('#question-' + i).hide();
+  //         i += 1;
+  //         $('#question-' + i).show();
+  //       }
+  //   });
 
 
 

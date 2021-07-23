@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+devise_for :users, controllers: {
+sessions:      'users/sessions',
+passwords:     'users/passwords',
+registrations: 'users/registrations'
+}
+
   resources :users do
     collection do #idは付与しない
       get 'unsubscribe' #退会画面
@@ -12,11 +18,7 @@ Rails.application.routes.draw do
   resources :likes, only: [:create]
   # post   '/like/:story_id' => 'likes#like',   as: 'like'
   
-devise_for :users, controllers: {
-sessions:      'users/sessions',
-passwords:     'users/passwords',
-registrations: 'users/registrations'
-}
+
 
 root to: "homes#top"
 get 'about' => 'homes#about'
