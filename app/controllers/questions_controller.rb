@@ -1,12 +1,16 @@
 class QuestionsController < ApplicationController
 
+
   def index
+      @user = current_user
       @questions_json = Question.select_pc_type(request.os)
       @pc_type = set_pc_type
       @categories = Category.all
     if params[:category_id].present?
       @category = Category.find(params[:category_id])
       @questions_json = @category.questions.select_pc_type(request.os)
+    else
+      redirect_to categories_path
     end
     @user_id = current_user
     # byebug

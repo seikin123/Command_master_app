@@ -3,21 +3,24 @@
      <div class="bread col-9 col-s-12">
        <div class="bread__inner">
          <ul>
-           <li class="bread__li"></li>
-           <li class="bread__li"></li>
-           <li class="bread__li"></li>
+           <li class="bread__li"><%= link_to "ホーム", root_path %></li>
+           <li class="bread__li"><%= link_to "カテゴリー選択", categories_path %></li>
+           <li class="bread__li"><%= link_to "Vscode", categories_path %></li>
+           <li class="bread__li"><%= link_to "Vscode", categories_path %></li>
          </ul>
        </div>
      </div>
-   
+
    <div class="level col-3 col-s-12 pl-s10 pr-s10">
      <div class="dispPoint">
        <div class="row">
          <div class="col-5">
-           
+          <p class="user_name"><%= @user.name %></p>
+          <p class="user_name">Lv. <%= @user.level%></p>
          </div>
          <div class="col-7">
-           
+          <p class="my_cat_rank">☆☆☆☆☆</p>
+          <p class="my_point">EX. <%= @user.experience_point %></p>
          </div>
        </div>
      </div>
@@ -26,56 +29,92 @@
   <div class="col-12">
     <div class="mx-auto test-box">
        <div class="row" style="margin-top: 20px;">
-    
+
 
         <div class="leftnav col-3">
             <div class="col-xs-12">
              <h3>使い方</h3>
             </div>
              <span>Macの方は⌘とwは同時に押さないでください</span>
-            
+              
               <p>⌘ - Command</p>
               <p>⌥ - Option</p>
               <p> ⇧ - Shift</p>
               <p>⌃ - Control</p>
               <p>⏎ - Enter </p>
               <p>/Delete Fn + ⌫</p>
-             
+
         </div>
         <div class="main col-6 justify-content" style="height: 420px; padding: 20px;">
-          <div class="floating-background">
-            <div id="start-message">「スペースキー」を押すとスタートします</div>
-             <div id="ans"></div>
+          <div class="main__inner">
               <div class="question__wrap">
                  <% @questions_json.each_with_index do |question, idx| %>
                   <div id="question-<%= idx %>" class="questions-item" style="<%= idx == 0 ? '' : 'display: none;' %>">
-                    <span class="cursol">問題 :<%= question.problem %></span>
+                    <span id="right" style='display: none;'></span>
+                    <span class="problem">問題 :<%= question.problem %></sapn>
+                    <% sum = 0 %>
+                    <span><%= sum += idx %> / 10</span>
+                    <span id="display"><%= question.display_key %></span>
                   </div>
                  <% end %>
-                <div class="finish" style="display: none;">終了しました。</div>
-             </div>
-             <span>
-              <ruby>     
-               <rb id="input"></rb>
-               <rp>(</rp>
-               <rt></rt>
-               <rp>)</rp>
-              </ruby>
-             </span>
+              </div>
+              <div class="previewArea__wrap">
+                
+                
+                
+              </div>
+              
+              <div class="inputarea">
+               <div id="input"></div>
+               <div id="command"></div>
+              </div>
           </div>
         </div>
-          
+
            <div class="rightnav col-3 col-s-12">
-            <h2>Status</h2>
-            <h4>問題数 :</h4>
-            <h4>残り問題数 :</h4>
-            <div id="time-message"></div>
+            <div class="rightnav__inner">
+              <h2>Status</h2>
+              <div class="preList_wrap">
+                <ul class="preList" style="top: 8opx;">
+                
+                <li>問題数 : 10</li>
+                <li></li>
+                <li><div id="answer"></div></li>
+                </ul>
+              </div>
+              
+              <div class="preList_wrap">
+              <h4>各コマンド説明はこちら！↓↓↓↓</h4>
+              <div class="mt20"></div>
+              <aside class>
+                <ul class>
+                  <li class="sidebar__rank__li">
+                    <%= link_to "コマンド一覧" %>
+                  </li>
+                </ul>
+              </aside>
+              </div>
+            </div>
            </div>
+     </div>
     </div>
+      
     </div>
   </div>
 </div>
-        <!--jsにデータを渡している-->
+
+<div class="mb15">
+  <div class="finish" id="main" style="display: none;">終了しました。
+    <div id="time-message"></div>
+  </div>
+    <div class="start-message" >
+      <div id="content"> 
+        <p class="blinking" id="yomi">「スペースキー」を押すとスタートします</p>
+      </div>
+  </div>
+</div>
+  
+  <!--jsにデータを渡している-->
         <input type="hidden" id="questions_json" value="<%= @questions_json.to_json %>">
         <input type="hidden" id="pc_type" value="<%= @pc_type %>">
         <!--<input type="hidden" id="user_id" value="<= @user_id %>">-->
