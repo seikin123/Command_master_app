@@ -2,9 +2,9 @@ class CommandsController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @questions = Question.new.questions(request.os)
+    @questions = Question.select_pc_type(request.os)
     # @questions = Question.all
-    @questions_json = @questions
+    # @questions_json = @questions
   end
   
   def show
