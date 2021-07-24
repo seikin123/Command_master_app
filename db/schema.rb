@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_21_102250) do
+ActiveRecord::Schema.define(version: 2021_07_24_074100) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name"
@@ -67,6 +67,15 @@ ActiveRecord::Schema.define(version: 2021_07_21_102250) do
     t.string "synchro_key"
     t.string "display_key"
     t.integer "point"
+    t.string "problem_image_id"
+  end
+
+  create_table "user_questions", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "question_id"
+    t.boolean "answered_correct", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
