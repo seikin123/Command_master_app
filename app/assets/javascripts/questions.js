@@ -51,19 +51,14 @@
    
 //     // チェックボックスをチェックしたら発動
 //   //   $('input[name="check"]').change(function() {
-   
 //   //     // もしチェックが入ったら
 //   //     if ($(this).prop('checked')) {
-   
 //   //       // value値を出力
 //   //       $('#p01').text($(this).val());
-   
 //   //     } else {
-   
 //   //       // テキストをリセット
 //   //       $('#p01').text('');
 //   //     }
-   
 //   //   });
 //   // });
 
@@ -107,8 +102,6 @@
 //   //       alert('失敗しました');
 //   //     })
 //   }
-  
-  
 
 //   // キー判定の処理
 // document.addEventListener("keydown", e => {
@@ -171,42 +164,7 @@
 //   });
 // });
 
-    // keys.forEach(function(k){
-    //   if (!start_game && e.keyCode === 32) {
-    //     $("#start-message").hide();
-    //     $('#questions').show();
-    //     $('#question-' + i).show();
-    //     start_game = true;
-    //   // start_time = performance.now();
-    //         return;
-    //   } else if (!start_game) {
-    //     return;
-    //   }
-    //   let text = e.key;
-    //   let command = ' ';
-    //   if (e.ctrlKey || e.metakey){
-    //       text = command + text;
-    //   }
-    //   $("#input").text(text);
-    //   console.log(i)
-    //   if (event.metaKey && e.key === questions[i].answer_key) {
-    //       console.log("true");
-    //       $("#input").text('');
-    //       $('#question-' + i).hide();
-    //       i += 1;
-    //       $('#question-' + i).show();
-    //     }
-    // });
     
-    //正解
-  // var synchro = { meta: '', ctrl: '', alt: '', shift: '' }
-  //   Mac/windows切り替え
-  //   window.onload = () => {
-  //   synchro.meta  = (pc === 'Mac')? '<span id="input"> ⌘ </span>'  : '<span id="meta"> Win </span>';
-  //   synchro.ctrl  = (pc === 'Mac')? '<span id="ctrl"> ⌃ </span>'  : '<span id="ctrl"> Ctrl </span>';
-  //   synchro.alt   = (pc === 'Mac')? '<span id="alt"> ⌥ </span>'   : '<span id="alt"> Alt </span>';
-  //   synchro.shift = (pc === 'Mac')? '<span id="shift"> ⇧ </span>' : '<span id="shift"> Shift </span>';
-  //   };
 
 $(document).ready(function () {
   const Json = document.querySelector('#questions_json').value;
@@ -251,7 +209,7 @@ $(document).ready(function () {
         "hideMethod": "fadeOut"
     }
     Command: toastr["success"](`${questions[i].display_key} 正解!!!`)
-    command.innerHTML = `<span id="right">${questions[i].display_key}</span>`;
+    command.innerHTML = `<span id="center">${questions[i].display_key}</span>`;
   }
   
   function falseFlash(miss) {
@@ -343,7 +301,7 @@ $(document).ready(function () {
          user: {
           experience_point: answer,
           // user_id: 
-        }
+         }
         },
         dataType: 'json'
       })

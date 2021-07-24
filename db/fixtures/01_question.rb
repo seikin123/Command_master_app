@@ -10,11 +10,12 @@ Question.seed(:id,
  {id: 7, category_id: 1, synchro_key: 'Alt', answer_key: 'ArrowUp', problem: 'カーソル行／選択行をまるっと上移動(複数行対応)', display_key: '⌥ ↑', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
  {id: 8, category_id: 1, synchro_key: 'Alt', answer_key: 'ArrowDown', problem: 'カーソル行／選択行をまるっと下移動(複数行対応)', display_key: '⌥ ↓', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
  {id: 9, category_id: 1, synchro_key: 'Meta', answer_key: 'ArrowLeft', problem: '単語の先頭にジャンプ', display_key: '⌘ ←', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
- {id: 10, category_id: 1, synchro_key: 'Meta', answer_key: 'ArrowRight', problem: '単語の末尾にジャンプ', display_key: '⌘ →', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
+ {id: 10, category_id: 1, synchro_key: 'Meta+Shift', answer_key: 'g', problem: 'ソース管理を開く', display_key: '⌘ ⬆︎ G', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
  
  #cloud9
- {id:11, category_id: 2, synchro_key: 'Control', answer_key: 'c', problem: 'Cloud9のコマンド', display_key: 'cloud9', pc_type: 0 },
- {id:12, category_id: 2, synchro_key: 'Control', answer_key: 'c', problem: 'Cloud9のコマンド', display_key: 'cloud9', pc_type: 0 },
+ {id:11, category_id: 2, synchro_key: 'Ctrl', answer_key: 'ArrowDown', problem: 'マルチカーソルを追加して下の行に移動', display_key: 'Ctrl-AltDown', pc_type: 0 },
+ {id:12, category_id: 2, synchro_key: 'Ctrl', answer_key: 'ArrowUp', problem: 'マルチカーソルを追加して上の行に移動', display_key: 'Ctrl-Alt-Up', pc_type: 0 },
+ {id:12, category_id: 2, synchro_key: 'Ctrl', answer_key: 'u', problem: '大文字に変更します', display_key: 'Ctrl-U', pc_type: 0 },
  #Excel
  {id:21, category_id: 3, synchro_key: '', answer_key: 'c', problem: 'Excelのコマンド', display_key: '⌘ ', pc_type: 0 },
  {id:22, category_id: 3, synchro_key: 'Meta', answer_key: 'c', problem: 'Excelのコマンド', display_key: '⌘ ', pc_type: 0 },
@@ -38,31 +39,3 @@ Question.seed(:id,
  # {id:23, category_id: 3, synchro_key: '', answer_key: 'c', problem: 'Excelのコマンド', display_key: '⌘ ', pc_type: 0 },
  # {id:24, category_id: 3, synchro_key: 'Meta', answer_key: 'c', problem: 'Excelのコマンド', display_key: '⌘ ', pc_type: 0 },
 )
-
-
-
-# {
-#   "id": "5",
-#   "category_id": "1",
-#   "question_value": "Vscodeの選択範囲を切り取りのショートカットキー",
-#   "answer": "x",
-#   "shiftKey": true,
-#   "score": 10
-# },
-# {
-#   "id": "6",
-#   "category_id": "1",
-#   "question_value": "Vscodeの指定した行にジャンプのショートカットキー",
-#   "answer": "g",
-#   "shiftKey": true,
-#   "score": 10
-# },
-# {
-#   "id": "7",
-#   "category_id": "1",
-#   "question_value": "Vscodeの検索する際のショートカットキー",
-#   "answer": "f",
-#   "shiftKey": true,
-#   "score": 10
-# },
-# ]
