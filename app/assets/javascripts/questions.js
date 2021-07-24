@@ -48,7 +48,6 @@
 
 //   // ヒントについて
 //   // $(function() {
-   
 //     // チェックボックスをチェックしたら発動
 //   //   $('input[name="check"]').change(function() {
 //   //     // もしチェックが入ったら
@@ -260,12 +259,12 @@ $(document).ready(function () {
     } else if (!start_game) {
          return;
     }
-      let text = e.key;
-      let command = ' ';
-      if (e.ctrlKey){
-        text = command + text;
-      }
-      $("#input").text(text);
+     let text = e.key;
+     let command = ' ';
+    if (e.ctrlKey){
+      text = command + text;
+    }
+     $("#input").text(text);
   }
   
   function nomatch(e) {
@@ -345,7 +344,7 @@ document.addEventListener("keydown", e => {
         trueFlash();
         roop(); 
         // キー判定
-      }else if ((questions[i].synchro_key === 'Meta+Shift') && (e.ctrlKey && event.metaKey && e.key === questions[i].answer_key)) {
+      }else if ((questions[i].synchro_key === 'Meta+Shift') && (e.shiftKey && event.metaKey && e.key === questions[i].answer_key)) {
         trueFlash();
         console.log("true");
          //正解メッセージ
@@ -356,12 +355,3 @@ document.addEventListener("keydown", e => {
     }
   });
 });
-
-
-  // function nomatch('keyup', e => {
-  //   if (e.key === questions[i].answer_key) {
-  //       trueFlash();
-  //   } else {
-  //       falseFlash(e.key);
-  //   }
-  // });

@@ -15,6 +15,11 @@
  */
 @import "bootstrap";
 
+.font {
+    font-size: 40px;
+    font-family: 'arial black'	, cursive;
+}
+
  .jumbotron { background:url(vs2.jpeg) center no-repeat; background-size: cover; height: 400px;}
  
  
@@ -124,8 +129,9 @@ body, html {
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
 }
 
-.devise-form {
-  size: 60;
+// .devise-form {
+//   size: 60;
+// }
 // .col-12 {
 //   margin:20px 0px;
 //   background:pink;
@@ -161,12 +167,12 @@ body, html {
   color: green; /* 区切り文字の文字色 */
 }
 
-// スペースキー
+// // スペースキー
 #main {
   text-align: center;
 }
 
-#content {
+#contents {
   border: 2px solid black;
   border-radius: 10px;
   width: 400px;
@@ -193,9 +199,9 @@ body, html {
 .text.default {
   color: #f3f3f3;
   text-shadow: 1px 1px 0 #000,
-             -1px 1px 0 #000,
-             1px -1px 0 #000,
-             -1px -1px 0 #000;
+            -1px 1px 0 #000,
+            1px -1px 0 #000,
+            -1px -1px 0 #000;
 }
 
 .text.correct {
@@ -209,7 +215,7 @@ body, html {
     -moz-animation:blink 1.5s ease-in-out infinite alternate;
     animation:blink 1.5s ease-in-out infinite alternate;
 }
-@-webkit-keyframes blink{
+blink{
     0% {opacity:0;}
     100% {opacity:1;}
 }
@@ -223,63 +229,66 @@ body, html {
     100% {opacity:1;}
 }
 
-// #switch{
-// 	cursor:pointer;
-// 	width:200px;
-// 	height:50px;
-// 	background-image:url(./images/c_cloud9.png);
+body {
+background-color: ＃F4F5F7;
+}
+// // #switch{
+// // 	cursor:pointer;
+// // 	width:200px;
+// // 	height:50px;
+// // 	background-image:url(./images/c_cloud9.png);
+// // }
+// // .active{
+// // 	background-position:bottom;
+// // }
+
+// .main__inner {
+//   position: relative;;
+//   /*基準を画面の左上に*/
+//   top: 0;
+//   left: 0;
+//   /*余白が入らないように*/
+//   margin: 0;
+//   /*以下装飾*/
+//   width: 100%;
+//   background: lightgreen;
+//   color:white;
 // }
-// .active{
-// 	background-position:bottom;
+
+// .questions-item{
+//   position: relative;;
+//   /*基準を画面の左上に*/
+//   top: 0;
+//   left: 0;
+//   /*余白が入らないように*/
+//   margin: 0;
+//   /*以下装飾*/
+//   width: 100%;
+//   background: lightgreen;
+//   color:white;
 // }
 
-.main__inner {
-  position: relative;;
-  /*基準を画面の左上に*/
-  top: 0;
-  left: 0;
-  /*余白が入らないように*/
-  margin: 0;
-  /*以下装飾*/
-  width: 100%;
-  background: lightgreen;
-  color:white;
-}
-
- .questions-item{
-  position: relative;;
-  /*基準を画面の左上に*/
-  top: 0;
-  left: 0;
-  /*余白が入らないように*/
-  margin: 0;
-  /*以下装飾*/
-  width: 100%;
-  background: lightgreen;
-  color:white;
-}
-
-.question-4{
-  position: relative;
-  /*基準を画面の左上に*/
-  top: 0;
-  left: 0;
-  /*余白が入らないように*/
-  margin: 0;
-  /*以下装飾*/
-  width: 100%;
-  background: lightgreen;
-  color:white;
-}
-#question-5{
-  position: relative;
-  /*基準を画面の左上に*/
-  top: 0;
-  left: 0;
-  /*余白が入らないように*/
-  margin: 0;
-  /*以下装飾*/
-  width: 100%;
-  background: lightgreen;
-  color:white;
-}
+// .question-4{
+//   position: relative;
+//   /*基準を画面の左上に*/
+//   top: 0;
+//   left: 0;
+//   /*余白が入らないように*/
+//   margin: 0;
+//   /*以下装飾*/
+//   width: 100%;
+//   background: lightgreen;
+//   color:white;
+// }
+// #question-5{
+//   position: relative;
+//   /*基準を画面の左上に*/
+//   top: 0;
+//   left: 0;
+//   /*余白が入らないように*/
+//   margin: 0;
+//   /*以下装飾*/
+//   width: 100%;
+//   background: lightgreen;
+//   color:white;
+// }
