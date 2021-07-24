@@ -171,27 +171,6 @@
 //   });
 // });
 
-
-
-    //   keys = [];
-    // }else if(keys.length == 3 && start_game){
-    //   $('#input').text(keys.join(' '));
-    //   keys.forEach(function(k){
-    //   if(k === questions[i].answer_key) { //3つ目の答えがある場合
-    //       console.log("true" + k);
-    //       $("#input").text('');
-    //       $('#question-' + i).hide();
-    //         i += 1;
-    //       $('#question-' + i).show();
-    //     if (questions.length <= i){ //問題終了判定
-    //       finishAnswer();
-    //     }
-    //   }
-    // });
-    
-    
-    
-
     // keys.forEach(function(k){
     //   if (!start_game && e.keyCode === 32) {
     //     $("#start-message").hide();
@@ -250,6 +229,7 @@ $(document).ready(function () {
     console.log('addScore is called!!!')
     answer += point;
   };
+  
     
     // 正解したときのメッセージ
   function trueFlash() {
@@ -273,12 +253,71 @@ $(document).ready(function () {
     Command: toastr["success"](`${questions[i].display_key} 正解!!!`)
     command.innerHTML = `<span id="right">${questions[i].display_key}</span>`;
   }
+  
+  function falseFlash(miss) {
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": true,
+        "progressBar": false,
+        "positionClass": "toast-top-full-width",
+        "preventDuplicates": true,
+        "onclick": null,
+        "showDuration": "3000",
+        "hideDuration": "1000",
+        "timeOut": "1000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+    Command: toastr["error"](`${miss} 不正解!!!`)
+  }
+  
   //問題の表示
   function roop() {
+    $("#input").text('');
+    // スコア更新
+    addScore(questions[point].point); 
+      point++;
     $('#question-' + i).hide();
       i += 1;
     $('#question-' + i).show();
+    //問題終了判定
+    if (questions.length <= i){ 
+     finishAnswer();
+    }
   }
+  
+  // スタート表示
+  function startPress(e) {
+    if (!start_game && e.keyCode === 32) {
+      $(".start-message").hide();
+      $('#questions').show();
+      $('#question-' + i).show();
+        start_game = true;
+      start_time = performance.now();
+         return;
+    } else if (!start_game) {
+         return;
+    }
+      let text = e.key;
+      let command = ' ';
+      if (e.ctrlKey){
+        text = command + text;
+      }
+      $("#input").text(text);
+  }
+  
+  function nomatch(e) {
+    if (e.key === questions[i].answer_key) {
+        trueFlash();
+    } else {
+        falseFlash(e);
+    }
+  }
+  
     //タイマー・終了判定が出たら
   function finishAnswer() {
     $(".finish").show();
@@ -286,7 +325,6 @@ $(document).ready(function () {
     const end_time = performance.now();
     const typing_time = ( (end_time - start_time) / 1000).toFixed(2);
     $timeMessage.text('かかった時間：'+typing_time+'秒');
-
     //CSRFトークン  
     $.ajaxPrefilter( (options, originalOptions, jqXHR) => {
       if (!options.crossDomain) {
@@ -302,7 +340,7 @@ $(document).ready(function () {
         // url: '/user_questions/:id',
         type: 'PUT',
         data: {
-        user: {
+         user: {
           experience_point: answer,
           // user_id: 
         }
@@ -325,87 +363,47 @@ document.addEventListener("keydown", e => {
       e.preventDefault();
       console.log(e.key)
       // スペースキーでスタート
-    if (!start_game && e.keyCode === 32) {
-      $(".start-message").hide();
-      $('#questions').show();
-      $('#question-' + i).show();
-        start_game = true;
-      start_time = performance.now();
-         return;
-      } else if (!start_game) {
-         return;
-      }
-      let text = e.key;
-      let command = ' ';
-      if (e.ctrlKey){
-        text = command + text;
-      }
-      $("#input").text(text);
+      startPress(e);
       console.log(i)
       //キー判定
       if ((questions[i].synchro_key === 'Meta') && (event.metaKey && e.key === questions[i].answer_key)) {
         trueFlash();
         console.log("true");
-        $("#input").text('');
          //正解メッセージ
         trueFlash();
-         //スコア加点
-        addScore(questions[point].point); 
-        point++;
-        // 問題の表示
         roop();
-        //問題終了判定
-      if (questions.length <= i){ 
-        finishAnswer();
-       }
        //キー判定
       } else if ((questions[i].synchro_key === 'Alt') && (e.altKey && e.key === questions[i].answer_key)) {
-        console.log();
-        trueFlash();
-              console.log("true");
-        $("#input").text('');
-         //正解メッセージ
-        trueFlash();
-         //スコア加点
-        addScore(questions[point].point); 
-        point++;
-        // 問題の表示
-        roop();
-        //問題終了判定
-      if (questions.length <= i){ 
-        finishAnswer(); 
-       }
-       //キー判定
-      }else if ((questions[i].synchro_key === 'Control') && (e.ctrlKey && e.key === questions[i].answer_key)) {
-        console.log();
         trueFlash();
         console.log("true");
-        $("#input").text('');
          //正解メッセージ
         trueFlash();
-         //スコア加点
-        addScore(questions[point].point); 
-        point++;
-        // 問題の表示
+        roop();
+       //キー判定
+      }else if ((questions[i].synchro_key === 'Control') && (e.ctrlKey && e.key === questions[i].answer_key)) {
+        trueFlash();
+        console.log("true");
+         //正解メッセージ
+        trueFlash();
         roop(); 
-        //問題終了判定
-      if (questions.length <= i){ 
-        finishAnswer();
-        }
-       }
+        // キー判定
+      }else if ((questions[i].synchro_key === 'Meta+Shift') && (e.ctrlKey && event.metaKey && e.key === questions[i].answer_key)) {
+        trueFlash();
+        console.log("true");
+         //正解メッセージ
+        trueFlash();
+        roop(); 
+      } else {
+        nomatch(event.key);
+    }
   });
 });
 
-  // if (questions[i].synchro_key = 'Meta') {
-  //   console.log();
-  //   (event.metaKey && e.key === questions[i].answer_key)
-  //   trueFlash();
-  // }else if (questions[i].synchro_key = 'Alt') {
-  //   console.log();
-  //   (event.altKey && e.key === questions[i].answer_key)
-  //   trueFlash();
-  // }else if (questions[i].synchro_key = 'Control') {
-  //   console.log();
-  //   (event.ctrlKey && e.key === questions[i].answer_key);
-  //   trueFlash();
-  // }
+
+  // function nomatch('keyup', e => {
+  //   if (e.key === questions[i].answer_key) {
+  //       trueFlash();
+  //   } else {
+  //       falseFlash(e.key);
+  //   }
+  // });
