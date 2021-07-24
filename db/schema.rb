@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_11_102927) do
+ActiveRecord::Schema.define(version: 2021_07_24_074100) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2021_07_11_102927) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "category_image_id"
   end
 
   create_table "level_settings", force: :cascade do |t|
@@ -44,6 +45,16 @@ ActiveRecord::Schema.define(version: 2021_07_11_102927) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_likes_on_question_id"
+    t.index ["user_id", "question_id"], name: "index_likes_on_user_id_and_question_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.integer "category_id"
     t.integer "drill_id"
@@ -51,6 +62,18 @@ ActiveRecord::Schema.define(version: 2021_07_11_102927) do
     t.string "problem"
     t.string "answer_key"
     t.integer "pc_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "synchro_key"
+    t.string "display_key"
+    t.integer "point"
+    t.string "problem_image_id"
+  end
+
+  create_table "user_questions", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "question_id"
+    t.boolean "answered_correct", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -68,6 +91,7 @@ ActiveRecord::Schema.define(version: 2021_07_11_102927) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "point"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

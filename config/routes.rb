@@ -1,28 +1,30 @@
 Rails.application.routes.draw do
-  
-  resources :questions
-  
-  namespace :admin do
-    get 'questions/index'
-    get 'questions/show'
-    get 'questions/edit'
-  end
-  
 devise_for :users, controllers: {
 sessions:      'users/sessions',
 passwords:     'users/passwords',
 registrations: 'users/registrations'
 }
 
+  resources :user_questions, only: [:update]
+
+  resources :users, only: [:show, :edit, :update] do
+    patch "update_user_point"  => "users#update_user_point"
+    collection do #idは付与しない
+      get 'unsubscribe' #退会画面
+      patch 'withdraw' #is_aciveを更新する
+    end
+  end
+  resources :categories
+  resources :commands
+  resources :questions
+  
+  resources :likes, only: [:create]
+  # post   '/like/:story_id' => 'likes#like',   as: 'like'
+  
+
+
 root to: "homes#top"
 get 'about' => 'homes#about'
-
-resources :users do
-  collection do #idは付与しない
-    get 'unsubscribe' #退会画面
-    patch 'withdraw' #is_aciveを更新する
-  end
-end
 
   root to: "homes#top"
   get 'about' => 'homes#about'
@@ -32,17 +34,16 @@ end
   post  'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
   post  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
   
-  resources :users do
-    collection do #idは付与しない
-      get 'unsubscribe' #退会画面
-      patch 'withdraw' #is_aciveを更新する
-    end
-  end
+
   
-    
-    
   devise_for :admins, controllers: {
     sessions: 'admins/sessions'
   }
+  
+  namespace :admin do
+    resources :categories, only: [:index, :edit, :create, :update]
+  end
+    
+
   
 end
