@@ -1,7 +1,8 @@
 class CategoriesController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @categories = Category.all
-    # @pc_type = set_pc_type
   end
 
   def show
