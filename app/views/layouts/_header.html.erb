@@ -1,7 +1,7 @@
 <header>
   <nav class="header-nav navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand p-3" href="/">Command_master</a>
+      <a class="navbar-brand p-4" href="/">Command_master</a>
       <% if user_signed_in? %>
         <span>ようこそ！<%= current_user.name %>さん</span>
       <% end %>
@@ -9,7 +9,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
+        <nav class="navbar navbar-light">
         <% if user_signed_in? %>
           <li class="nav-item"><%= link_to "マイページ", user_path(current_user) %></li>
           <li class="nav-item"><%= link_to "お問い合わせ" %></li>
@@ -23,13 +23,14 @@
           <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
         <% else %>
           <li class="nav-item"><%= link_to "About", about_path %></li>
-          <li class="nav-item"><%= link_to "練習する"  %></li>
-          <li class="nav-item"><%= link_to "新規登録", new_user_registration_path %></li>
-          <li class="nav-item"><%= link_to "ログイン", new_user_session_path %></li>
+          <li class="nav-item"><%= link_to "練習する", questions_path %></li>
+          <li class="nav-item"><%= link_to "Signup", new_user_registration_path %></li>
+          <li class="nav-item"><%= link_to "Login", new_user_session_path %></li>
         <% end %>
-        </ul>
+        </nav>
       </div>
     </div>
   </nav>
 
 </header>
+
