@@ -20,6 +20,8 @@ class User < ApplicationRecord
   end
   
   
-  has_many :answers
+  has_many :questions, through: :user_questions
+  has_many :user_questions
+  
   
 end

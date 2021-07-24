@@ -110,3 +110,64 @@
     0% {opacity:0;}
     100% {opacity:1;}
 }
+
+// #switch{
+// 	cursor:pointer;
+// 	width:200px;
+// 	height:50px;
+// 	background-image:url(./images/c_cloud9.png);
+// }
+// .active{
+// 	background-position:bottom;
+// }
+
+.main__inner {
+  position: relative;;
+  /*基準を画面の左上に*/
+  top: 0;
+  left: 0;
+  /*余白が入らないように*/
+  margin: 0;
+  /*以下装飾*/
+  width: 100%;
+  background: lightgreen;
+  color:white;
+}
+
+ .questions-item{
+  position: relative;;
+  /*基準を画面の左上に*/
+  top: 0;
+  left: 0;
+  /*余白が入らないように*/
+  margin: 0;
+  /*以下装飾*/
+  width: 100%;
+  background: lightgreen;
+  color:white;
+}
+
+.question-4{
+  position: relative;
+  /*基準を画面の左上に*/
+  top: 0;
+  left: 0;
+  /*余白が入らないように*/
+  margin: 0;
+  /*以下装飾*/
+  width: 100%;
+  background: lightgreen;
+  color:white;
+}
+#question-5{
+  position: relative;
+  /*基準を画面の左上に*/
+  top: 0;
+  left: 0;
+  /*余白が入らないように*/
+  margin: 0;
+  /*以下装飾*/
+  width: 100%;
+  background: lightgreen;
+  color:white;
+}

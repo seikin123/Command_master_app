@@ -4,7 +4,9 @@ class Question < ApplicationRecord
   #いいね機能
   has_many :likes, dependent: :destroy
   has_many :like_users, through: :likes, source: :user
-  
+  has_many :like_users, through: :likes, source: :user
+  attachment :problem_image
+
   def like?(user)
     like_users.include?(user)
   end
@@ -18,4 +20,7 @@ class Question < ApplicationRecord
       self.where(pc_type: 'Windows')
     end
   end
+  
+  has_many :users, through: :user_questions
+  has_many :user_questions
 end

@@ -1,6 +1,7 @@
 require_relative '../level/calcuserlevel.rb'#レベルあっぷ処理
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  # skip_before_action :verify_authenticity_token
   
   def show
     @user = current_user
@@ -13,9 +14,18 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-    redirect_to user_path(@user.id),notice: 'successfully updated!'
+      redirect_to user_path(@user.id),notice: 'successfully updated!'
     else
       render :edit
+    end
+  end
+  
+  def update_user_point
+    unless current_user.nil?
+     if current_user.update(experience_point: params[:user][:experience_point])
+      # byebug
+       redirect_to user_path(current_user)
+     end
     end
   end
   
@@ -27,13 +37,18 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
   
-  def create
-    if current_user.nil?
-      @user = User.new(user_params)
-    # byebug
-      @user.save!
-    end
-  end
+  # def create
+  #   if current_user.nil?
+  #     @user = User.new(user_params)
+  #   if @user.save
+  #     # return head :unprocessable_entity 
+  #     redirect_to action: :show
+  #   else
+  #     return head :unprocessable_entity
+  #   end
+  #     head :ok
+  #   end
+  # end
   
  private
   def user_params

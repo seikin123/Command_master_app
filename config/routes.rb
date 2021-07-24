@@ -5,7 +5,10 @@ passwords:     'users/passwords',
 registrations: 'users/registrations'
 }
 
-  resources :users do
+  resources :user_questions, only: [:update]
+
+  resources :users, only: [:show, :edit, :update] do
+    patch "update_user_point"  => "users#update_user_point"
     collection do #idは付与しない
       get 'unsubscribe' #退会画面
       patch 'withdraw' #is_aciveを更新する
