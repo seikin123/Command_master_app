@@ -126,4 +126,160 @@ body, html {
 
 .devise-form {
   size: 60;
+// .col-12 {
+//   margin:20px 0px;
+//   background:pink;
+//   height:100px;
+//   line-height:100px;
+// }
+// .test-box {
+//   width:100px; 
+//   background:orange;
+//   text-align:center;
+// }
+
+.bread ul {
+  display: flex; /* 子要素(li)を横一列に並べる */
+  list-style-type: none; /* リスト要素に表示されている"・"を非表示 */
+}
+
+.bread li a {
+  padding: 5px; /* リンク間の間隔を調整 */
+  color: green; /* リンクの文字色を調整 */
+  font-size: 24px; /* リンクの文字サイズを調整 */
+  text-decoration: none; /* リンクの下線を非表示 */
+}
+
+.bread li a:hover {
+  background-color: lightgreen; /* カーソルをリンクの上に乗せたときの背景色 */
+}
+
+.bread li:after {
+  content: '\003e'; /* 「>」を要素間の区切り文字として表示 */
+  margin-left: 10px; /* 区切り文字と要素の間隔を調整 */
+  margin-right: 10px; /* 区切り文字と要素の間隔を調整 */
+  color: green; /* 区切り文字の文字色 */
+}
+
+// スペースキー
+#main {
+  text-align: center;
+}
+
+#content {
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 400px;
+  height: 60px;
+  margin: 0 auto;
+}
+
+#yomi {
+  top: 15px;
+  font-size: 20px;
+  position: relative;
+}
+
+#mondai {
+  display: flex;
+  justify-content: center; /* 子要素をflexboxにより中央に配置する */
+  font-size: 2.4rem;
+}
+
+.text {
+  padding: 2px;  
+}
+
+.text.default {
+  color: #f3f3f3;
+  text-shadow: 1px 1px 0 #000,
+             -1px 1px 0 #000,
+             1px -1px 0 #000,
+             -1px -1px 0 #000;
+}
+
+.text.correct {
+  color: black;
+  text-shadow: none;
+}
+
+// 点滅させている
+.blinking{
+    -webkit-animation:blink 1.5s ease-in-out infinite alternate;
+    -moz-animation:blink 1.5s ease-in-out infinite alternate;
+    animation:blink 1.5s ease-in-out infinite alternate;
+}
+@-webkit-keyframes blink{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+@-moz-keyframes blink{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@keyframes blink{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+// #switch{
+// 	cursor:pointer;
+// 	width:200px;
+// 	height:50px;
+// 	background-image:url(./images/c_cloud9.png);
+// }
+// .active{
+// 	background-position:bottom;
+// }
+
+.main__inner {
+  position: relative;;
+  /*基準を画面の左上に*/
+  top: 0;
+  left: 0;
+  /*余白が入らないように*/
+  margin: 0;
+  /*以下装飾*/
+  width: 100%;
+  background: lightgreen;
+  color:white;
+}
+
+ .questions-item{
+  position: relative;;
+  /*基準を画面の左上に*/
+  top: 0;
+  left: 0;
+  /*余白が入らないように*/
+  margin: 0;
+  /*以下装飾*/
+  width: 100%;
+  background: lightgreen;
+  color:white;
+}
+
+.question-4{
+  position: relative;
+  /*基準を画面の左上に*/
+  top: 0;
+  left: 0;
+  /*余白が入らないように*/
+  margin: 0;
+  /*以下装飾*/
+  width: 100%;
+  background: lightgreen;
+  color:white;
+}
+#question-5{
+  position: relative;
+  /*基準を画面の左上に*/
+  top: 0;
+  left: 0;
+  /*余白が入らないように*/
+  margin: 0;
+  /*以下装飾*/
+  width: 100%;
+  background: lightgreen;
+  color:white;
 }

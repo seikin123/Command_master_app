@@ -4,13 +4,13 @@
     <%= attachment_image_tag @user, :profile_image, size: "140x140", fallback: "no_image.jpg"%>
     </h3>
     <p id="profile-name" class="profile-name-card"></p>
-    
+
     <table class="table">
        <tr>
         <th>名前</th>
         <th><%= @user.name %></th>
        </tr>
-      
+
       <tr>
         <th>レベル</th>
         <th>Lv. <%= @user.level %></th>
@@ -23,6 +23,6 @@
         <th><%= link_to "編集", edit_user_path(@user),  class:"btn btn-info w-auto" %></th>
         <th></th>
       </tr>
-    </table>  
-  
+    </table>
+
 </div>

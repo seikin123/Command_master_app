@@ -11,12 +11,10 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <nav class="navbar navbar-light">
         <% if user_signed_in? %>
-          <li class="nav-item"><%= link_to "練習する", questions_path %></li>
-          <li class="nav-item"><%= link_to "コマンド一覧表" %></li>
-          <li class="nav-item"><%= link_to "HOME", root_path %></li>
-          <li class="nav-item"><%= link_to "MY PAGE", user_path(current_user) %></li>
-          <li class="nav-item"><%= link_to "MAIL", inquiry_path %></li>
-          <li class="nav-item"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+          <li class="nav-item"><%= link_to "マイページ", user_path(current_user) %></li>
+          <li class="nav-item"><%= link_to "お問い合わせ" %></li>
+          <li class="nav-item"><%= link_to "練習する", categories_path %></li>
+          <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
         <% elsif admin_signed_in? %>
           <li class="nav-item"><%= link_to "会員一覧" %></li>
           <li class="nav-item"><%= link_to "問題一覧" %></li>

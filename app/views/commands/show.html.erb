@@ -1,0 +1,5 @@
+
+<%= @question.display_key %>
+<%= @question.id %>
+<%= render 'likes/like', question: @question %>
+<%= javascript_include_tag 'like.js' %>
