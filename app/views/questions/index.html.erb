@@ -17,7 +17,7 @@
       </div>
       <div class="start-message" >
         <div id="content"> 
-          <p class="blinking text-align" id="yomi">「スペースキー」を押すとスタートします</p>
+          <p class="blinking" id="yomi">「スペースキー」を押すとスタートします</p>
         </div>
       </div>
     </div>
@@ -41,14 +41,14 @@
         <div class="card" style="width: 80rem;">
          <div class="content row" style="height: auto !important;">
             <div class="mx-auto test-box">
-          <div class="row justify-content-around" style="margin-top: 30px;">
+          <div class="row justify-content-around" style="margin-top: 10px;">
             <div class="leftnav col-2" id="leftber">
               <div class="col-xs-12">
                 <h3>Command</h3>
               </div>
-                <p>⌘ - Command</p>
-                <p>⌥ - Option</p>
-                <p> ⇧ - Shift</p>
+                <p>Ctrl / ⌘ - Command</p>
+                <p>Alt / ⌥ - Option</p>
+                <p>Shift /  ⇧ - Shift</p>
                 <p>⌃ - Control</p>
                 <p>⏎ - Enter </p>
                 <p>/Delete Fn + ⌫</p>
@@ -66,13 +66,13 @@
                               <%= attachment_image_tag question, :problem_image, size: "545x300", fallback: "giphy.gif" %>
                             </div>
                             <!--<div class="box_head">-->
-                          <div id="display"><%= question.display_key %></div>
-                             
+                          <div class="display" id="input">  <%= question.display_key %></div>   
+                          <div id="display" ><%= question.display_key %></div>
                           <!--<span id="right" style='display: none;'></span>-->
                         </div>
                       <% end %>
                         <div class="inputarea">
-                         <div id="input"></div>
+                         <div  style="display: none;"></div>
                          <div id="command" style="display: none;"></div>
                         </div>
                     </div>
@@ -81,11 +81,11 @@
               </div>
               <div class="rightnav col-3 col-xs-5" id="rightber">
                 <div class="rightnav__inner">
-                  <h4>注意コマンド</h4>
+                  <h3>Stop Command</h3>
                   <div class="preList_wrap">
                     <ul class="preList" style="top: 8opx;">
                       <li>Mac下記を同時に押さないでください</li>
-                      <li>⌘ + W, ⌘ + Q, </li>
+                      <li>⌘ + W, ⌘ + Q </li>
                       <span id="center" style='display: none;'></span>
                       <li><div id="answer"></div></li>
                     </ul>
@@ -96,9 +96,9 @@
                       <div class="mt20"></div>
                         <aside class>
                         <ul class>
-                          <li class="sidebar__rank__li">
-                          <%= link_to "コマンド一覧", commands_path %>
-                          </li>
+                          <!--<li class="sidebar__rank__li">-->
+                          <%= link_to "コマンド一覧", commands_path, class:"btn btn-primary"%>
+                          <!--</li>-->
                         </ul>
                         </aside>
                       </div>

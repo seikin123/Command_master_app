@@ -162,13 +162,13 @@ body, html {
 
 .bread li a {
   padding: 5px; /* リンク間の間隔を調整 */
-  color: green; /* リンクの文字色を調整 */
+  // color: ; /* リンクの文字色を調整 */
   font-size: 24px; /* リンクの文字サイズを調整 */
   text-decoration: none; /* リンクの下線を非表示 */
 }
 
 .bread li a:hover {
-  background-color: lightgreen; /* カーソルをリンクの上に乗せたときの背景色 */
+  background-color: lightgray; /* カーソルをリンクの上に乗せたときの背景色 */
 }
 
 .bread li:after {
@@ -194,7 +194,7 @@ body, html {
 #yomi {
   top: 15px;
   font-size: 20px;
-  position: relative;
+   text-align: center;
   
 }
 
@@ -266,6 +266,15 @@ blink{
   font-size: 20px;
 }
 
+.display {
+  font-size: 40px;
+  color: white;
+  background: black;
+  pading: 2em;
+  // width: 30rem;
+  border-radius: 8px;
+}
+
 #display {
   font-size: 40px;
   color: white;
@@ -289,4 +298,21 @@ blink{
     margin: 2em 0;
     font-weight: bold;
     border: solid 3px #000000;
+}
+
+.rightnav {
+  background: lightgray;
+  // color: ;
+}
+
+.leftnav {
+  background: lightgray;
+  // color: ;
+}
+
+.problem {
+  padding: 1rem;
+  // margin
+  backgrond: green;
+  border: solid 3px black;
 }
