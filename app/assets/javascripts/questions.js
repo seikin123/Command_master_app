@@ -210,7 +210,7 @@ $(document).ready(function () {
     Command: toastr["success"](`${questions[i].display_key} 正解!!!`)
     command.innerHTML = `<span id="center">${questions[i].display_key}</span>`;
   }
-  
+  // 不正解メッセージ
   function falseFlash(miss) {
     toastr.options = {
         "closeButton": false,
@@ -231,6 +231,27 @@ $(document).ready(function () {
     }
     Command: toastr["error"](`${miss} 不正解!!!`)
   }
+  // スタートメッセージ
+    function startFlash() {
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": true,
+        "progressBar": false,
+        "positionClass": "toast-top-full-width",
+        "preventDuplicates": true,
+        "onclick": null,
+        "showDuration": "1000",
+        "hideDuration": "1000",
+        "timeOut": "1000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+    Command: toastr["warning"](`スタート!!!`)
+  }
   
   //問題の表示
   function roop() {
@@ -250,6 +271,7 @@ $(document).ready(function () {
   // スタート表示
   function startPress(e) {
     if (!start_game && e.keyCode === 32) {
+      startFlash()
       $(".start-message").hide();
       $('#questions').show();
       $('#question-' + i).show();
@@ -278,6 +300,8 @@ $(document).ready(function () {
     //タイマー・終了判定が出たら
   function finishAnswer() {
     $(".finish").show();
+    $(".leftber").hide;
+    $(".rightber").hide;
     $("#answer").text('');
     const end_time = performance.now();
     const typing_time = ( (end_time - start_time) / 1000).toFixed(2);
@@ -306,12 +330,15 @@ $(document).ready(function () {
       })
       // 処理が上手く行ったらボタンを切り替えて
     .done((data) => {
-      alert('成功しました');
+        window.location.href = '/users/:id';
+      alert(`${typing_time}お疲れ様でした！`);
+      // リダイレクトの処理を書く
       console.log(answer);
      })
       // 処理が上手く行かなかったら失敗の旨を伝えるアラートを表示
     .fail((data) => {
-      alert('失敗しました');
+      window.location.href = "/users/:id";
+      alert(`タイムは${typing_time}秒です。お疲れ様でした。`);
     })
   }
   
@@ -351,7 +378,7 @@ document.addEventListener("keydown", e => {
         trueFlash();
         roop(); 
       } else {
-        nomatch(event.key);
+        // nomatch(event.key);
     }
   });
 });

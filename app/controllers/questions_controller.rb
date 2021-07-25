@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
     else
       redirect_to categories_path
     end
-    @user_id = current_user
+      @user_id = current_user
     # byebug
   end
       # @products = @category.products
