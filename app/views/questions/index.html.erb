@@ -1,18 +1,29 @@
-   <div class="wrapper" >
+<div class="wrapper fullheight" style="height: auto !important;">
      <div class="row contentWidth">
         
-        <div class="bread col-9 col-s-10">
+        <div class="bread col-9 col-s-10" style="margin-top: 20px;">
          <div class="bread__inner">
            <ul>
              <li class="bread__li"><%= link_to "Home", root_path %></li>
              <li class="bread__li"><%= link_to "category", categories_path %></li>
-             <li class="bread__li"><%= link_to "Vscode", categories_path %></li>
-             <!--<li class="bread__li"><%= link_to "Vscode", categories_path %></li>-->
+             <li class="bread__li"><%= link_to @category.name, categories_path %></li>
            </ul>
          </div>
+              <div class="mb15">
+      <div class="finish" id="main" style="display: none;">終了しました。
+         <div id="time-message"></div>
+        <div><%= link_to "Retry" %></div>
+        <div><%= link_to "" %></div>
+      </div>
+      <div class="start-message" >
+        <div id="content"> 
+          <p class="blinking text-align" id="yomi">「スペースキー」を押すとスタートします</p>
+        </div>
+      </div>
+    </div>
         </div>
 
-           <div class="level col-3 col-s-10 pl-s10 pr-s10">
+           <div class="level col-3 col-s-10 pl-s10 pr-s10" style="margin-top: 5px;">
              <div class="dispPoint">
                <div class="row">
                  <div class="col-5">
@@ -27,12 +38,11 @@
              </div>
            </div>
           </div>
-          <div class="col-12 h-50 w-100" >
+        <div class="card" style="width: 80rem;">
+         <div class="content row" style="height: auto !important;">
             <div class="mx-auto test-box">
-          <div class="container row" style="margin-top: 20px, position-relative;">
-
-
-            <div class="leftnav col-2">
+          <div class="row justify-content-around" style="margin-top: 30px;">
+            <div class="leftnav col-2" id="leftber">
               <div class="col-xs-12">
                 <h3>Command</h3>
               </div>
@@ -44,101 +54,69 @@
                 <p>/Delete Fn + ⌫</p>
             </div>
             
-              <div class="col-8 justify-content">
+              <div class="col-6">
                 <div class="main__inner">
                     <div class="question__wrap">
-                       <% @questions_json.each_with_index do |question, idx| %>
+                      <% @questions_json.each_with_index do |question, idx| %>
                         <div id="question-<%= idx %>" class="questions-item" style="<%= idx == 0 ? '' : 'display: none;' %>">
                           <span class="problem">問題 :<%= question.problem %></sapn>
-                          <% sum = 1 %>
-                          <span><%= sum += idx %> / 10</span>
+                          
+                          <span class="number_questions"><%= idx + 1 %> / 10</span>
                             <div class="previewArea__wrap">
-                               <%= attachment_image_tag question, :problem_image, size: "500x300", fallback: "giphy.gif" %>
+                              <%= attachment_image_tag question, :problem_image, size: "545x300", fallback: "giphy.gif" %>
                             </div>
-                          <span id="display"><%= question.display_key %></span>
+                            <!--<div class="box_head">-->
+                          <div id="display"><%= question.display_key %></div>
+                             
                           <!--<span id="right" style='display: none;'></span>-->
                         </div>
-                    </div>
                       <% end %>
-                       <div class="rightnav col-2 col-xs-5">
+                        <div class="inputarea">
+                         <div id="input"></div>
+                         <div id="command" style="display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+              </div>
+              <div class="rightnav col-3 col-xs-5" id="rightber">
                 <div class="rightnav__inner">
-                  <h2>注意コマンド</h2>
+                  <h4>注意コマンド</h4>
                   <div class="preList_wrap">
                     <ul class="preList" style="top: 8opx;">
                       <li>Mac下記を同時に押さないでください</li>
                       <li>⌘ + W, ⌘ + Q, </li>
-                      <span id="right" style='display: none;'></span>
+                      <span id="center" style='display: none;'></span>
                       <li><div id="answer"></div></li>
                     </ul>
                   </div>
                   <div id="switch"></div>
                     <div class="preList_wrap">
-                      <h4>各コマンド説明はこちら！↓↓↓↓</h4>
-                        <div class="mt20"></div>
-                          <aside class>
-                            <ul class>
-                              <li class="sidebar__rank__li">
-                                <%= link_to "コマンド一覧", commands_path %>
-                              </li>
-                            </ul>
-                          </aside>
-                        </div>
+                      <h5>コマンド説明はこちら</h5>
+                      <div class="mt20"></div>
+                        <aside class>
+                        <ul class>
+                          <li class="sidebar__rank__li">
+                          <%= link_to "コマンド一覧", commands_path %>
+                          </li>
+                        </ul>
+                        </aside>
+                      </div>
                     </div>
                   </div>
                 </div>
-               </div>
-                  <div class="inputarea">
-                   <div id="input"></div>
-                   <div id="command"></div>
-                  </div>
               </div>
-        
+             </div>
+            </div>
 
-               <!--<div class="rightnav col-2 col-xs-5">-->
-               <!-- <div class="rightnav__inner">-->
-               <!--   <h2>注意コマンド</h2>-->
-               <!--   <div class="preList_wrap">-->
-               <!--     <ul class="preList" style="top: 8opx;">-->
-               <!--       <li>Mac下記を同時に押さないでください</li>-->
-               <!--       <li>⌘ + W, ⌘ + Q, </li>-->
-               <!--       <span id="right" style='display: none;'></span>-->
-               <!--       <li><div id="answer"></div></li>-->
-               <!--     </ul>-->
-               <!--   </div>-->
-               <!--   <div id="switch"></div>-->
-               <!--     <div class="preList_wrap">-->
-               <!--       <h4>各コマンド説明はこちら！↓↓↓↓</h4>-->
-               <!--         <div class="mt20"></div>-->
-               <!--           <aside class>-->
-               <!--             <ul class>-->
-               <!--               <li class="sidebar__rank__li">-->
-               <!--                 <%= link_to "コマンド一覧", commands_path %>-->
-               <!--               </li>-->
-               <!--             </ul>-->
-               <!--           </aside>-->
-               <!--         </div>-->
-               <!--     </div>-->
-               <!--   </div>-->
-               <!-- </div>-->
-               <!--</div>-->
+        
                
           </div>     
         </div>
   </div>
 </div>
     
-    <div class="mb15">
-      <div class="finish" id="main" style="display: none;">終了しました。
-          <div id="time-message"></div>
-          <div><%= link_to "Retry" %></div>
-          <div><%= link_to "" %></div>
-      </div>
-      <div class="start-message" >
-        <div id="content"> 
-          <p class="blinking" id="yomi">「スペースキー」を押すとスタートします</p>
-        </div>
-      </div>
-    </div>
+  
   
   <!--jsにデータを渡している-->
         <input type="hidden" id="questions_json" value="<%= @questions_json.to_json %>">
