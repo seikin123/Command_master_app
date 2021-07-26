@@ -4,8 +4,14 @@ Rails.application.routes.draw do
   passwords:     'users/passwords',
   registrations: 'users/registrations'
   }
-
-  resources :user_questions, only: [:update]
+  
+  root to: "homes#top"
+  get 'about' => 'homes#about'
+  
+  # ゲストログイン用
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  end
 
   resources :users, only: [:show, :edit, :update] do
     put "update_user_point"  => "users#update_user_point"
@@ -21,8 +27,7 @@ Rails.application.routes.draw do
   
   resources :likes, only: [:create]
   
-  root to: "homes#top"
-  get 'about' => 'homes#about'
+  
   
   #お問い合わせ機能のルーティング
   get   'inquiry'         => 'inquiry#index'     # 入力画面
