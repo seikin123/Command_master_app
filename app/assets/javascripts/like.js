@@ -1,13 +1,13 @@
 $(function(){
   // CSRFトークンの追加
-  $.ajaxPrefilter( (options, originalOptions, jqXHR) => {
-      if (!options.crossDomain) {
-        const token = $('meta[name="csrf-token"]').attr('content');
-        if (token) {
-            return jqXHR.setRequestHeader('X-CSRF-Token', token);
-        }
-      }
-    });
+  // $.ajaxPrefilter( (options, originalOptions, jqXHR) => {
+  //     if (!options.crossDomain) {
+  //       const token = $('meta[name="csrf-token"]').attr('content');
+  //       if (token) {
+  //           return jqXHR.setRequestHeader('X-CSRF-Token', token);
+  //       }
+  //     }
+  //   });
   // id="link-mark"の箇所(いいねボタン)をクリックしたら
     $('.link-mark').on('click', function(){
       console.log("a");
