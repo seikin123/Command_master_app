@@ -176,7 +176,7 @@ $(document).ready(function () {
     })
   }
 
-document.addEventListener("keydown", e => {
+document.addEventListener("keydown", function(e) {
 
       e.preventDefault();
       console.log(e.key)
