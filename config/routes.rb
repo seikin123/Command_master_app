@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-devise_for :users, controllers: {
-sessions:      'users/sessions',
-passwords:     'users/passwords',
-registrations: 'users/registrations'
-}
+  devise_for :users, controllers: {
+  sessions:      'users/sessions',
+  passwords:     'users/passwords',
+  registrations: 'users/registrations'
+  }
 
   resources :user_questions, only: [:update]
 
@@ -14,18 +14,13 @@ registrations: 'users/registrations'
       patch 'withdraw' #is_aciveを更新する
     end
   end
+  
   resources :categories
   resources :commands
   resources :questions
   
   resources :likes, only: [:create]
-  # post   '/like/:story_id' => 'likes#like',   as: 'like'
   
-
-
-root to: "homes#top"
-get 'about' => 'homes#about'
-
   root to: "homes#top"
   get 'about' => 'homes#about'
   
@@ -34,15 +29,15 @@ get 'about' => 'homes#about'
   post  'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
   post  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
   
-
+  namespace :admin do
+    resources :categories, only: [:index, :edit, :create, :update]
+  end
   
   devise_for :admins, controllers: {
     sessions: 'admins/sessions'
   }
   
-  namespace :admin do
-    resources :categories, only: [:index, :edit, :create, :update]
-  end
+
     
 
   
