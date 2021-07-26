@@ -22,12 +22,21 @@ class UsersController < ApplicationController
   
   def update_user_point
     unless current_user.nil?
-     if current_user.update(experience_point: params[:user][:experience_point])
+      now_point = User.point.to_s
+      already_point = 10
+      total_point = now_point + already_point
+     if current_user.update(experience_point: total_point)
+    # if current_user.update(experience_point: params[:user][:experience_point])
       # byebug
        redirect_to user_path(current_user)
      end
     end
   end
+  
+    #     now_point = User.experience_point.to_s
+    #   already_point = experience_point
+    #   total_point = now_point + already_point
+    # if current_user.update(experience_point: total_point)
   
   def withdraw
     user = current_user

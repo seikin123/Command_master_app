@@ -19,9 +19,4 @@ class User < ApplicationRecord
     super && (self.is_active == true)
   end
   
-  
-  has_many :questions, through: :user_questions
-  has_many :user_questions
-  
-  
 end

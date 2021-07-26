@@ -1,31 +1,18 @@
 
-      <h4>ジャンル一覧・追加</h4>
-    
-    <!--<= render 'customers/shared/error_messages', resource: @category %>-->
-    
-      <%= form_with model: [:admin, @category], local:true do |f| %>
-      
-        <%= f.text_field :name, placeholder: "カテゴリー名" %>
-        <%= f.attachment_field :category_image %>
-        <%= f.submit '新規登録', class: "btn  btn-sm btn-secondary" %>
-      
-      <% end %>
-    
-
-
-              <td>カテゴリー</td>
-        <table>
-          </thead>
-          <tbody>
-            <% @categories.each do |category| %>
-            <tr>
-              <th>
-                <td><%= category.name %></td>
-                <td><%= attachment_image_tag category, :category_image, size: "100x100", fallback: "no_image.jpg" %></td>
-                <td><%= link_to "編集", edit_admin_category_path(category.id) %>
-                </td>
-              </th>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
+<h4>ジャンル一覧・追加</h4>
+  <td>カテゴリー</td>
+    <table>
+      </thead>
+        <tbody>
+        <% @categories.each do |category| %>
+          <tr>
+            <th>
+              <td><%= category.name %></td>
+              <td><%= attachment_image_tag category, :category_image, size: "100x100", fallback: "no_image.jpg" %></td>
+              <td><%= link_to "編集", edit_admin_category_path(category.id) %>
+              </td>
+            </th>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>

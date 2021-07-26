@@ -5,8 +5,17 @@ class Question < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :like_users, through: :likes, source: :user
   has_many :like_users, through: :likes, source: :user
+  
   attachment :problem_image
-
+  
+  validates :category_id, presence: true
+  validates :problem_image, presence: true
+  validates :pc_type, presence: true
+  validates :problem, length: { in: 1..75 } 
+  validates :answer_key, presence: true, length: { in: 1..75}
+  validates :synchro_key, presence: true, length: { in: 1..75}
+  validates :display_key, presence: true length: { in: 1..75}
+  
   def like?(user)
     like_users.include?(user)
   end
@@ -21,6 +30,4 @@ class Question < ApplicationRecord
     end
   end
   
-  has_many :users, through: :user_questions
-  has_many :user_questions
 end

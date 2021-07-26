@@ -16,31 +16,8 @@
 @import "bootstrap";
 
 
-
-// header {
-//     // position: fixed;
-//     width: 100%;
-//     height: 100px;
-//     // background-color: #d4d4d4;
-// }
-
-.font {
-    font-size: 40px;
-    font-family: 'arial black'	, cursive;
-}
-
- .jumbotron { background:url(vs2.jpeg) center no-repeat; background-size: cover; height: 400px;}
- 
- html {
-  height: 100%;
-}
-
-.fullheight {
-  height: 100%;
-  background: #bbddff;
-}
- 
- body {
+// 全体
+body {
   height: 100%;
   margin: 0;
   display: flex;
@@ -48,14 +25,10 @@
   min-height: 100vh;
   // background-color: ligh;
 }
+
 main {
   flex: 1;
 }
-
-.command {
-    color :lightgray;
-}
-
 footer {
   background-color: gray;
 }
@@ -66,11 +39,51 @@ body, html {
     // background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
 }
 
-.card-container.card {
-    max-width: 350px;
-    padding: 40px 40px;
+// 小見出し文字
+h2 {
+  position: relative;
+  padding: 1.5rem;
+  text-align: center;
 }
 
+h2 span {
+  font-size: 18px;
+  font-size: 1.8rem;
+  display: block;
+}
+
+h2:before {
+  position: absolute;
+  bottom: -10px;
+  left: calc(50% - 30px);
+  width: 60px;
+  height: 5px;
+  content: '';
+  border-radius: 3px;
+  background: green;
+}
+// 全体の文字
+.font {
+    font-size: 40px;
+    font-family: 'sans-serif'	, cursive;
+}
+
+// top画面
+ .jumbotron { background:url(vs2.jpeg) center no-repeat; background-size: cover; height: 400px;}
+ 
+ html {
+  height: 100%;
+}
+
+.fullheight {
+  height: 100%;
+  background: #bbddff;
+}
+.command {
+    color :lightgray;
+}
+
+// ボタン
 .btn {
     font-weight: 700;
     height: 40px;
@@ -78,6 +91,10 @@ body, html {
     -webkit-user-select: none;
     user-select: none;
     cursor: default;
+}
+.card-container.card {
+    max-width: 350px;
+    padding: 40px 40px;
 }
 
 /*
@@ -88,7 +105,8 @@ body, html {
     /* just in case there no content*/
     padding: 20px 25px 30px;
     margin: 0 auto 25px;
-    margin-top: 50px;
+    margin-top: 25px;
+    // border-radius: 8px;
     /* shadows and rounded borders */
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
@@ -126,7 +144,7 @@ body, html {
 }
 
 
-
+// ログイン機能
 .form-signin #inputEmail,
 .form-signin #inputPassword {
     direction: ltr;
@@ -155,6 +173,7 @@ body, html {
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
 }
 
+// パンクズリスト
 .bread ul {
   display: flex; /* 子要素(li)を横一列に並べる */
   list-style-type: none; /* リスト要素に表示されている"・"を非表示 */
@@ -178,7 +197,7 @@ body, html {
   color: green; /* 区切り文字の文字色 */
 }
 
-// // スペースキー
+// // question画面のスペースキー
 #main {
   text-align: center;
 }
@@ -191,12 +210,12 @@ body, html {
   margin: 0 auto;
 }
 
-#yomi {
-  top: 15px;
-  font-size: 20px;
-   text-align: center;
+// #yomi {
+//   top: 15px;
+//   font-size: 20px;
+//   text-align: center;
   
-}
+// }
 
 #mondai {
   display: flex;
@@ -241,21 +260,21 @@ blink{
     100% {opacity:1;}
 }
 
-// body {
-// background-color: ＃F4F5F7;
-// }
-// // #switch{
-// // 	cursor:pointer;
-// // 	width:200px;
-// // 	height:50px;
-// // 	background-image:url(./images/c_cloud9.png);
-// // }
-// // .active{
-// // 	background-position:bottom;
-// // }
+#yomi {
+    padding: 1em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    border: solid 3px #000000;
+    border-radius: 8px;
+    text-align: center;
+}
 
 .dispPoint {
   backgrond: lightgreen;
+    padding: 0.5em 1em;
+    // margin: 2em 0;
+    font-weight: bold;
+    // border: solid 3px #000000;
 }
 
 .number_questions {
@@ -275,24 +294,15 @@ blink{
   border-radius: 8px;
 }
 
-#display {
+#dis {
   font-size: 40px;
-  color: white;
-  background: black;
+  color:  #ffffff;;
+  // background: black;
   margin: 2em;
   width: 30rem;
   border-radius: 8px;
 }
 
-.kakomi-maru1 {
- margin: 2em auto;  
- padding: 30em;
- width: 90%; /*幅の調節*/
- color: #666666; /*文字色*/
- background-color: #f7f7f7; /*背景色*/
- border: 2px solid #ccc; /*線の太さ・色*/
- border-radius: 8px; /*角の丸み*/ 
-}
 .box1 {
     padding: 0.5em 1em;
     margin: 2em 0;
@@ -300,19 +310,38 @@ blink{
     border: solid 3px #000000;
 }
 
+// question画面
 .rightnav {
   background: lightgray;
+   border-radius: 8px;
   // color: ;
 }
 
 .leftnav {
   background: lightgray;
+   border-radius: 8px;
   // color: ;
 }
 
 .problem {
-  padding: 1rem;
-  // margin
-  backgrond: green;
-  border: solid 3px black;
+   text-align:center;
+   border-radius: 10px;
+   font-family: 'sans-serif'	, cursive;
+   backgrond: green;
+  // border: solid 3px black;
+}
+
+.c-nav {
+  text-align:center;
+}
+
+.previewArea__wrap {
+  margin : 5px ;
+
+}
+
+
+.box1 p {
+    margin: 0; 
+    padding: 0;
 }
