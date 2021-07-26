@@ -66,7 +66,7 @@ gem "refile-mini_magick"
 gem 'dotenv-rails'
 gem 'bootstrap', '~> 4.5'
 gem "jquery-rails"
-
+gem 'rails-i18n'
 gem 'enum_help'
 #os判定
 gem "rack-user_agent"

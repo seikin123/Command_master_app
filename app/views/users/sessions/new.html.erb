@@ -2,8 +2,9 @@
     <h3>Log in</h3>
       <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
       <p id="profile-name" class="profile-name-card"></p>
-    <!--<= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>-->
+     <ul class="alert text-danger"><%= alert %></ul>
     <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+    
       <div class="form-inline">
         <%= f.label :name %><br/>
         <%= f.text_field :name, autofocus: true, autocomplete: "name", size: 55; %>

@@ -14,7 +14,7 @@ class Question < ApplicationRecord
   validates :problem, length: { in: 1..75 } 
   validates :answer_key, presence: true, length: { in: 1..75}
   validates :synchro_key, presence: true, length: { in: 1..75}
-  validates :display_key, presence: true length: { in: 1..75}
+  validates :display_key, presence: true, length: { in: 1..75}
   
   def like?(user)
     like_users.include?(user)
