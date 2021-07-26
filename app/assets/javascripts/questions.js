@@ -140,9 +140,10 @@ $(document).ready(function () {
     var typing_time = ( (end_time - start_time) / 1000).toFixed(0);
     $timeMessage.text('かかった時間：'+typing_time+'秒');
     //CSRFトークン  
-    $.ajaxPrefilter( (options, originalOptions, jqXHR) => {
+    $.ajaxPrefilter( function(options, originalOptions, jqXHR) {
+      var token;
       if (!options.crossDomain) {
-        var token = $('meta[name="csrf-token"]').attr('content');
+        token = $('meta[name="csrf-token"]').attr('content');
         if (token) {
           return jqXHR.setRequestHeader('X-CSRF-Token', token);
         }
@@ -162,14 +163,14 @@ $(document).ready(function () {
         dataType: 'json'
       })
       // 処理が上手く行ったらボタンを切り替えて
-    .done((data) => {
+    .done(function(data) {
         // window.location.href = '/users/:id';
       // alert(`${typing_time}お疲れ様でした！`);
       // リダイレクトの処理を書く
       console.log(answer);
      })
       // 処理が上手く行かなかったら失敗の旨を伝えるアラートを表示
-    .fail((data) => {
+    .fail(function(data)  {
       // window.location.href = "/users/:id";
       // alert(`タイムは${typing_time}秒です。お疲れ様でした。`);
     })
