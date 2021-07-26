@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+  <% unless question.like?(current_user) %>
+    <a class="btn btn-primary text-white link-mark" data-question_id="<%= question.id %>">いいね！</a>
+    <!--<a class="btn btn-primary text-white" id="question_<= question.id %>">いいね！</a>-->
+  <% else %>
+    <a class="btn btn-secondary text-white link-mark" data-question_id="<%= question.id %>">いいね！を取り消す</a>
+  <% end %>
+<% end %>
+

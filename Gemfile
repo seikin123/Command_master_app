@@ -64,6 +64,10 @@ gem 'devise'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'dotenv-rails'
-group :production do
-  gem 'mysql2'
-end
+gem 'bootstrap', '~> 4.5'
+gem "jquery-rails"
+gem 'rails-i18n'
+gem 'enum_help'
+#os判定
+gem "rack-user_agent"
+gem 'seed-fu'

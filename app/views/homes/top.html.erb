@@ -1,2 +1,48 @@
-<h1>ホームズ</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<!--　▼ ジャンボトロン　 -->
+<!--<div id="splash">-->
+<!--<div id="splash_text"></div>-->
+<!--</div>-->
+<!--<div id="container">-->
+<!--</div>-->
+<div class"container">
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="command">Command-Master</h1>
+        <%= link_to "S T A R T", questions_path, class:"btn btn-primary btn-lg"%>
+      </div>
+    </div>
+
+    <div class="row mb-2">
+      <div class="col-md-6">
+        <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+          <div class="card-body d-flex flex-column align-items-start">
+            <span class="d-inline-block mb-2 text-primary"></span>
+              <h4 class="mb-0">色々なコマンドを<br>
+                               ゲーム感覚で学ぶことができます。</h4>
+              <div class="mb-1 text-muted">
+                <p class="card-text mb-auto"><%= link_to "試してみる", categories_path %></p>
+              </div>
+            </div>
+          <img class="card-img-right flex-auto d-none d-lg-block" style="width: 200px; height: 250px;">
+          </img>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+          <div class="card-body d-flex flex-column align-items-start">
+            <span class="d-inline-block mb-2 text-primary"></span>
+              <h4 class="mb-0">忘れがちなコマンドも<br>
+                               ブックマークしておきましょう</h4>
+              <div class="mb-1 text-muted">
+                <p class="card-text mb-auto"></p>
+              </div>
+            </div>
+           <img 
+           class="card-img-right flex-auto d-none d-lg-block" style="width: 200px; height: 250px;">
+          </img>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!--<= javascript_include_tag 'top.js' %>-->

@@ -1,34 +1,42 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="card" style="width: 30rem;">
   <%= render "users/shared/error_messages", resource: resource %>
+  <h3>Sign up</h3>
+    	  <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+      <p id="profile-name" class="profile-name-card"></p>
+    <!--<= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>-->
+    　<%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+      
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
+      <div class="field">
+        <%= f.label :name %><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Name", size: 55; %>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email address", size: 55; %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password",　placeholder: "パスワード", size: 55; %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "Password", size: 55; %>
+      </div>
+        <p id="profile-name" class="profile-name-card"></p>
+      <div class="actions">
+        <%= f.submit "Sign up",class:"btn btn-success btn-block" %>
+      </div>
+    <% end %>
+    <div class="card-footer">
+      <div class="d-flex justify-content-center links">
+        アカウントお持ちの方は <%= render "users/shared/links"  %>
+      </div>
+    </div>
+</div>

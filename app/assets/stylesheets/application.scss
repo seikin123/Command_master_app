@@ -1,0 +1,377 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+
+
+// 全体
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  // background-color: ligh;
+}
+
+main {
+  flex: 1;
+}
+footer {
+  background-color: gray;
+}
+
+body, html {
+    height: 100%;
+    background-repeat: no-repeat;
+    // background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
+}
+
+// 小見出し文字
+h2 {
+  position: relative;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+h2 span {
+  font-size: 18px;
+  font-size: 1.8rem;
+  display: block;
+}
+
+h2:before {
+  position: absolute;
+  bottom: -10px;
+  left: calc(50% - 30px);
+  width: 60px;
+  height: 5px;
+  content: '';
+  border-radius: 3px;
+  background: green;
+}
+// 全体の文字
+.font {
+    font-size: 40px;
+    font-family: 'sans-serif'	, cursive;
+}
+
+// top画面
+ .jumbotron { background:url(vs2.jpeg) center no-repeat; background-size: cover; height: 400px;}
+ 
+ html {
+  height: 100%;
+}
+
+.fullheight {
+  height: 100%;
+  background: #bbddff;
+}
+.command {
+    color :lightgray;
+}
+
+// ボタン
+.btn {
+    font-weight: 700;
+    height: 40px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+.card-container.card {
+    max-width: 350px;
+    padding: 40px 40px;
+}
+
+/*
+ * Card component
+ */
+.card {
+    background-color: #F7F7F7;
+    /* just in case there no content*/
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 25px;
+    // border-radius: 8px;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	  box-shadow: 0 0 3px 0 rgba(0,0,0,.12), 0 2px 3px 0 rgba(0,0,0,.22);
+	  transition: .3s;
+}
+.card:hover {
+	box-shadow: 0 20px 30px -5px rgba(0,0,0,.15), 0 0 5px rgba(0,0,0,.1);
+	transform: translateY(-6px);
+}
+
+.profile-img-card {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+/*
+ * Form styles
+ */
+.profile-name-card {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0 0;
+    min-height: 1em;
+}
+
+
+// ログイン機能
+.form-signin #inputEmail,
+.form-signin #inputPassword {
+    direction: ltr;
+    height: 44px;
+    font-size: 16px;
+}
+
+.form-signin input[type=email],
+.form-signin input[type=password],
+.form-signin input[type=text],
+.form-signin button {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    z-index: 1;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+    border-color: rgb(104, 145, 162);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+}
+
+// パンクズリスト
+.bread ul {
+  display: flex; /* 子要素(li)を横一列に並べる */
+  list-style-type: none; /* リスト要素に表示されている"・"を非表示 */
+}
+
+.bread li a {
+  padding: 5px; /* リンク間の間隔を調整 */
+  // color: ; /* リンクの文字色を調整 */
+  font-size: 24px; /* リンクの文字サイズを調整 */
+  text-decoration: none; /* リンクの下線を非表示 */
+}
+
+.bread li a:hover {
+  background-color: lightgray; /* カーソルをリンクの上に乗せたときの背景色 */
+}
+
+.bread li:after {
+  content: '\003e'; /* 「>」を要素間の区切り文字として表示 */
+  margin-left: 10px; /* 区切り文字と要素の間隔を調整 */
+  margin-right: 10px; /* 区切り文字と要素の間隔を調整 */
+  color: green; /* 区切り文字の文字色 */
+}
+
+/* Loading背景画面設定　*/
+
+// #splash {
+//     /*fixedで全面に固定*/
+// 	position: fixed;
+// 	z-index: 999;
+// 	width: 100%;
+// 	height: 100%;
+// 	background:#333;
+// 	text-align:center;
+// 	color:#fff;
+// }
+
+// /* Loadingバー中央配置　*/
+// #splash_text {
+// 	position: absolute;
+// 	top: 50%;
+// 	left: 50%;
+//     z-index: 999;
+// 	width: 100%;
+// 	transform: translate(-50%, -50%);
+// 	color: #fff;
+// }
+
+// /*IE11対策用バーの線の高さ※対応しなければ削除してください*/
+// #splash_text svg{
+//     height: 2px;
+// }
+
+// // question画面
+
+#main {
+  text-align: center;
+}
+
+#contents {
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 400px;
+  height: 60px;
+  margin: 0 auto;
+}
+
+// #yomi {
+//   top: 15px;
+//   font-size: 20px;
+//   text-align: center;
+  
+// }
+
+#mondai {
+  display: flex;
+  justify-content: center; /* 子要素をflexboxにより中央に配置する */
+  font-size: 2.4rem;
+}
+
+.text {
+  padding: 2px;  
+}
+
+.text.default {
+  color: #f3f3f3;
+  text-shadow: 1px 1px 0 #000,
+            -1px 1px 0 #000,
+            1px -1px 0 #000,
+            -1px -1px 0 #000;
+}
+
+.text.correct {
+  color: black;
+  text-shadow: none;
+}
+
+// 点滅させている
+.blinking{
+    -webkit-animation:blink 1.5s ease-in-out infinite alternate;
+    -moz-animation:blink 1.5s ease-in-out infinite alternate;
+    animation:blink 1.5s ease-in-out infinite alternate;
+}
+blink{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+@-moz-keyframes blink{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@keyframes blink{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+#yomi {
+    padding: 1em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    border: solid 3px #000000;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.dispPoint {
+  backgrond: lightgreen;
+    padding: 0.5em 1em;
+    // margin: 2em 0;
+    font-weight: bold;
+    // border: solid 3px #000000;
+}
+
+.number_questions {
+  font-size: 15px;
+}
+
+.problem {
+  font-size: 20px;
+}
+
+.display {
+  font-size: 40px;
+  color: white;
+  background: black;
+  pading: 2em;
+  // width: 30rem;
+  border-radius: 8px;
+}
+
+#dis {
+  font-size: 40px;
+  color:  #ffffff;;
+  // background: black;
+  margin: 2em;
+  width: 30rem;
+  border-radius: 8px;
+}
+
+.box1 {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    border: solid 3px #000000;
+}
+
+// question画面
+.rightnav {
+  background: lightgray;
+   border-radius: 8px;
+  // color: ;
+}
+
+.leftnav {
+  background: lightgray;
+   border-radius: 8px;
+  // color: ;
+}
+
+.problem {
+   text-align:center;
+   border-radius: 10px;
+   font-family: 'sans-serif'	, cursive;
+   backgrond: green;
+  // border: solid 3px black;
+}
+
+.c-nav {
+  text-align:center;
+}
+
+.previewArea__wrap {
+  margin : 5px ;
+
+}
+
+
+.box1 p {
+    margin: 0; 
+    padding: 0;
+}

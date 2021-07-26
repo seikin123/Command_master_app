@@ -1,0 +1,50 @@
+  <div class="container">
+    <h2>Command-Select</h2>
+    <div class="row">
+        <% @categories.each do |category| %>
+      <div class="col-lg-4">
+        <div class="shadow card" style="width: 20rem;">
+            <%= attachment_image_tag category, :category_image, size: "200x200", fallback: "no_image.jpg", class:"card-img-top"  %>
+          <div class="card-body">
+            <h4 class="card-title"><%= category.name %></h4>
+            <p class="card-text"></p>
+            <%= link_to "コマンド一覧へ", command_path(category.id), class:"btn btn-primary"%>
+          </div>
+        </div>
+      </div>
+     <% end %>
+    </div>
+  </div>
+  
+
+  <!--<= javascript_include_tag 'like.js' %>-->
+  
+  <div class="container">
+  <h2>Command-List</h2>
+
+  <table class="table table-hover" style="table-layout:fixed">
+    <thead>
+      <tr>
+        <!--<th scope="col">No.</th>-->
+        <th scope="col">基本的な編集</th>
+        <th scope="col">コマンド</th>
+        <th></th>
+      </tr>
+    </thead>
+      <tbody>
+        <% @questions.each do |question| %>
+        
+        <tr id="question_<= question.id %>">
+          
+          <td><%= question.problem %></td>
+          <td style="font-size: 20px;"><%= question.display_key %></td>
+          <td><%= render 'likes/like', question: question %></td>
+        </tr>
+      </tbody>
+      <% end %>
+  </table>
+</div>
+
+<%= link_to "Back", commands_path %>
+
+<%= javascript_include_tag 'like.js' %>

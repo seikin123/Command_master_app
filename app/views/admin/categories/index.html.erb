@@ -1,0 +1,18 @@
+
+<h4>ジャンル一覧・追加</h4>
+  <td>カテゴリー</td>
+    <table>
+      </thead>
+        <tbody>
+        <% @categories.each do |category| %>
+          <tr>
+            <th>
+              <td><%= category.name %></td>
+              <td><%= attachment_image_tag category, :category_image, size: "100x100", fallback: "no_image.jpg" %></td>
+              <td><%= link_to "編集", edit_admin_category_path(category.id) %>
+              </td>
+            </th>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
