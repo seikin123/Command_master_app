@@ -1,10 +1,10 @@
 $(document).ready(function () {
-  const Json = document.querySelector('#questions_json').value;
-  const questions = JSON.parse(Json);
-  const pc = document.querySelector('#pc_type').value;
-  const input = document.querySelector('#input');
-  const $timeMessage = $('#time-message');
-  const command = document.querySelector('#command');
+  var Json = document.querySelector('#questions_json').value;
+  var questions = JSON.parse(Json);
+  var pc = document.querySelector('#pc_type').value;
+  var input = document.querySelector('#input');
+  var $timeMessage = $('#time-message');
+  var command = document.querySelector('#command');
   
   var answer = 0;
   var point = 0;
@@ -114,8 +114,8 @@ $(document).ready(function () {
     } else if (!start_game) {
          return;
     }
-     let text = e.key;
-     let command = ' ';
+     var text = e.key;
+     var command = ' ';
     if (e.ctrlKey){
       text = command + text;
     }
@@ -136,13 +136,13 @@ $(document).ready(function () {
     $("#c-nav").hide;
     $("#leftnav").hide;
     $("#answer").text('');
-    const end_time = performance.now();
-    const typing_time = ( (end_time - start_time) / 1000).toFixed(0);
+    var end_time = performance.now();
+    var typing_time = ( (end_time - start_time) / 1000).toFixed(0);
     $timeMessage.text('かかった時間：'+typing_time+'秒');
     //CSRFトークン  
     $.ajaxPrefilter( (options, originalOptions, jqXHR) => {
       if (!options.crossDomain) {
-        const token = $('meta[name="csrf-token"]').attr('content');
+        var token = $('meta[name="csrf-token"]').attr('content');
         if (token) {
           return jqXHR.setRequestHeader('X-CSRF-Token', token);
         }
