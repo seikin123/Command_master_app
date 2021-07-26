@@ -5,13 +5,13 @@ $(document).ready(function () {
   var input = document.querySelector('#input');
   var $timeMessage = $('#time-message');
   var command = document.querySelector('#command');
-  
+
   var answer = 0;
   var point = 0;
   var i = 0; //問題文
   var start_game = false;　//ゲームスタート
   var start_time = 0; //時間の設定
-    
+
     // スコアの計算
   function addScore(point){
     $("#answer").text(answer);
@@ -19,8 +19,8 @@ $(document).ready(function () {
     console.log('addScore is called!!!')
     answer += point;
   };
-  
-    
+
+
     // 正解したときのメッセージ
   function trueFlash() {
     toastr.options = {
@@ -40,8 +40,8 @@ $(document).ready(function () {
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
     }
-    Command: toastr["success"](`${questions[i].display_key} 正解!!!`)
-    command.innerHTML = `<span id="center">${questions[i].display_key}</span>`;
+    Command: toastr["success"](questions[i].display_key + ' 正解!!!')
+    command.innerHTML = '<span id="center">' + questions[i].display_key + '</span>';
   }
   // 不正解メッセージ
   function falseFlash(miss) {
@@ -62,7 +62,7 @@ $(document).ready(function () {
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
     }
-    Command: toastr["error"](`${miss} 不正解!!!`)
+    Command: toastr["error"](miss ' 不正解!!!`)
   }
   // スタートメッセージ
     function startFlash() {
@@ -83,24 +83,24 @@ $(document).ready(function () {
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
     }
-    Command: toastr["warning"](`スタート!!!`)
+    Command: toastr["warning"]('スタート!!!')
   }
-  
+
   //問題の表示
   function roop() {
     $("#input").text('');
     // スコア更新
-    addScore(questions[point].point); 
+    addScore(questions[point].point);
       point++;
     $('#question-' + i).hide();
       i += 1;
     $('#question-' + i).show();
     //問題終了判定
-    if (questions.length <= i){ 
+    if (questions.length <= i){
      finishAnswer();
     }
   }
-  
+
   // スタート表示
   function startPress(e) {
     if (!start_game && e.keyCode === 32) {
@@ -121,7 +121,7 @@ $(document).ready(function () {
     }
      $("#input").text(text);
   }
-  
+
   function nomatch(e) {
     if (e.key === questions[i].answer_key) {
         trueFlash();
@@ -129,7 +129,7 @@ $(document).ready(function () {
         falseFlash(e);
     }
   }
-  
+
     //タイマー・終了判定が出たら
   function finishAnswer() {
     $(".finish").show();
@@ -139,7 +139,7 @@ $(document).ready(function () {
     var end_time = performance.now();
     var typing_time = ( (end_time - start_time) / 1000).toFixed(0);
     $timeMessage.text('かかった時間：'+typing_time+'秒');
-    //CSRFトークン  
+    //CSRFトークン
     $.ajaxPrefilter( function(options, originalOptions, jqXHR) {
       var token;
       if (!options.crossDomain) {
@@ -157,7 +157,7 @@ $(document).ready(function () {
         data: {
          user: {
           pts: answer,
-          // user_id: 
+          // user_id:
          }
         },
         dataType: 'json'
@@ -170,14 +170,14 @@ $(document).ready(function () {
       console.log(answer);
      })
       // 処理が上手く行かなかったら失敗の旨を伝えるアラートを表示
-    .fail(function(data)  {
+    .fail(function(data) {
       // window.location.href = "/users/:id";
       // alert(`タイムは${typing_time}秒です。お疲れ様でした。`);
     })
   }
-  
+
 document.addEventListener("keydown", e => {
-      
+
       e.preventDefault();
       console.log(e.key)
       // スペースキーでスタート
@@ -203,14 +203,14 @@ document.addEventListener("keydown", e => {
         console.log("true");
          //正解メッセージ
         trueFlash();
-        roop(); 
+        roop();
         // キー判定
       }else if ((questions[i].synchro_key === 'Meta+Shift') && (e.shiftKey && event.metaKey && e.key === questions[i].answer_key)) {
         trueFlash();
         console.log("true");
          //正解メッセージ
         trueFlash();
-        roop(); 
+        roop();
       } else {
         // nomatch(event.key);
     }
