@@ -62,7 +62,7 @@ $(document).ready(function () {
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
     }
-    Command: toastr["error"](miss ' 不正解!!!`)
+    Command: toastr["error"](miss + ' 不正解!!!')
   }
   // スタートメッセージ
     function startFlash() {
