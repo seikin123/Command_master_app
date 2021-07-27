@@ -91,7 +91,7 @@ $(document).ready(function () {
 
   //問題の表示
   function roop() {
-    console.log('roop');
+    // console.log('roop');
     $("#input").text('');
     // スコア更新
     addScore(questions[point].point);
@@ -110,7 +110,6 @@ $(document).ready(function () {
   // スタート表示
   function startPress(e) {
     if (!start_game && e.keyCode === 32) {
-
       // init
       answer = 0;
       point = 0;
@@ -205,26 +204,18 @@ document.addEventListener("keydown", function(e) {
       //キー判定
       // alert('keydown');
       if ((questions[i].synchro_key === 'Meta') && (e.metaKey && e.key === questions[i].answer_key)) {
-        trueFlash();
-        // console.log("true");
-         //正解メッセージ
+        //正解メッセージ
         trueFlash();
         roop();
-        alert('meta');
         return;
        //キー判定
       } else if ((questions[i].synchro_key === 'Alt') && (e.altKey && e.key === questions[i].answer_key)) {
-        trueFlash();
-        // console.log("true");
          //正解メッセージ
         trueFlash();
         roop();
-        alert('alt');
         return;
        //キー判定
       }else if ((questions[i].synchro_key === 'Control') && (e.ctrlKey && e.key === questions[i].answer_key)) {
-        trueFlash();
-        // console.log("true");
          //正解メッセージ
         trueFlash();
         roop();
@@ -232,8 +223,6 @@ document.addEventListener("keydown", function(e) {
         return
         // キー判定
       }else if ((questions[i].synchro_key === 'Meta+Shift') && (e.shiftKey && event.metaKey && e.key === questions[i].answer_key)) {
-        trueFlash();
-        // console.log("true");
          //正解メッセージ
         trueFlash();
         roop();
