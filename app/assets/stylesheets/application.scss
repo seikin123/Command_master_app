@@ -69,8 +69,13 @@ h2:before {
 }
 
 // top画面
- .jumbotron { background:url(vs2.jpeg) center no-repeat; background-size: cover; height: 400px;}
- 
+ .jumbotron {
+   background:image-url("vs2.jpeg") center no-repeat;
+   background-size: cover;
+   height: 400px;
+   border-radius: 0;
+ }
+
  html {
   height: 100%;
 }
@@ -244,7 +249,7 @@ h2:before {
 //   top: 15px;
 //   font-size: 20px;
 //   text-align: center;
-  
+
 // }
 
 #mondai {
@@ -254,7 +259,7 @@ h2:before {
 }
 
 .text {
-  padding: 2px;  
+  padding: 2px;
 }
 
 .text.default {
@@ -372,6 +377,6 @@ blink{
 
 
 .box1 p {
-    margin: 0; 
+    margin: 0;
     padding: 0;
 }

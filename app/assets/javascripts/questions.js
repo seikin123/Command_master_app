@@ -1,4 +1,7 @@
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
+  if (!$('#questions_json').length) {
+    return false;
+  }
   var Json = document.querySelector('#questions_json').value;
   var questions = JSON.parse(Json);
   var pc = document.querySelector('#pc_type').value;
@@ -15,8 +18,8 @@ $(document).ready(function () {
     // スコアの計算
   function addScore(point){
     $("#answer").text(answer);
-    console.log(answer)
-    console.log('addScore is called!!!')
+    // console.log(answer)
+    // console.log('addScore is called!!!')
     answer += point;
   };
 
@@ -96,7 +99,8 @@ $(document).ready(function () {
       i += 1;
     $('#question-' + i).show();
     //問題終了判定
-    if (questions.length <= i){
+    console.log('lengthTest' + i + ' / ' + questions.length)
+    if (i === questions.length){
      finishAnswer();
     }
   }
@@ -104,6 +108,13 @@ $(document).ready(function () {
   // スタート表示
   function startPress(e) {
     if (!start_game && e.keyCode === 32) {
+
+      // init
+      answer = 0;
+      point = 0;
+      i = 0;
+      start_time = 0;
+
       startFlash()
       $(".start-message").hide();
       $('#questions').show();
@@ -132,10 +143,16 @@ $(document).ready(function () {
 
     //タイマー・終了判定が出たら
   function finishAnswer() {
+    
+    i = 0;
+    answer = 0;
+    point = 0;
+    
     $(".finish").show();
     $("#c-nav").hide;
     $("#leftnav").hide;
-    $("#answer").text('');
+    // $("#answer").text('');
+    var score = $('#answer').html()
     var end_time = performance.now();
     var typing_time = ( (end_time - start_time) / 1000).toFixed(0);
     $timeMessage.text('かかった時間：'+typing_time+'秒');
@@ -156,7 +173,7 @@ $(document).ready(function () {
         type: 'PUT',
         data: {
          user: {
-          pts: answer,
+          experience_point: score,
           // user_id:
          }
         },
@@ -179,35 +196,35 @@ $(document).ready(function () {
 document.addEventListener("keydown", function(e) {
 
       e.preventDefault();
-      console.log(e.key)
+      // console.log(e.key)
       // スペースキーでスタート
       startPress(e);
-      console.log(i)
+      // console.log(i)
       //キー判定
-      if ((questions[i].synchro_key === 'Meta') && (event.metaKey && e.key === questions[i].answer_key)) {
+      if ((questions[i].synchro_key === 'Meta') && (e.metaKey && e.key === questions[i].answer_key)) {
         trueFlash();
-        console.log("true");
+        // console.log("true");
          //正解メッセージ
         trueFlash();
         roop();
        //キー判定
       } else if ((questions[i].synchro_key === 'Alt') && (e.altKey && e.key === questions[i].answer_key)) {
         trueFlash();
-        console.log("true");
+        // console.log("true");
          //正解メッセージ
         trueFlash();
         roop();
        //キー判定
       }else if ((questions[i].synchro_key === 'Control') && (e.ctrlKey && e.key === questions[i].answer_key)) {
         trueFlash();
-        console.log("true");
+        // console.log("true");
          //正解メッセージ
         trueFlash();
         roop();
         // キー判定
       }else if ((questions[i].synchro_key === 'Meta+Shift') && (e.shiftKey && event.metaKey && e.key === questions[i].answer_key)) {
         trueFlash();
-        console.log("true");
+        // console.log("true");
          //正解メッセージ
         trueFlash();
         roop();
