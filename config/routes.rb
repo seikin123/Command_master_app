@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   
   namespace :admin do
     resources :categories, only: [:index, :edit, :create, :update]
+    resources :users, only: [:index, :show, :edit, :update]
   end
   
   devise_for :admins, controllers: {
