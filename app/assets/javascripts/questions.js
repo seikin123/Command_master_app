@@ -102,7 +102,7 @@ $(document).ready(function () {
     //問題終了判定
     console.log('lengthTest' + i + ' / ' + questions.length)
     if (i === questions.length){
-      console.log('finishAnswer');
+      // console.log('finishAnswer');
      finishAnswer();
     }
   }
@@ -115,7 +115,6 @@ $(document).ready(function () {
       point = 0;
       i = 0;
       start_time = 0;
-
       startFlash()
       $(".start-message").hide();
       $('#questions').show();
@@ -193,13 +192,16 @@ $(document).ready(function () {
       // alert(`タイムは${typing_time}秒です。お疲れ様でした。`);
     })
   }
-
+document.addEventListener("keydown", function(e) {
+      startPress(e);  
+      
+});
 document.addEventListener("keydown", function(e) {
 
       e.preventDefault();
       // console.log(e.key)
       // スペースキーでスタート
-      startPress(e);
+      // startPress(e);
       // console.log(i)
       //キー判定
       // alert('keydown');
@@ -226,7 +228,6 @@ document.addEventListener("keydown", function(e) {
          //正解メッセージ
         trueFlash();
         roop();
-        alert('meta+shift');
         return;
       } else {
         // nomatch(event.key);

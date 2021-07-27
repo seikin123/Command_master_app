@@ -1,4 +1,5 @@
 require_relative '../level/calcuserlevel.rb'#レベルあっぷ処理
+
 class UsersController < ApplicationController
   before_action :authenticate_user!
   # skip_before_action :verify_authenticity_token
@@ -22,13 +23,10 @@ class UsersController < ApplicationController
 
   def update_user_point
     unless current_user.nil?
-      # now_point = User.experience_point.to_i
-      # already_point = 10
-      # total_point = now_point + already_point
      if current_user.increment!(:experience_point, params[:user][:experience_point].to_i)
-    # if current_user.update(experience_point: params[:user][:experience_point])
-      # byebug
-       redirect_to user_path(current_user)
+        user_level = CalcUserLevel.calc_user_level(user, experience_point)
+      
+       
      end
     end
   end
