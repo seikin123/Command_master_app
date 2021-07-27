@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function () {
+$(document).ready(function () {
   if (!$('#questions_json').length) {
     return false;
   }
@@ -91,16 +91,18 @@ $(document).on('turbolinks:load', function () {
 
   //問題の表示
   function roop() {
+    console.log('roop');
     $("#input").text('');
     // スコア更新
     addScore(questions[point].point);
-      point++;
+     point++;
     $('#question-' + i).hide();
       i += 1;
     $('#question-' + i).show();
     //問題終了判定
     console.log('lengthTest' + i + ' / ' + questions.length)
     if (i === questions.length){
+      console.log('finishAnswer');
      finishAnswer();
     }
   }
@@ -141,7 +143,7 @@ $(document).on('turbolinks:load', function () {
     }
   }
 
-    //タイマー・終了判定が出たら
+    //タイマー・終了判定が出たら結果を送信
   function finishAnswer() {
     
     i = 0;
@@ -149,13 +151,11 @@ $(document).on('turbolinks:load', function () {
     point = 0;
     
     $(".finish").show();
-    $("#c-nav").hide;
-    $("#leftnav").hide;
     // $("#answer").text('');
     var score = $('#answer').html()
     var end_time = performance.now();
     var typing_time = ( (end_time - start_time) / 1000).toFixed(0);
-    $timeMessage.text('かかった時間：'+typing_time+'秒');
+    $timeMessage.text('クリアタイム：'+typing_time+'秒');
     //CSRFトークン
     $.ajaxPrefilter( function(options, originalOptions, jqXHR) {
       var token;
@@ -167,6 +167,8 @@ $(document).on('turbolinks:load', function () {
       }
     });
         // 非同期でusers#createに処理を送信＋その時にプレイ情報(user_id)を渡す
+        console.log('ajax');
+        alert('ajax');
     $.ajax({
         url: '/users/:user_id/update_user_point',
         // url: '/user_questions/:id',
@@ -174,7 +176,6 @@ $(document).on('turbolinks:load', function () {
         data: {
          user: {
           experience_point: score,
-          // user_id:
          }
         },
         dataType: 'json'
@@ -184,10 +185,11 @@ $(document).on('turbolinks:load', function () {
         // window.location.href = '/users/:id';
       // alert(`${typing_time}お疲れ様でした！`);
       // リダイレクトの処理を書く
-      console.log(answer);
+      console.log('done');
      })
       // 処理が上手く行かなかったら失敗の旨を伝えるアラートを表示
     .fail(function(data) {
+      console.log('fail');
       // window.location.href = "/users/:id";
       // alert(`タイムは${typing_time}秒です。お疲れ様でした。`);
     })
@@ -201,12 +203,15 @@ document.addEventListener("keydown", function(e) {
       startPress(e);
       // console.log(i)
       //キー判定
+      // alert('keydown');
       if ((questions[i].synchro_key === 'Meta') && (e.metaKey && e.key === questions[i].answer_key)) {
         trueFlash();
         // console.log("true");
          //正解メッセージ
         trueFlash();
         roop();
+        alert('meta');
+        return;
        //キー判定
       } else if ((questions[i].synchro_key === 'Alt') && (e.altKey && e.key === questions[i].answer_key)) {
         trueFlash();
@@ -214,6 +219,8 @@ document.addEventListener("keydown", function(e) {
          //正解メッセージ
         trueFlash();
         roop();
+        alert('alt');
+        return;
        //キー判定
       }else if ((questions[i].synchro_key === 'Control') && (e.ctrlKey && e.key === questions[i].answer_key)) {
         trueFlash();
@@ -221,6 +228,8 @@ document.addEventListener("keydown", function(e) {
          //正解メッセージ
         trueFlash();
         roop();
+        alert('ctrl');
+        return
         // キー判定
       }else if ((questions[i].synchro_key === 'Meta+Shift') && (e.shiftKey && event.metaKey && e.key === questions[i].answer_key)) {
         trueFlash();
@@ -228,6 +237,8 @@ document.addEventListener("keydown", function(e) {
          //正解メッセージ
         trueFlash();
         roop();
+        alert('meta+shift');
+        return;
       } else {
         // nomatch(event.key);
     }
