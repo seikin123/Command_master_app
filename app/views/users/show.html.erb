@@ -24,5 +24,31 @@
         <th></th>
       </tr>
     </table>
-
 </div>
+<div class="container">
+  <h3>ブックマークしたコマンド一覧</h3>
+
+    
+  <table class="table table-hover" style="table-layout:fixed">
+    <thead>
+      <tr>
+        <th scope="col">基本的な編集</th>
+        <th scope="col">コマンド</th>
+        <th></th>
+      </tr>
+    </thead>
+      <tbody>
+        <% @like_questions.each do |likes| %>
+        
+        <tr id="question_<= question.id %>">
+        
+          <td><%= likes.problem %></td>
+          <td><%= likes.display_key %></td>
+          <!--<td><= render 'likes/like', question: question %></td>-->
+        </tr>
+      </tbody>
+        <% end %>
+    </table>
+  </div>
+  
+  <%= javascript_include_tag 'like.js' %>

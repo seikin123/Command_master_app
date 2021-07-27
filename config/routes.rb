@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update] do
     put "update_user_point"  => "users#update_user_point"
     collection do #idは付与しない
+      get :likes
       get 'unsubscribe' #退会画面
       patch 'withdraw' #is_aciveを更新する
     end
