@@ -1,3 +1,9 @@
+  //ローディング画面の表示
+  $(window).on('load',function(){
+    $("#loading").delay(1500).fadeOut('slow');//ローディング画面を1.5秒（1500ms）待機してからフェードアウト
+    $("#loading_box").delay(1200).fadeOut('slow');//ローディングテキストを1.2秒（1200ms）待機してからフェードアウト
+  });
+
 $(document).ready(function () {
   if (!$('#questions_json').length) {
     return false;
@@ -18,8 +24,6 @@ $(document).ready(function () {
     // スコアの計算
   function addScore(point){
     $("#answer").text(answer);
-    // console.log(answer)
-    // console.log('addScore is called!!!')
     answer += point;
   };
 
@@ -89,9 +93,10 @@ $(document).ready(function () {
     Command: toastr["warning"]('スタート!!!')
   }
 
+
   //問題の表示
   function roop() {
-    // console.log('roop');
+    console.log('roop');
     $("#input").text('');
     // スコア更新
     addScore(questions[point].point);
@@ -183,25 +188,23 @@ $(document).ready(function () {
         // window.location.href = '/users/:id';
       // alert(`${typing_time}お疲れ様でした！`);
       // リダイレクトの処理を書く
-      console.log('done');
+      // console.log('done');
      })
       // 処理が上手く行かなかったら失敗の旨を伝えるアラートを表示
     .fail(function(data) {
-      console.log('fail');
+      // console.log('fail');
       // window.location.href = "/users/:id";
       // alert(`タイムは${typing_time}秒です。お疲れ様でした。`);
     })
   }
-document.addEventListener("keydown", function(e) {
-      startPress(e);  
-      
-});
+
 document.addEventListener("keydown", function(e) {
 
       e.preventDefault();
       // console.log(e.key)
       // スペースキーでスタート
-      // startPress(e);
+      start_game = false;
+      startPress(e);
       // console.log(i)
       //キー判定
       // alert('keydown');
