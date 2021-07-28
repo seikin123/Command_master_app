@@ -234,11 +234,7 @@ GEM
     rspec-support (3.10.2)
     ruby2_keywords (0.0.4)
     ruby_dep (1.5.0)
-<<<<<<< HEAD
-    rubyzip (2.3.0)
-=======
     rubyzip (2.3.2)
->>>>>>> develop
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
