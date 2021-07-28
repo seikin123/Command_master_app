@@ -22,7 +22,7 @@ before_action :authenticate_admin!
     end
   end
 
-    private
+  private
   def user_params
     params.require(:user).permit(:name, :email, :is_active)
   end
