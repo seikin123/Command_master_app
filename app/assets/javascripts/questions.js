@@ -170,8 +170,6 @@ $(document).ready(function () {
       }
     });
         // 非同期でusers#createに処理を送信＋その時にプレイ情報(user_id)を渡す
-        console.log('ajax');
-        alert('ajax');
     $.ajax({
         url: '/users/:user_id/update_user_point',
         // url: '/user_questions/:id',
