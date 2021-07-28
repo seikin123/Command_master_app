@@ -1,0 +1,35 @@
+<div class="container">
+<%= form_with model: @inquiry, url: inquiry_confirm_path, local:true do |f| %>
+  <div class="page-header">
+    <h2>Inquiry</h2>
+  </div>
+
+  <% if @inquiry.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <strong>入力内容にエラーがあります</strong>
+      <ul>
+        <% @inquiry.errors.each do |attr, msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!--<table class="table">-->
+    <tr>
+      <th>名前<span class="text-danger">（必須）</span></th>
+      <th><%= f.text_field :name, class:"form-control addon-wrapping" %></th>
+    </tr>
+    <tr>
+      <th>メールアドレス<span class="text-danger">（必須）</span></th>
+      <th><%= f.text_field :email, class:"form-control" %></th>
+    </tr>
+    <tr>
+      <th>お問い合わせ内容</th>
+      <td><%= f.text_area :message, class:"form-control" %></td>
+    </tr>
+  <!--</table>-->
+  <%= f.submit '確認', class: 'btn btn-primary w-25' %>
+<% end %>
+</div>
+

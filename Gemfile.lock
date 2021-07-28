@@ -56,10 +56,16 @@ GEM
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
+    autoprefixer-rails (10.2.5.1)
+      execjs (> 0)
     bcrypt (3.1.16)
     bindex (0.8.1)
     bootsnap (1.7.5)
       msgpack (~> 1.0)
+    bootstrap (4.6.0)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 1.14.3, < 2)
+      sassc-rails (>= 2.0.0)
     builder (3.2.4)
     byebug (11.1.3)
     capybara (3.35.3)
@@ -98,6 +104,12 @@ GEM
     diff-lcs (1.4.4)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erubi (1.10.0)
     execjs (2.8.1)
     factory_bot (6.2.0)
@@ -116,6 +128,10 @@ GEM
     io-like (0.3.1)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
+    jquery-rails (4.4.0)
+      rails-dom-testing (>= 1, < 3)
+      railties (>= 4.2.0)
+      thor (>= 0.14, < 2.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -137,12 +153,14 @@ GEM
     msgpack (1.4.2)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
+    mysql2 (0.5.3)
     netrc (0.11.0)
     nio4r (2.5.7)
     nokogiri (1.11.7)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    popper_js (1.16.0)
     public_suffix (4.0.6)
     puma (3.12.6)
     racc (1.5.2)
@@ -151,6 +169,9 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rack-user_agent (0.5.2)
+      rack (>= 1.5)
+      woothee (>= 1.0.0)
     rails (5.2.6)
       actioncable (= 5.2.6)
       actionmailer (= 5.2.6)
@@ -178,7 +199,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
-    rake (13.0.3)
+    rake (13.0.6)
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -213,7 +234,11 @@ GEM
     rspec-support (3.10.2)
     ruby2_keywords (0.0.4)
     ruby_dep (1.5.0)
+<<<<<<< HEAD
     rubyzip (2.3.0)
+=======
+    rubyzip (2.3.2)
+>>>>>>> develop
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -225,6 +250,17 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    sassc (2.4.0)
+      ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
+    seed-fu (2.3.9)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -268,6 +304,7 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    woothee (1.11.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
@@ -276,6 +313,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
+  bootstrap (~> 4.5)
   byebug
   capybara (>= 2.15)
   chromedriver-helper
@@ -283,9 +321,14 @@ DEPENDENCIES
   database_cleaner
   devise
   factory_bot_rails
+  dotenv-rails
+  enum_help
   jbuilder (~> 2.5)
+  jquery-rails
   listen (>= 3.0.5, < 3.2)
+  mysql2
   puma (~> 3.11)
+  rack-user_agent
   rails (~> 5.2.5)
   rails-i18n
   refile!
@@ -293,6 +336,7 @@ DEPENDENCIES
   rspec-rails
   rubyzip (= 2.3.0)
   sass-rails (~> 5.0)
+  seed-fu
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)

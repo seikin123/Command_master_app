@@ -4,7 +4,13 @@ class Users::SessionsController < Devise::SessionsController
   before_action :reject_user, only: [:create]
 
   def after_sign_in_path_for(resource)
-    root_path
+    user_path(resource)
+  end
+  
+  def guest_sign_in
+    user = User.guest
+    sign_in user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
   # GET /resource/sign_in
   # def new

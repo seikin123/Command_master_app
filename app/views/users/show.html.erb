@@ -1,15 +1,55 @@
-<h2>Mypage</h2>
+<div class="container">
+<div class="card" style="width: 30rem;">
+  <h3>Mypage</h3>
+    <h3 id="profile-img" class="profile-img-card">
+    <%= attachment_image_tag @user, :profile_image, size: "140x140", fallback: "no_image.jpg"%>
+    </h3>
+    <p id="profile-name" class="profile-name-card"></p>
 
-<h3>プロフィール画像</h3>
-<%= attachment_image_tag @user, :profile_image_id, size: "100x100", fallback: "no_image.jpg"%>
+    <table class="table">
+       <tr>
+        <th>名前</th>
+        <th><%= @user.name %></th>
+       </tr>
 
-<h3>名前</h3>
-<%= @user.name %>
+      <tr>
+        <th>レベル</th>
+        <th>Lv. <%= @user.level %></th>
+      </tr>
+      <tr>
+        <th>経験値</th>
+       <th>EXP. <%= @user.experience_point %></th>
+      </tr>
+      <tr>
+        <th><%= link_to "編集", edit_user_path(@user),  class:"btn btn-info btn-block" %></th>
+        <th></th>
+      </tr>
+    </table>
+</div>
 
-<h3>レベル</h3>
-<h3>Lv. <%= @user.level %></h3>
+  
+<% if @like_questions.present? %>
+<h2>BookMark-List</h2>
+  <table class="table table-hover" style="table-layout:fixed">
+    <thead>
+      <tr>
+        <th>基本的な編集</th>
+        <th>コマンド</th>
+      </tr>
+    </thead>
+      <tbody>
+        <% @like_questions.each do |likes| %>
 
-<h3>経験値</h3>
- <h3>EXP. <%= @user.experience_point %></h3><br>
+        <tr id="question_<= question.id %>">
+          <td><%= likes.problem %></td>
+          <td><%= likes.display_key %></td>
+          <!--<td><= render 'likes/like', question: question %></td>-->
+        </tr>
+      </tbody>
+        <% end %>
+    </table>
+    <% else %>
+    <% end %>
+  </div>
 
-<%= link_to "編集", edit_user_path(@user), class:"btn btn-outline-secondary btn-block fas fa-user-cog" %>
+  <%= javascript_include_tag 'like.js' %>

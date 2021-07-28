@@ -41,6 +41,10 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
+group :production do
+  gem 'mysql2'
+end 
+
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
@@ -66,5 +70,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
+gem 'dotenv-rails'
+gem 'bootstrap', '~> 4.5'
+gem "jquery-rails"
 gem 'rails-i18n'
-gem 'rubyzip', '2.3.0'
+gem 'enum_help'
+#os判定
+gem "rack-user_agent"
+gem 'seed-fu'
