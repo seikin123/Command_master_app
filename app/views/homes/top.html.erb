@@ -8,7 +8,11 @@
     <div class="jumbotron">
       <div class="container">
         <h1 class="command">Command-Master</h1>
-        <%= link_to "S T A R T", questions_path, class:"btn btn-primary btn-lg"%>
+        <% if user_signed_in? %>
+         <%= link_to "S T A R T", questions_path, class:"btn btn-primary btn-lg"%>
+        <% else %>
+          <%= link_to 'Guest Login', users_guest_sign_in_path, method: :post, class:"btn btn-primary btn-lg" %>
+        <% end %>
       </div>
     </div>
 

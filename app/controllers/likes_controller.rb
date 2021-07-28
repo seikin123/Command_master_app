@@ -1,10 +1,6 @@
 class LikesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
-  # def index
-  #   @user = current_user
-  # end
-  
   def create
     @question = Question.find(params[:question_id])
     @like = current_user.likes.find_by(question: @question)

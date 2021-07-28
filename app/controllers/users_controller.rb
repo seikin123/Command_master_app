@@ -6,6 +6,8 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @like_questions = @user.like_questions
+    @questions = Question.select_pc_type(request.os)
   end
 
   def edit

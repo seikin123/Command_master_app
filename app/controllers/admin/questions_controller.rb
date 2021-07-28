@@ -5,9 +5,4 @@ class Admin::QuestionsController < ApplicationController
     @questions = Question.all
   end
 
-  def show
-  end
-
-  def edit
-  end
 end
