@@ -8,7 +8,7 @@
           <div class="card-body">
             <h4 class="card-title"><%= category.name %></h4>
             <p class="card-text"></p>
-            <%= link_to "コマンド一覧へ", command_path(category.id), class:"btn btn-primary"%>
+            <%= link_to "コマンド一覧へ", class:"btn btn-primary"%>
           </div>
         </div>
       </div>
@@ -17,7 +17,7 @@
   </div>
   
 
-  <!--<= javascript_include_tag 'like.js' %>-->
+  <%= javascript_include_tag 'like.js' %>
   
   <div class="container">
   <h2>Command-List</h2>

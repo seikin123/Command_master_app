@@ -1,0 +1,37 @@
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <h3 class="mt-5"><%= "#{@user.name}さんのユーザー情報" %></h3>
+  </div>
+
+  <table class="my-3 new-customer">
+    <tr class="row my-3">
+      <td class="col-3">ID</td>
+      <td class="col-8"><%= @user.id %></td>
+    </tr>
+
+    <tr class="row my-3">
+      <td class="col-3">Name</td>
+      <td class="col-8"><%= @user.name %></td>
+    </tr>
+    <tr class="row my-3">
+      <td class="col-3">Email</td>
+      <td class="col-8"><%= @user.email %></td>
+    </tr>
+    <tr class="row my-3">
+      <td class="col-3">Status</td>
+      <td class="col-8">
+        <% if @user.is_active == true %>
+          <span class="text-success">有効</span>
+        <% else %>
+          <span class="text-secondary">退会済</span>
+        <% end %>
+      </td>
+    </tr>
+    <tr class="row mt-5 mb-3">
+      <td class="mr-5"><%= link_to "編集する", edit_admin_user_path(@user.id), class:"btn btn-secondary btn-block mr-5" %></td>
+      <td class="mr-5"><%= link_to "一覧へ", admin_users_path, class:"btn btn-primary btn-block mr-5" %></td>
+    </tr>
+    </table>
+  </div>
+</div>
