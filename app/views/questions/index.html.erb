@@ -1,18 +1,14 @@
 <div id="loading">
   <div id="loading_box">
     <div class="loading-one animation_loading">
-      <p class="loading-txt">NowLoading</p>
+      <p class="loading-txt">NowLoading<br>※必ずスペースキーを押してから始めてください</p>
     </div>
   </div>
 </div>
 
-<!--<div class="section">-->
-  <!--<p class="_a"><a href="https://125naroom.com/web/3835" target="_blank" class="link"></a></p>-->
-<!--</div>-->
-
 <div class="wrapper fullheight">
      <div class="row contentWidth">
-        
+
         <div class="bread col-9 col-s-10" style="margin-top: 20px;">
          <div class="bread__inner">
            <ul>
@@ -22,7 +18,7 @@
            </ul>
          </div>
      </div>
-     
+
 
            <div class="level col-3 col-s-10 pl-s10 pr-s10" style="margin-top: 5px;">
              <div class="dispPoint">
@@ -54,7 +50,7 @@
                 <p class="c-nav">⌃ - Control</p>
                 <p class="c-nav">⏎ - Enter </p>
                 <p class="c-nav">/Delete Fn + ⌫</p>
-              
+
             </div>
             <!--問題表示-->
               <div class="col-6">
@@ -67,7 +63,7 @@
                         <div id="question-<%= idx %>" class="questions-item" style="<%= idx == 0 ? '' : 'display: none;' %>">
                           <!--<p><= question.id %></p>-->
                           <div class="problem">問題 :<%= question.problem %></div>
-                          
+
                           <p class="c-nav"><%= idx + 1 %> / 10 問</p>
                             <div class="previewArea__wrap">
                               <%= attachment_image_tag question, :problem_image, size: "545x300", fallback: "giphy.gif" %>
@@ -86,7 +82,7 @@
                            <div class="mb15">
                             <div class="finish" id="main" style="display: none;">お疲れ様でした。
                                <div id="time-message"></div>
-                              
+
                               <div><%= link_to "Retry", categories_path, class:"btn btn-primary" %></div>
                               <div><%= link_to "トップ画面へ戻る", root_path, class:"btn btn-info" %></div>
                               <div id="time-message"></div>
@@ -103,9 +99,10 @@
                   <div class="preList_wrap">
                     <ul class="preList" style="top: 8opx;">
                       <li>Mac/Windows<br>は下記を同時に押さないでください</li>
-                      <li>⌘ + W, ⌘ + Q </li>
+                      <li> ⌘ + W </li>
+                      <li> ⌘ + Q </li>
                       <span id="center" style='display: none;'></span>
-                      
+
                     </ul>
                   </div>
                   <div id="switch"></div>
@@ -124,12 +121,12 @@
               </div>
              </div>
             </div>
-      </div>     
+      </div>
     </div>
   </div>
 </div>
-    
-  
+
+
   <!--jsにデータを渡している-->
         <input type="hidden" id="questions_json" value="<%= @questions_json.to_json %>">
         <input type="hidden" id="pc_type" value="<%= @pc_type %>">
