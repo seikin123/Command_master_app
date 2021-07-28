@@ -1,6 +1,6 @@
 class CommandsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @questions = Question.select_pc_type(request.os)
     @categories = Category.all
@@ -8,10 +8,9 @@ class CommandsController < ApplicationController
     # @questions = Question.all
     # @questions_json = @questions
   end
-  
+
   def show
     @questions = Question.select_pc_type(request.os)
-    
     # if params[:category_id].present?
     # # @question = Question.find(params[:id])
     # @category = Category.find(params[:category_id])

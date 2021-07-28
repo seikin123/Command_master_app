@@ -1,7 +1,13 @@
-<!--<div id="splash">-->
-<!--<div id="splash_text"></div>-->
-<!--</div>-->
-<!--<div id="container">-->
+<div id="loading">
+  <div id="loading_box">
+    <div class="loading-one animation_loading">
+      <p class="loading-txt">NowLoading</p>
+    </div>
+  </div>
+</div>
+
+<!--<div class="section">-->
+  <!--<p class="_a"><a href="https://125naroom.com/web/3835" target="_blank" class="link"></a></p>-->
 <!--</div>-->
 
 <div class="wrapper fullheight">
@@ -37,11 +43,11 @@
          <div class="content row">
             <div class="mx-auto test-box">
           <div class="row justify-content-around" style="margin-top: 10px;">
+            <!---左のナビバー-->
             <div class="leftnav col-3 col-xs-5" id="leftber">
               <div class="col-xs-1 justify-content" style="text-align:center;">
                 <h3>Command</h3>
               </div>
-              
                 <p class="c-nav">Ctrl / ⌘ - Command</p>
                 <p class="c-nav">Alt / ⌥ - Option</p>
                 <p class="c-nav">Shift /  ⇧ - Shift</p>
@@ -50,7 +56,7 @@
                 <p class="c-nav">/Delete Fn + ⌫</p>
               
             </div>
-            
+            <!--問題表示-->
               <div class="col-6">
                 <div class="main__inner">
                     <div class="question__wrap">
@@ -59,6 +65,7 @@
                       </div>
                       <% @questions_json.each_with_index do |question, idx| %>
                         <div id="question-<%= idx %>" class="questions-item" style="<%= idx == 0 ? '' : 'display: none;' %>">
+                          <!--<p><= question.id %></p>-->
                           <div class="problem">問題 :<%= question.problem %></div>
                           
                           <p class="c-nav"><%= idx + 1 %> / 10 問</p>
@@ -66,8 +73,8 @@
                               <%= attachment_image_tag question, :problem_image, size: "545x300", fallback: "giphy.gif" %>
                             </div>
                             <!--<div class="box_head">-->
-                          <p class="display">  <%= question.display_key %></p>   
-                          <div id="dis" ><%= question.display_key %></div>
+                          <p class="display">  <%= question.display_key %></p>
+                          <div id="dis" >Fight!!!</div>
                           <!--<span id="right" style='display: none;'></span>-->
                         </div>
                       <% end %>
@@ -75,16 +82,21 @@
                          <div  style="display: none;"></div>
                          <div id="command" style="display: none;"></div>
                         </div>
+                        <!--終了時に表示されるメッセージ-->
                            <div class="mb15">
-                            <div class="finish" id="main" style="display: none;">終了しました。
+                            <div class="finish" id="main" style="display: none;">お疲れ様でした。
                                <div id="time-message"></div>
-                              <div><%= link_to "Retry" %></div>
-                              <div><%= link_to "" %></div>
+                              
+                              <div><%= link_to "Retry", categories_path, class:"btn btn-primary" %></div>
+                              <div><%= link_to "トップ画面へ戻る", root_path, class:"btn btn-info" %></div>
+                              <div id="time-message"></div>
+                              獲得経験値: <span id="answer"></sapn>
                             </div>
                            </div>
                     </div>
                 </div>
               </div>
+              <!--右のメニュー-->
               <div class="rightnav col-3 col-xs-5" id="rightber" style="'display: none;'">
                 <div class="rightnav__inner">
                   <h3 class="c-nav">Stop Command</h3>
@@ -93,18 +105,16 @@
                       <li>Mac/Windows<br>は下記を同時に押さないでください</li>
                       <li>⌘ + W, ⌘ + Q </li>
                       <span id="center" style='display: none;'></span>
-                      <li id="answer"></li>
+                      
                     </ul>
                   </div>
                   <div id="switch"></div>
                     <div class="preList_wrap">
-                      <h4 class="c-nav">コマンド説明はこちら</h4>
+                      <h5 class="c-nav">↓↓コマンド説明</h5>
                       <div class="mt20"></div>
                         <aside class>
                         <ul class>
-                          <!--<li class="sidebar__rank__li">-->
-                          <%= link_to "一覧", commands_path, class:"btn btn-primary"%>
-                          <!--</li>-->
+                          <%= link_to "こちら", commands_path, class:"btn btn-primary" %>
                         </ul>
                         </aside>
                       </div>
