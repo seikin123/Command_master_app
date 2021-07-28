@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def update_user_point
     unless current_user.nil?
      if current_user.increment!(:experience_point, params[:user][:experience_point].to_i)
-        user_level = CalcUserLevel.calc_user_level(experience_point)
+        # user_level = CalcUserLevel.calc_user_level(experience_point)
      end
     end
   end
