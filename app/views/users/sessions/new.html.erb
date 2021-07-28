@@ -7,12 +7,12 @@
     
       <div class="form-inline">
         <%= f.label :name %><br/>
-        <%= f.text_field :name, autofocus: true, autocomplete: "name", size: 55; %>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Name", size: 52; %>
       </div>
     
       <div class="field">
         <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "current-password", size: 55; %>
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", size: 52; %>
       </div>
     
       <% if devise_mapping.rememberable? %>

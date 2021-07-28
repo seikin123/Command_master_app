@@ -1,8 +1,8 @@
-  //ローディング画面の表示
-  $(window).on('load',function(){
-    $("#loading").delay(1500).fadeOut('slow');//ローディング画面を1.5秒（1500ms）待機してからフェードアウト
-    $("#loading_box").delay(1200).fadeOut('slow');//ローディングテキストを1.2秒（1200ms）待機してからフェードアウト
-  });
+//ローディング画面の表示
+$(window).on('load',function(){
+  $("#loading").delay(1500).fadeOut('slow');//ローディング画面を1.5秒（1500ms）待機してからフェードアウト
+  $("#loading_box").delay(1200).fadeOut('slow');//ローディングテキストを1.2秒（1200ms）待機してからフェードアウト
+});
 
 $(document).ready(function () {
   if (!$('#questions_json').length) {
@@ -128,6 +128,7 @@ $(document).ready(function () {
         start_time = performance.now();
          return;
     } else if (!start_game) {
+      
          return;
     }
      var text = e.key;
