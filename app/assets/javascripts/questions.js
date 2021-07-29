@@ -1,8 +1,8 @@
 //ローディング画面の表示
-$(window).on('load',function(){
-  $("#loading").delay(1500).fadeOut('slow');//ローディング画面を1.5秒（1500ms）待機してからフェードアウト
-  $("#loading_box").delay(1400).fadeOut('slow');//ローディングテキストを1.2秒（1200ms）待機してからフェードアウト
-});
+// $(window).on('load',function(){
+//   $("#loading").delay(1500).fadeOut('slow');//ローディング画面を1.5秒（1500ms）待機してからフェードアウト
+//   $("#loading_box").delay(1400).fadeOut('slow');//ローディングテキストを1.2秒（1200ms）待機してからフェードアウト
+// });
 
  $(document).ready(function () {
   if (!$('#questions_json').length) {
@@ -96,7 +96,7 @@ $(window).on('load',function(){
 
   //問題の表示
   function roop() {
-    console.log('roop');
+    // console.log('roop');
     $("#input").text('');
     // スコア更新
     addScore(questions[point].point);
@@ -105,7 +105,7 @@ $(window).on('load',function(){
       i += 1;
     $('#question-' + i).show();
     //問題終了判定
-    console.log('lengthTest' + i + ' / ' + questions.length)
+    // console.log('lengthTest' + i + ' / ' + questions.length)
     if (i === questions.length){
       // console.log('finishAnswer');
      finishAnswer();
@@ -221,11 +221,11 @@ document.addEventListener("keydown", function(e) {
         roop();
         return;
        //キー判定
-      }else if ((questions[i].synchro_key === 'Control') && (e.ctrlKey && e.key === questions[i].answer_key)) {
+      }else if ((questions[i].synchro_key === 'ctrl') && (e.ctrlKey && e.key === questions[i].answer_key)) {
          //正解メッセージ
         trueFlash();
         roop();
-        alert('ctrl');
+        // alert('ctrl');
         return
         // キー判定
       }else if ((questions[i].synchro_key === 'Meta+Shift') && (e.shiftKey && event.metaKey && e.key === questions[i].answer_key)) {
@@ -233,7 +233,7 @@ document.addEventListener("keydown", function(e) {
         trueFlash();
         roop();
         return;
-      } else if  ((questions[i].synchro_key === 'Control+Shift') && (e.shiftKey && e.ctrlKey && e.key === questions[i].answer_key)) {
+      } else if  ((questions[i].synchro_key === 'ctrl+Shift') && (e.shiftKey && e.ctrlKey && e.key === questions[i].answer_key)) {
         // nomatch(event.key);
         trueFlash();
         roop();
