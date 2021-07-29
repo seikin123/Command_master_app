@@ -233,8 +233,11 @@ document.addEventListener("keydown", function(e) {
         trueFlash();
         roop();
         return;
-      } else {
+      } else if  ((questions[i].synchro_key === 'Control+Shift') && (e.shiftKey && e.ctrlKey && e.key === questions[i].answer_key)) {
         // nomatch(event.key);
+        trueFlash();
+        roop();
+        return;
     }
   });
  });

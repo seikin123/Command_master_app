@@ -13,12 +13,12 @@ Question.seed(:id,
  {id: 10, category_id: 1, synchro_key: 'Meta+Shift', answer_key: 'g', problem: 'ソース管理を開く', display_key: '⌘ + ⬆︎ + G', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
  
  #cloud9
- {id:11, category_id: 2, synchro_key: 'Ctrl', answer_key: 'ArrowDown', problem: 'マルチカーソルを追加して下の行に移動', display_key: 'Ctrl + Alt + Down', pc_type: 0 },
- {id:12, category_id: 2, synchro_key: 'Ctrl', answer_key: 'ArrowUp', problem: 'マルチカーソルを追加して上の行に移動', display_key: 'Ctrl + Alt + Up', pc_type: 0 },
- {id:12, category_id: 2, synchro_key: 'Ctrl', answer_key: 'u', problem: '大文字に変更します', display_key: 'Ctrl-U', pc_type: 0 },
+ {id:11, category_id: 2, synchro_key: 'Control', answer_key: 'ArrowDown', problem: 'マルチカーソルを追加して下の行に移動', display_key: 'Ctrl + Alt + Down', pc_type: 0 },
+ {id:12, category_id: 2, synchro_key: 'Control', answer_key: 'ArrowUp', problem: 'マルチカーソルを追加して上の行に移動', display_key: 'Ctrl + Alt + Up', pc_type: 0 },
+ {id:12, category_id: 2, synchro_key: 'Control', answer_key: 'u', problem: '大文字に変更します', display_key: 'Ctrl-U', pc_type: 0 },
  #Excel
- {id:21, category_id: 3, synchro_key: '', answer_key: 'c', problem: 'コピー', display_key: '⌘ + C ', pc_type: 0 },
- {id:22, category_id: 3, synchro_key: 'Meta', answer_key: 'v', problem: 'ペースト', display_key: '⌘ + V ', pc_type: 0 },
+ {id:21, category_id: 3, synchro_key: 'Control', answer_key: 'c', problem: 'コピー', display_key: '⌘ + C ', pc_type: 0 },
+ {id:22, category_id: 3, synchro_key: 'Control', answer_key: 'v', problem: 'ペースト', display_key: '⌘ + V ', pc_type: 0 },
  
 #Windows
  {id: 31, category_id: 1, synchro_key: 'Control', answer_key: 'c', problem: 'コピーする際のコマンド', display_key: 'Ctrl + C', pc_type: 1, point: 1, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
@@ -30,7 +30,7 @@ Question.seed(:id,
  {id: 37, category_id: 1, synchro_key: 'Alt', answer_key: 'ArrowUp', problem: 'カーソル行／選択行をまるっと上移動(複数行対応)', display_key: 'Alt + ↑', pc_type: 1, point: 1, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
  {id: 38, category_id: 1, synchro_key: 'Alt', answer_key: 'ArrowDown', problem: 'カーソル行／選択行をまるっと下移動(複数行対応)', display_key: 'Alt + ↓', pc_type: 1, point: 1, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
  {id: 39, category_id: 1, synchro_key: 'Control', answer_key: 'ArrowLeft', problem: '単語の先頭にジャンプ', display_key: 'Ctrl + ←', pc_type: 1, point: 1, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
- {id: 40, category_id: 1, synchro_key: 'Meta+Shift', answer_key: 'g', problem: 'ソース管理を開く', display_key: 'Ctrl + ︎Shift + G', pc_type: 1, point: 5, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
+ {id: 40, category_id: 1, synchro_key: 'Control+Shift', answer_key: 'g', problem: 'ソース管理を開く', display_key: 'Ctrl + ︎Shift + G', pc_type: 1, point: 5, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
  
  #cloud9
  # {id:21, category_id: 2, synchro_key: 'Control', answer_key: 'c', problem: 'Cloud9のコマンド', display_key: 'cloud9', pc_type: 0 },
