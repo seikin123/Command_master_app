@@ -128,7 +128,7 @@ $(window).on('load',function(){
         start_time = performance.now();
          return;
     } else if (!start_game) {
-      
+
          return;
     }
      var text = e.key;
@@ -150,11 +150,11 @@ $(window).on('load',function(){
 
     //タイマー・終了判定が出たら結果を送信
   function finishAnswer() {
-    
+
     i = 0;
     answer = 0;
     point = 0;
-    
+
     $(".finish").show();
     // $("#answer").text('');
     var score = $('#answer').html()
