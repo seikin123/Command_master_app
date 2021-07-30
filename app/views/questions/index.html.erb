@@ -1,3 +1,4 @@
+<!--アニメーション-->
 <div id="loading">
   <div id="loading_box">
     <div class="loading-one animation_loading">
@@ -49,7 +50,7 @@
                 <p class="c-nav">Shift /  ⇧ - Shift</p>
                 <p class="c-nav">⌃ - Control</p>
                 <p class="c-nav">⏎ - Enter </p>
-                <p class="c-nav">/Delete Fn + ⌫</p>
+                <p class="c-nav">Delete / Fn + ⌫</p>
 
             </div>
             <!--問題表示-->
@@ -61,17 +62,16 @@
                       </div>
                       <% @questions_json.each_with_index do |question, idx| %>
                         <div id="question-<%= idx %>" class="questions-item" style="<%= idx == 0 ? '' : 'display: none;' %>">
-                          <p><%= question.id %></p>
+                          <!--<p><= question.id %></p>-->
                           <div class="problem">問題 :<%= question.problem %></div>
 
                           <p class="c-nav"><%= idx + 1 %> / 10 問</p>
                             <div class="previewArea__wrap">
                               <%= attachment_image_tag question, :problem_image, size: "545x300", fallback: "giphy.gif" %>
                             </div>
-                            <!--<div class="box_head">-->
+                            
                           <p class="display">  <%= question.display_key %></p>
                           <div id="dis" >Fight!!!</div>
-                          <!--<span id="right" style='display: none;'></span>-->
                         </div>
                       <% end %>
                         <div class="inputarea">
@@ -102,7 +102,6 @@
                       <li> ⌘ + W </li>
                       <li> ⌘ + Q </li>
                       <span id="center" style='display: none;'></span>
-
                     </ul>
                   </div>
                   <div id="switch"></div>
@@ -128,8 +127,8 @@
 
 
   <!--jsにデータを渡している-->
-        <input type="hidden" id="questions_json" value="<%= @questions_json.to_json %>">
-        <input type="hidden" id="pc_type" value="<%= @pc_type %>">
+  <input type="hidden" id="questions_json" value="<%= @questions_json.to_json %>">
+  <input type="hidden" id="pc_type" value="<%= @pc_type %>">
 
 <%= javascript_include_tag 'questions.js' %>
 
