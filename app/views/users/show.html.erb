@@ -41,7 +41,7 @@
         <% @like_questions.each do |likes| %>
 
         <tr id="question_<= question.id %>">
-          <td><%= likes.problem %></td>
+          <td><%=link_to likes.problem, command_path(likes.id) %></td>
           <td><%= likes.display_key %></td>
           <!--<td><= render 'likes/like', question: question %></td>-->
         </tr>

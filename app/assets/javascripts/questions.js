@@ -49,7 +49,7 @@ $(document).ready(function () {
     Command: toastr["success"](questions[i].display_key + ' 正解!!!')
     command.innerHTML = '<span id="center">' + questions[i].display_key + '</span>';
   }
-  
+
   // 不正解メッセージ
   function falseFlash(miss) {
     toastr.options = {
@@ -145,11 +145,11 @@ $(document).ready(function () {
 
     //タイマー・終了判定が出たら結果を送信
   function finishAnswer() {
-    
+
     i = 0;
     answer = 0;
     point = 0;
-    
+
     $(".finish").show();
     // $("#answer").text('');
     var score = $('#answer').html()

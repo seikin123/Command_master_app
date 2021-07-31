@@ -5,7 +5,7 @@ class CalcUserLevel
 ​
     if level_setting.present? && level_setting.thresold <= user.experience_point #次のレベルの閾値を超えていればレベルアップさせる
       experience_point -= level_setting.thresold
-      user.update(level: user.level += 1, experience_point: experience_point)
+      user.update(level: user.level += 1, experience_point: params[:user][:experience_point].to_i)
 ​
       level_setting = LevelSetting.find_by(level: user.level + 1)
       # 次のレベルまでの値を返すために、参照するlevel_settingを１つ上にして変数に入れ直す
