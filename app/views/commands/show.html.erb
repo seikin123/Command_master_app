@@ -1,6 +1,6 @@
-  <h2>コマンド</h2>
+<h2>Command-Practice</h2>
 
-<%= link_to "Back", commands_path %>
+<%= link_to "Back", commands_path, class:"btn btn-primary" %>
 
   <div class="card" style="width: 80rem;">
     <div class="content row">
@@ -23,48 +23,54 @@
           <div class="col-6">
             <div class="main__inner">
               <div class="question__wrap">
-                          <!--<p><= question.id %></p>-->
-                          <div class="problem">問題 :<%= @question.problem %></div>
-
-                          <!--<p class="c-nav"><= idx + 1 %> / 10 問</p>-->
-                            <div class="previewArea__wrap">
-                              <%= attachment_image_tag @question, :problem_image, size: "545x300", fallback: "giphy.gif" %>
-                            </div>
-                            <!--<div class="box_head">-->
-                          <p class="display">  <%= @question.display_key %></p>
-                          <div id="dis" >Fight!!!</div>
-                        </div>
-                        </div>
-                    
-                </div>
-              </div>
-              <!--右のメニュー-->
-              <div class="rightnav col-3 col-xs-5" id="rightber" style="'display: none;'">
-                <div class="rightnav__inner">
-                  <h3 class="c-nav">Stop Command</h3>
-                  <div class="preList_wrap">
-                    <ul class="preList" style="top: 8opx;">
-                      <li>Mac/Windows<br>は下記を同時に押さないでください</li>
-                      <li> ⌘ + W </li>
-                      <li> ⌘ + Q </li>
-                      <span id="center" style='display: none;'></span>
-                    </ul>
+                <div class="problem">問題 :<%= @questions_json.problem %></div>
+                  <div class="previewArea__wrap">
+                    <%= attachment_image_tag @questions_json, :problem_image, size: "545x300", fallback: "giphy.gif" %>
                   </div>
-                  <div id="switch"></div>
-                    <div class="preList_wrap">
-                      <h5 class="c-nav">↓↓コマンド説明</h5>
-                      <div class="mt20"></div>
-                        <aside class>
-                        <ul class>
-                        </ul>
-                        </aside>
-                      </div>
-                    </div>
+                    <p class="display">  <%= @questions_json.display_key %></p>
+                    <div id="dis" >Fight!!!</div>
                   </div>
                 </div>
+                  <div class="inputarea">
+                    <div  style="display: none;"></div>
+                    <div id="command" style="display: none;"></div>
+                    <span id="center" style='display: none;'></span>
+                  </div>
               </div>
-             </div>
             </div>
+          </div>
+          
+          <!--右のメニュー-->
+          <div class="rightnav col-3 col-xs-5" id="rightber" style="'display: none;'">
+            <div class="rightnav__inner">
+              <h3 class="c-nav">Stop Command</h3>
+              <div class="preList_wrap">
+                <ul class="preList" style="top: 8opx;">
+                  <li>Mac/Windows<br>は下記を同時に押さないでください</li>
+                  <li> ⌘ + W </li>
+                  <li> ⌘ + Q </li>
+                  <!--<span id="center" style='display: none;'></span>-->
+                </ul>
+              </div>
+              <div id="switch"></div>
+                <div class="preList_wrap">
+                  <h5 class="c-nav">↓↓コマンド説明</h5>
+                    <div class="mt20"></div>
+                      <aside class>
+                      <ul class>
+                      </ul>
+                      </aside>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+    
+      <input type="hidden" id="questions_json" value="<%= @questions_json.to_json %>">
+      <input type="hidden" id="pc_type" value="<%= @pc_type %>">
 
+<%= javascript_include_tag 'commands.js' %>
