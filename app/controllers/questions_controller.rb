@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
       @categories = Category.all
     if params[:category_id].present?
       @category = Category.find(params[:category_id])
-      @questions_json = @category.questions.select_pc_type(request.os)
+      @questions_json = @category.questions.select_pc_type(request.os).shuffle
     else
       redirect_to categories_path
     end
