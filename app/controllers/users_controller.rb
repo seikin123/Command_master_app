@@ -1,4 +1,4 @@
-require_relative '../level/calcuserlevel.rb'#レベルあっぷ処理
+require_relative '../level/calc_user_level.rb'#レベルあっぷ処理
 
 class UsersController < ApplicationController
   before_action :authenticate_user!
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   def update_user_point
     unless current_user.nil?
      if current_user.increment!(:experience_point, params[:user][:experience_point].to_i)
-        # CalcUserLevel.calc_user_level(experience_point)
+        # user_level = CalcUserLevel.calc_user_level(experience_point)
         # ここにlevelsettingに保存する処理を書く?
      end
     end
