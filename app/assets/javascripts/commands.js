@@ -1,128 +1,132 @@
-//   $(document).ready(function () {
-//   const Json = document.querySelector('#questions_json').value;
-//   const questions = JSON.parse(Json);
-//   const pc = document.querySelector('#pc_type').value;
-//   const input = document.querySelector('#input');
-//   const $timeMessage = $('#time-message');
-//   const command = document.querySelector('#command');
-  
-//   var answer = 0;
-//   var point = 0;
-//   var i = 0; //問題文
-//   var start_game = false;　//ゲームスタート
-//   var start_time = 0; //時間の設定
-    
-//     // スコアの計算
-//     function addScore(point){
-//       $("#answer").text(answer);
-//       console.log(answer)
-//       console.log('addScore is called!!!')
-//       answer += point;
-//     };
-    
-//     // 正解したときのメッセージ
-//   function trueFlash() {
-//     toastr.options = {
-//         "closeButton": false,
-//         "debug": false,
-//         "newestOnTop": true,
-//         "progressBar": false,
-//         "positionClass": "toast-top-full-width",
-//         "preventDuplicates": true,
-//         "onclick": null,
-//         "showDuration": "3000",
-//         "hideDuration": "1000",
-//         "timeOut": "1000",
-//         "extendedTimeOut": "1000",
-//         "showEasing": "swing",
-//         "hideEasing": "linear",
-//         "showMethod": "fadeIn",
-//         "hideMethod": "fadeOut"
-//     }
-//     Command: toastr["success"](`${questions[i].display_key} 正解!!!`)
-//     command.innerHTML = `<span id="right">${questions[i].display_key}</span>`;
-//   }
-  
-//     //タイマー・終了判定が出たら
-//   function finishAnswer() {
-//     $(".finish").show();
-//     $("#answer").text('');
-//     const end_time = performance.now();
-//     const typing_time = ( (end_time - start_time) / 1000).toFixed(2);
-//     $timeMessage.text('かかった時間：'+typing_time+'秒');
+$(document).ready(function () {
+  if (!$('#questions_json').length) {
+    return false;
+  }
+  var Json = document.querySelector('#questions_json').value;
+  var questions = JSON.parse(Json);
+  var pc = document.querySelector('#pc_type').value;
+  var input = document.querySelector('#input');
+  var $timeMessage = $('#time-message');
+  var command = document.querySelector('#command');
 
-//     //CSRFトークン  
-//       $.ajaxPrefilter( (options, originalOptions, jqXHR) => {
-//         if (!options.crossDomain) {
-//           const token = $('meta[name="csrf-token"]').attr('content');
-//           if (token) {
-//               return jqXHR.setRequestHeader('X-CSRF-Token', token);
-//           }
-//         }
-//       });
-//   // 非同期でusers#createに処理を送信＋その時にプレイ情報(user_id)を渡す
-//       $.ajax({
-//           url: '/users/:user_id/update_user_point',
-//           // url: '/user_questions/:id',
-//           type: 'PATCH',
-//           data: {
-//           user: {
-//             experience_point: answer,
-//             // user_id: 
-//           }
-//           },
-//           dataType: 'json'
-//         });
-//   //     // 処理が上手く行ったらボタンを切り替えて
-//   //     .done((data) => {
-//   //       alert('成功しました');
-//   //       console.log(answer);
-//   //     })
-//   //     // 処理が上手く行かなかったら失敗の旨を伝えるアラートを表示
-//   //     .fail((data) => {
-//   //       alert('失敗しました');
-//   //     })
-//   }
+
+    // 正解したときのメッセージ
+  function trueFlash() {
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": true,
+        "progressBar": false,
+        "positionClass": "toast-top-full-width",
+        "preventDuplicates": true,
+        "onclick": null,
+        "showDuration": "3000",
+        "hideDuration": "2000",
+        "timeOut": "2000",
+        "extendedTimeOut": "2000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+    Command: toastr["success"](questions.display_key + ' 正解!!!')
+    command.innerHTML = '<span id="center">' + questions.display_key + '</span>';
+  }
   
-  
-//   document.addEventListener("keydown", e => {
-//       e.preventDefault();
-//       console.log(e.key)
-//       //スペースキーでスタート
-//       if (!start_game && e.keyCode === 32) {
-//       $(".start-message").hide();
-//       $('#questions').show();
-//       $('#question-' + i).show();
-//         start_game = true;
-//       start_time = performance.now();
-//             return;
-//           } else if (!start_game) {
-//             return;
-//           }
-//       let text = e.key;
-//       let command = ' ';
-//       if (e.ctrlKey){
-//           text = command + text;
-//       }
-//       $("#input").text(text);
-//       console.log(i)
+  // 不正解メッセージ
+  function falseFlash(miss) {
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": true,
+        "progressBar": false,
+        "positionClass": "toast-top-full-width",
+        "preventDuplicates": true,
+        "onclick": null,
+        "showDuration": "3000",
+        "hideDuration": "1000",
+        "timeOut": "1000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+    Command: toastr["error"](miss + ' 不正解!!!')
+  }
+  // スタートメッセージ
+    function startFlash() {
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": true,
+        "progressBar": false,
+        "positionClass": "toast-top-full-width",
+        "preventDuplicates": true,
+        "onclick": null,
+        "showDuration": "1000",
+        "hideDuration": "3000",
+        "timeOut": "2000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+    Command: toastr["warning"]('スタート!!!')
+  }
+
+  // スタート表示
+  function startPress(e) {
+     var text = e.key;
+     var command = ' ';
+    if (e.ctrlKey){
+      text = command + text;
+    }
+     $("#input").text(text);
+  }
+
+// 不正解判定
+  function nomatch(e) {
+    if (e.key === questions.answer_key) {
+        trueFlash();
+    } else {
+        falseFlash(e);
+    }
+  }
+
+ document.addEventListener("keydown", function(e) {
+    e.preventDefault();
       
-//       if (event.metaKey && e.key === questions[i].answer_key) {
-//           console.log("true");
-//           $("#input").text('');
-
-//           trueFlash(); 
-//           //スコア加点
-//           addScore(questions[point].point);  
-//           point++;
-//           // 問題の表示
-//           $('#question-' + i).hide();
-//           i += 1;
-//           $('#question-' + i).show();
-//           //問題終了判定
-//       if (questions.length <= i){ 
-//           finishAnswer();
-//         }
-//         }
-//     });
-// });
+    // console.log(e.key)
+    // スペースキーでスタート
+    // console.log(i)
+    //キー判定
+    // alert('keydown');
+    if ((questions.synchro_key === 'Meta') && (e.metaKey && e.key === questions.answer_key)) {
+    //正解メッセージ
+      trueFlash();
+      return;
+      //キー判定
+    } else if ((questions.synchro_key === 'Alt') && (e.altKey && e.key === questions.answer_key)) {
+    //正解メッセージ
+      trueFlash();
+      return;
+    //キー判定
+    } else if ((questions.synchro_key === 'ctrl') && (e.ctrlKey && e.key === questions.answer_key)) {
+    //正解メッセージ
+      trueFlash();
+    // alert('ctrl');
+      return
+    // キー判定
+    } else if ((questions.synchro_key === 'Meta+Shift') && (e.shiftKey && event.metaKey && e.key === questions.answer_key)) {
+    //正解メッセージ
+      trueFlash();
+      return;
+    } else if  ((questions.synchro_key === 'ctrl+Shift') && (e.shiftKey && e.ctrlKey && e.key === questions.answer_key)) {
+    // nomatch(event.key);
+      trueFlash();
+      return;
+    }
+ });
+});

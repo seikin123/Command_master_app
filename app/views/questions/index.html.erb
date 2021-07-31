@@ -1,18 +1,15 @@
+<!--アニメーション-->
 <div id="loading">
   <div id="loading_box">
     <div class="loading-one animation_loading">
-      <p class="loading-txt">NowLoading</p>
+      <p class="loading-txt">NowLoading<br>※必ずスペースキーを押してから始めてください</p>
     </div>
   </div>
 </div>
 
-<!--<div class="section">-->
-  <!--<p class="_a"><a href="https://125naroom.com/web/3835" target="_blank" class="link"></a></p>-->
-<!--</div>-->
-
 <div class="wrapper fullheight">
      <div class="row contentWidth">
-        
+
         <div class="bread col-9 col-s-10" style="margin-top: 20px;">
          <div class="bread__inner">
            <ul>
@@ -21,8 +18,8 @@
              <li class="bread__li"><%= link_to @category.name, categories_path %></li>
            </ul>
          </div>
-     </div>
-     
+        </div>
+
 
            <div class="level col-3 col-s-10 pl-s10 pr-s10" style="margin-top: 5px;">
              <div class="dispPoint">
@@ -53,8 +50,12 @@
                 <p class="c-nav">Shift /  ⇧ - Shift</p>
                 <p class="c-nav">⌃ - Control</p>
                 <p class="c-nav">⏎ - Enter </p>
+<<<<<<< HEAD
                 <p class="c-nav">/Delete Fn + ⌫</p>
-              
+=======
+                <p class="c-nav">Delete / Fn + ⌫</p>
+
+>>>>>>> develop
             </div>
             <!--問題表示-->
               <div class="col-6">
@@ -67,15 +68,19 @@
                         <div id="question-<%= idx %>" class="questions-item" style="<%= idx == 0 ? '' : 'display: none;' %>">
                           <!--<p><= question.id %></p>-->
                           <div class="problem">問題 :<%= question.problem %></div>
-                          
+
                           <p class="c-nav"><%= idx + 1 %> / 10 問</p>
                             <div class="previewArea__wrap">
                               <%= attachment_image_tag question, :problem_image, size: "545x300", fallback: "giphy.gif" %>
                             </div>
+<<<<<<< HEAD
                             <!--<div class="box_head">-->
+                          <!--<p class="display">  <%= question.display_key %></p>-->
+=======
+                            
                           <p class="display">  <%= question.display_key %></p>
+>>>>>>> develop
                           <div id="dis" >Fight!!!</div>
-                          <!--<span id="right" style='display: none;'></span>-->
                         </div>
                       <% end %>
                         <div class="inputarea">
@@ -86,7 +91,7 @@
                            <div class="mb15">
                             <div class="finish" id="main" style="display: none;">お疲れ様でした。
                                <div id="time-message"></div>
-                              
+
                               <div><%= link_to "Retry", categories_path, class:"btn btn-primary" %></div>
                               <div><%= link_to "トップ画面へ戻る", root_path, class:"btn btn-info" %></div>
                               <div id="time-message"></div>
@@ -103,9 +108,9 @@
                   <div class="preList_wrap">
                     <ul class="preList" style="top: 8opx;">
                       <li>Mac/Windows<br>は下記を同時に押さないでください</li>
-                      <li>⌘ + W, ⌘ + Q </li>
+                      <li> Ctrl / ⌘ + W </li>
+                      <li> Ctrl / ⌘ + Q </li>
                       <span id="center" style='display: none;'></span>
-                      
                     </ul>
                   </div>
                   <div id="switch"></div>
@@ -124,15 +129,16 @@
               </div>
              </div>
             </div>
-      </div>     
+      </div>
     </div>
   </div>
 </div>
-    
-  
-  <!--jsにデータを渡している-->
-        <input type="hidden" id="questions_json" value="<%= @questions_json.to_json %>">
-        <input type="hidden" id="pc_type" value="<%= @pc_type %>">
 
+
+  <!--jsにデータを渡している-->
+  <h2>
+    <input type="hidden" id="questions_json" value="<%= @questions_json.to_json %>">
+    <input type="hidden" id="pc_type" value="<%= @pc_type %>">
+  </h2>
 <%= javascript_include_tag 'questions.js' %>
 
