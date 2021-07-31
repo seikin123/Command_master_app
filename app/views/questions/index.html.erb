@@ -17,7 +17,7 @@
              <li class="bread__li"><%= link_to @category.name, categories_path %></li>
            </ul>
          </div>
-     </div>
+        </div>
 
 
            <div class="level col-3 col-s-10 pl-s10 pr-s10" style="margin-top: 5px;">
@@ -50,7 +50,6 @@
                 <p class="c-nav">⌃ - Control</p>
                 <p class="c-nav">⏎ - Enter </p>
                 <p class="c-nav">/Delete Fn + ⌫</p>
-
             </div>
             <!--問題表示-->
               <div class="col-6">
@@ -61,7 +60,7 @@
                       </div>
                       <% @questions_json.each_with_index do |question, idx| %>
                         <div id="question-<%= idx %>" class="questions-item" style="<%= idx == 0 ? '' : 'display: none;' %>">
-                          <p><%= question.id %></p>
+                          <!--<p><= question.id %></p>-->
                           <div class="problem">問題 :<%= question.problem %></div>
 
                           <p class="c-nav"><%= idx + 1 %> / 10 問</p>

@@ -11,7 +11,7 @@ class CommandsController < ApplicationController
   end
 
   def show
-    @questions = Question.select_pc_type(request.os)
+    @question = Question.find(params[:id])
     # if params[:category_id].present?
     # # @question = Question.find(params[:id])
     # @category = Category.find(params[:category_id])

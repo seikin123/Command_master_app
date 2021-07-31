@@ -36,7 +36,7 @@
 
         <tr id="question_<= question.id %>">
 
-          <td><%= question.problem %></td>
+          <td><%= link_to question.problem, command_path(question.id) %></td>
           <td style="font-size: 20px;"><%= question.display_key %></td>
           <td><%= render 'likes/like', question: question %></td>
         </tr>

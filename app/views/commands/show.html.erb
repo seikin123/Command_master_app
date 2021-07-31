@@ -1,29 +1,70 @@
-<!--<div class="container">-->
-<!--  <h2>コマンド一覧</h2>-->
+  <h2>コマンド</h2>
 
-<!--  <table class="table table-hover" style="table-layout:fixed">-->
-<!--    <thead>-->
-<!--      <tr>-->
-<!--        <th scope="col">No.</th>-->
-<!--        <th scope="col">基本的な編集</th>-->
-<!--        <th scope="col">コマンド</th>-->
-<!--        <th></th>-->
-<!--      </tr>-->
-<!--    </thead>-->
-<!--      <tbody>-->
-        <!--< @question.each do |question| %>-->
-        
-        <!--<tr id="question_<= question.id %>">-->
+<%= link_to "Back", commands_path %>
+
+  <div class="card" style="width: 80rem;">
+    <div class="content row">
+      <div class="mx-auto test-box">
+        <div class="row justify-content-around" style="margin-top: 10px;">
+          <!---左のナビバー-->
+          <div class="leftnav col-3 col-xs-5" id="leftber">
+            <div class="col-xs-1 justify-content" style="text-align:center;">
+              <h3>Command</h3>
+            </div>
+              <p class="c-nav">Ctrl / ⌘ - Command</p>
+              <p class="c-nav">Alt / ⌥ - Option</p>
+              <p class="c-nav">Shift /  ⇧ - Shift</p>
+              <p class="c-nav">⌃ - Control</p>
+              <p class="c-nav">⏎ - Enter </p>
+              <p class="c-nav">/Delete Fn + ⌫</p>
+          </div>
           
-          <!--<td><= link_to question.problem, command_path(question.id) %></td>-->
-<!--          <td style="font-size: 20px;"><= @question.display_key %></td>-->
-          <!--<td><= render 'likes/like', question: question %></td>-->
-<!--        </tr>-->
-<!--      </tbody>-->
-      <!--< end %>-->
-<!--  </table>-->
-<!--</div>-->
+          <!--問題表示-->
+          <div class="col-6">
+            <div class="main__inner">
+              <div class="question__wrap">
+                          <!--<p><= question.id %></p>-->
+                          <div class="problem">問題 :<%= @question.problem %></div>
 
-<!--<= link_to "Back", commands_path %>-->
+                          <!--<p class="c-nav"><= idx + 1 %> / 10 問</p>-->
+                            <div class="previewArea__wrap">
+                              <%= attachment_image_tag @question, :problem_image, size: "545x300", fallback: "giphy.gif" %>
+                            </div>
+                            <!--<div class="box_head">-->
+                          <p class="display">  <%= @question.display_key %></p>
+                          <div id="dis" >Fight!!!</div>
+                        </div>
+                        </div>
+                    
+                </div>
+              </div>
+              <!--右のメニュー-->
+              <div class="rightnav col-3 col-xs-5" id="rightber" style="'display: none;'">
+                <div class="rightnav__inner">
+                  <h3 class="c-nav">Stop Command</h3>
+                  <div class="preList_wrap">
+                    <ul class="preList" style="top: 8opx;">
+                      <li>Mac/Windows<br>は下記を同時に押さないでください</li>
+                      <li> ⌘ + W </li>
+                      <li> ⌘ + Q </li>
+                      <span id="center" style='display: none;'></span>
+                    </ul>
+                  </div>
+                  <div id="switch"></div>
+                    <div class="preList_wrap">
+                      <h5 class="c-nav">↓↓コマンド説明</h5>
+                      <div class="mt20"></div>
+                        <aside class>
+                        <ul class>
+                        </ul>
+                        </aside>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             </div>
+            </div>
+      </div>
+    </div>
 
-<!--<= javascript_include_tag 'like.js' %>-->
