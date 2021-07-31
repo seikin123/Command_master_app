@@ -4,7 +4,7 @@ $(window).on('load',function(){
   $("#loading_box").delay(1400).fadeOut('slow');//ローディングテキストを1.2秒（1200ms）待機してからフェードアウト
 });
 
- $(document).ready(function () {
+$(document).ready(function () {
   if (!$('#questions_json').length) {
     return false;
   }
@@ -26,7 +26,6 @@ $(window).on('load',function(){
     $("#answer").text(answer);
     answer += point;
   };
-
 
     // 正解したときのメッセージ
   function trueFlash() {
@@ -50,6 +49,7 @@ $(window).on('load',function(){
     Command: toastr["success"](questions[i].display_key + ' 正解!!!')
     command.innerHTML = '<span id="center">' + questions[i].display_key + '</span>';
   }
+
   // 不正解メッセージ
   function falseFlash(miss) {
     toastr.options = {
@@ -96,7 +96,6 @@ $(window).on('load',function(){
 
   //問題の表示
   function roop() {
-    // console.log('roop');
     $("#input").text('');
     // スコア更新
     addScore(questions[point].point);
@@ -107,7 +106,6 @@ $(window).on('load',function(){
     //問題終了判定
     // console.log('lengthTest' + i + ' / ' + questions.length)
     if (i === questions.length){
-      // console.log('finishAnswer');
      finishAnswer();
     }
   }
@@ -121,15 +119,12 @@ $(window).on('load',function(){
       i = 0;
       start_time = 0;
       startFlash()
-      $(".start-message").hide();
-      // $('#questions').show();
-      // $('#question-' + 1).show();
-        start_game = true;
-        start_time = performance.now();
-         return;
+    $(".start-message").hide();
+      start_game = true;
+      start_time = performance.now();
+        return;
     } else if (!start_game) {
-
-         return;
+        return;
     }
      var text = e.key;
      var command = ' ';
@@ -183,16 +178,14 @@ $(window).on('load',function(){
         },
         dataType: 'json'
       })
-      // 処理が上手く行ったらボタンを切り替えて
+      // 処理が上手く行ったら切り替え
     .done(function(data) {
         // window.location.href = '/users/:id';
       // alert(`${typing_time}お疲れ様でした！`);
       // リダイレクトの処理を書く
-      // console.log('done');
-     })
+    })
       // 処理が上手く行かなかったら失敗の旨を伝えるアラートを表示
     .fail(function(data) {
-      // console.log('fail');
       // window.location.href = "/users/:id";
       // alert(`タイムは${typing_time}秒です。お疲れ様でした。`);
     })
@@ -201,43 +194,41 @@ $(window).on('load',function(){
 
 
 
-document.addEventListener("keydown", function(e) {
-      e.preventDefault();
-      startPress(e)
-      // console.log(e.key)
-      // スペースキーでスタート
-      // console.log(i)
+  document.addEventListener("keydown", function(e) {
+    e.preventDefault();
+    // スペースキーでスタート
+    startPress(e)
+    //キー判定
+    // alert('keydown');
+    if ((questions[i].synchro_key === 'Meta') && (e.metaKey && e.key === questions[i].answer_key)) {
+      //正解メッセージ
+      trueFlash();
+      roop();
+      return;
       //キー判定
-      // alert('keydown');
-      if ((questions[i].synchro_key === 'Meta') && (e.metaKey && e.key === questions[i].answer_key)) {
-        //正解メッセージ
-        trueFlash();
-        roop();
-        return;
-       //キー判定
-      } else if ((questions[i].synchro_key === 'Alt') && (e.altKey && e.key === questions[i].answer_key)) {
-         //正解メッセージ
-        trueFlash();
-        roop();
-        return;
-       //キー判定
-      }else if ((questions[i].synchro_key === 'ctrl') && (e.ctrlKey && e.key === questions[i].answer_key)) {
-         //正解メッセージ
-        trueFlash();
-        roop();
-        // alert('ctrl');
-        return
-        // キー判定
-      }else if ((questions[i].synchro_key === 'Meta+Shift') && (e.shiftKey && event.metaKey && e.key === questions[i].answer_key)) {
-         //正解メッセージ
-        trueFlash();
-        roop();
-        return;
-      } else if  ((questions[i].synchro_key === 'ctrl+Shift') && (e.shiftKey && e.ctrlKey && e.key === questions[i].answer_key)) {
-        // nomatch(event.key);
-        trueFlash();
-        roop();
-        return;
+    } else if ((questions[i].synchro_key === 'Alt') && (e.altKey && e.key === questions[i].answer_key)) {
+      //正解メッセージ
+      trueFlash();
+      roop();
+      return;
+      //キー判定
+    }else if ((questions[i].synchro_key === 'ctrl') && (e.ctrlKey && e.key === questions[i].answer_key)) {
+      //正解メッセージ
+      trueFlash();
+      roop();
+      // alert('ctrl');
+      return
+      // キー判定
+    }else if ((questions[i].synchro_key === 'Meta+Shift') && (e.shiftKey && event.metaKey && e.key === questions[i].answer_key)) {
+      //正解メッセージ
+      trueFlash();
+      roop();
+      return;
+    } else if  ((questions[i].synchro_key === 'ctrl+Shift') && (e.shiftKey && e.ctrlKey && e.key === questions[i].answer_key)) {
+      // nomatch(event.key);
+      trueFlash();
+      roop();
+      return;
     }
   });
  });

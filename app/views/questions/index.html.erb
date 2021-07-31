@@ -1,3 +1,4 @@
+<!--アニメーション-->
 <div id="loading">
   <div id="loading_box">
     <div class="loading-one animation_loading">
@@ -49,7 +50,12 @@
                 <p class="c-nav">Shift /  ⇧ - Shift</p>
                 <p class="c-nav">⌃ - Control</p>
                 <p class="c-nav">⏎ - Enter </p>
+<<<<<<< HEAD
                 <p class="c-nav">/Delete Fn + ⌫</p>
+=======
+                <p class="c-nav">Delete / Fn + ⌫</p>
+
+>>>>>>> develop
             </div>
             <!--問題表示-->
               <div class="col-6">
@@ -67,10 +73,14 @@
                             <div class="previewArea__wrap">
                               <%= attachment_image_tag question, :problem_image, size: "545x300", fallback: "giphy.gif" %>
                             </div>
+<<<<<<< HEAD
                             <!--<div class="box_head">-->
                           <!--<p class="display">  <%= question.display_key %></p>-->
+=======
+                            
+                          <p class="display">  <%= question.display_key %></p>
+>>>>>>> develop
                           <div id="dis" >Fight!!!</div>
-                          <!--<span id="right" style='display: none;'></span>-->
                         </div>
                       <% end %>
                         <div class="inputarea">
@@ -101,7 +111,6 @@
                       <li> Ctrl / ⌘ + W </li>
                       <li> Ctrl / ⌘ + Q </li>
                       <span id="center" style='display: none;'></span>
-
                     </ul>
                   </div>
                   <div id="switch"></div>
