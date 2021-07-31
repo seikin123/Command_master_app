@@ -1,4 +1,4 @@
- $(document).ready(function () {
+$(document).ready(function () {
   if (!$('#questions_json').length) {
     return false;
   }
@@ -21,9 +21,9 @@
         "preventDuplicates": true,
         "onclick": null,
         "showDuration": "3000",
-        "hideDuration": "1000",
-        "timeOut": "1000",
-        "extendedTimeOut": "1000",
+        "hideDuration": "2000",
+        "timeOut": "2000",
+        "extendedTimeOut": "2000",
         "showEasing": "swing",
         "hideEasing": "linear",
         "showMethod": "fadeIn",
@@ -32,6 +32,7 @@
     Command: toastr["success"](questions.display_key + ' 正解!!!')
     command.innerHTML = '<span id="center">' + questions.display_key + '</span>';
   }
+  
   // 不正解メッセージ
   function falseFlash(miss) {
     toastr.options = {
@@ -64,8 +65,8 @@
         "preventDuplicates": true,
         "onclick": null,
         "showDuration": "1000",
-        "hideDuration": "1000",
-        "timeOut": "1000",
+        "hideDuration": "3000",
+        "timeOut": "2000",
         "extendedTimeOut": "1000",
         "showEasing": "swing",
         "hideEasing": "linear",
@@ -74,7 +75,6 @@
     }
     Command: toastr["warning"]('スタート!!!')
   }
-
 
   // スタート表示
   function startPress(e) {
@@ -95,41 +95,38 @@
     }
   }
 
-document.addEventListener("keydown", function(e) {
-      e.preventDefault();
+ document.addEventListener("keydown", function(e) {
+    e.preventDefault();
       
-      // console.log(e.key)
-      // スペースキーでスタート
-      // console.log(i)
+    // console.log(e.key)
+    // スペースキーでスタート
+    // console.log(i)
+    //キー判定
+    // alert('keydown');
+    if ((questions.synchro_key === 'Meta') && (e.metaKey && e.key === questions.answer_key)) {
+    //正解メッセージ
+      trueFlash();
+      return;
       //キー判定
-      // alert('keydown');
-      if ((questions.synchro_key === 'Meta') && (e.metaKey && e.key === questions.answer_key)) {
-        //正解メッセージ
-        trueFlash();
-        
-        return;
-       //キー判定
-      } else if ((questions.synchro_key === 'Alt') && (e.altKey && e.key === questions.answer_key)) {
-         //正解メッセージ
-        trueFlash();
-        return;
-       //キー判定
-      }else if ((questions.synchro_key === 'ctrl') && (e.ctrlKey && e.key === questions.answer_key)) {
-         //正解メッセージ
-        trueFlash();
-        // alert('ctrl');
-        return
-        // キー判定
-      }else if ((questions.synchro_key === 'Meta+Shift') && (e.shiftKey && event.metaKey && e.key === questions.answer_key)) {
-         //正解メッセージ
-        trueFlash();
-
-        return;
-      } else if  ((questions.synchro_key === 'ctrl+Shift') && (e.shiftKey && e.ctrlKey && e.key === questions.answer_key)) {
-        // nomatch(event.key);
-        trueFlash();
-        
-        return;
+    } else if ((questions.synchro_key === 'Alt') && (e.altKey && e.key === questions.answer_key)) {
+    //正解メッセージ
+      trueFlash();
+      return;
+    //キー判定
+    } else if ((questions.synchro_key === 'ctrl') && (e.ctrlKey && e.key === questions.answer_key)) {
+    //正解メッセージ
+      trueFlash();
+    // alert('ctrl');
+      return
+    // キー判定
+    } else if ((questions.synchro_key === 'Meta+Shift') && (e.shiftKey && event.metaKey && e.key === questions.answer_key)) {
+    //正解メッセージ
+      trueFlash();
+      return;
+    } else if  ((questions.synchro_key === 'ctrl+Shift') && (e.shiftKey && e.ctrlKey && e.key === questions.answer_key)) {
+    // nomatch(event.key);
+      trueFlash();
+      return;
     }
-  });
  });
+});
