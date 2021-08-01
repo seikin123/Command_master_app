@@ -13,8 +13,6 @@ class QuestionsController < ApplicationController
       redirect_to categories_path
     end
       @user_id = current_user
-    # byebug
-    # byebug
   end
       # @products = @category.products
       # index = 1
@@ -22,7 +20,7 @@ class QuestionsController < ApplicationController
       # @question = Question.find(index)
   
 
-  def create
+  # def create
   #   a = Answer.new()# answer_params
   #   # Answerテーブルに答えを登録
 
@@ -32,6 +30,6 @@ class QuestionsController < ApplicationController
   #     index = params[:answer][:id].to_i + 1
   #   end
   #   @question = Question.find(index)
-  end
+  # end
 
 end
