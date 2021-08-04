@@ -95,7 +95,7 @@ $(document).ready(function () {
 
 
   //問題の表示
-  function roop() {
+  function loop() {
     $("#input").text('');
     // スコア更新
     addScore(questions[point].point);
@@ -104,7 +104,7 @@ $(document).ready(function () {
       i += 1;
     $('#question-' + i).show();
     //問題終了判定
-    // console.log('lengthTest' + i + ' / ' + questions.length)
+    console.log('lengthTest' + i + ' / ' + questions.length)
     if (i === questions.length){
      finishAnswer();
     }
@@ -203,31 +203,31 @@ $(document).ready(function () {
     if ((questions[i].synchro_key === 'Meta') && (e.metaKey && e.key === questions[i].answer_key)) {
       //正解メッセージ
       trueFlash();
-      roop();
+      loop();
       return;
       //キー判定
     } else if ((questions[i].synchro_key === 'Alt') && (e.altKey && e.key === questions[i].answer_key)) {
       //正解メッセージ
       trueFlash();
-      roop();
+      loop();
       return;
       //キー判定
     }else if ((questions[i].synchro_key === 'ctrl') && (e.ctrlKey && e.key === questions[i].answer_key)) {
       //正解メッセージ
       trueFlash();
-      roop();
+      loop();
       // alert('ctrl');
       return
       // キー判定
     }else if ((questions[i].synchro_key === 'Meta+Shift') && (e.shiftKey && event.metaKey && e.key === questions[i].answer_key)) {
       //正解メッセージ
       trueFlash();
-      roop();
+      loop();
       return;
     } else if  ((questions[i].synchro_key === 'ctrl+Shift') && (e.shiftKey && e.ctrlKey && e.key === questions[i].answer_key)) {
       // nomatch(event.key);
       trueFlash();
-      roop();
+      loop();
       return;
     }
   });
