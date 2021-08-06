@@ -97,6 +97,7 @@ $(document).ready(function () {
   //問題の表示
   function loop() {
     $("#input").text('');
+    
     // スコア更新
     addScore(questions[point].point);
      point++;
@@ -196,6 +197,12 @@ $(document).ready(function () {
 
   document.addEventListener("keydown", function(e) {
     e.preventDefault();
+    let text = e.key;
+    let command = ' ';
+    if (e.metaKey === '⌘' ){
+    text = command + text;
+    }
+    $("#output").text(text);
     // スペースキーでスタート
     startPress(e)
     //キー判定
