@@ -70,15 +70,16 @@
                               <%= attachment_image_tag question, :problem_image, size: "545x300", fallback: "giphy.gif" %>
                             </div>
                           <!--<p class="display">  <= question.display_key %></p>-->
-                          <div id="dis" >Fight!!!</div>
+                          <div id="dis">Fight!!!</div>
                         </div>
                       <% end %>
                         <div class="inputarea">
                          <div  style="display: none;"></div>
-                         <div id="command"></div>
-                         <div id="input"></div>
-                         <div id="output"></div>
+                         <!--<div id="command"></div>-->
+                         <div id="input" class="display"></div>
+                         <!--<div id="output"></div>-->
                         </div>
+                        
                         <!--終了時に表示されるメッセージ-->
                            <div class="mb15">
                             <div class="finish" id="main" style="display: none;">お疲れ様でした。

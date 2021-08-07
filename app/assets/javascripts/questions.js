@@ -192,16 +192,11 @@ $(document).ready(function () {
     })
   }
 
-
-
-
   document.addEventListener("keydown", function(e) {
     e.preventDefault();
     let text = e.key;
     let command = ' ';
-    if (e.metaKey === '⌘' ){
     text = command + text;
-    }
     $("#output").text(text);
     // スペースキーでスタート
     startPress(e)
@@ -232,10 +227,10 @@ $(document).ready(function () {
       loop();
       return;
     } else if  ((questions[i].synchro_key === 'ctrl+Shift') && (e.shiftKey && e.ctrlKey && e.key === questions[i].answer_key)) {
-      // nomatch(event.key);
       trueFlash();
       loop();
       return;
     }
+    nomatch(event.key);
   });
  });
