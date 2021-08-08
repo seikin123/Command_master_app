@@ -193,7 +193,8 @@ $(document).ready(function () {
   }
 
   document.addEventListener("keydown", function(e) {
-    e.preventDefault();
+    e.preventDefault(); //デフォルトのキーイベントを無効化
+    console.log('e.key197',e.key);
     let text = e.key;
     let command = ' ';
     text = command + text;
@@ -202,6 +203,10 @@ $(document).ready(function () {
     startPress(e)
     //キー判定
     // alert('keydown');
+    //e.metakeyはaltkeyを押しているかどうか
+    //e.key === questions[i].answer_keyは、正解のアルファベットを押されているかどうか
+    if (e.key != 'Meta'){
+      
     if ((questions[i].synchro_key === 'Meta') && (e.metaKey && e.key === questions[i].answer_key)) {
       //正解メッセージ
       trueFlash();
@@ -221,7 +226,7 @@ $(document).ready(function () {
       // alert('ctrl');
       return
       // キー判定
-    }else if ((questions[i].synchro_key === 'Meta+Shift') && (e.shiftKey && event.metaKey && e.key === questions[i].answer_key)) {
+    }else if ((questions[i].synchro_key === 'Meta+Shift') && (e.shiftKey && e.metaKey && e.key === questions[i].answer_key)) {
       //正解メッセージ
       trueFlash();
       loop();
@@ -231,6 +236,15 @@ $(document).ready(function () {
       loop();
       return;
     }
-    nomatch(event.key);
+    console.log('hoge');
+    console.log('e.metakey', e.metaKey);
+    console.log('正解のキー(アルファベット)', questions[i].answer_key); //back
+    console.log('正解のキー(アルファベットじゃない)', questions[i].synchro_key); //meta
+    console.log('入力したキー', e.key); //meta
+    console.log('入力したキー(イベント)', event.key); //meta
+    nomatch(e.key);
+    } else {
+      loop();
+    }
   });
  });
