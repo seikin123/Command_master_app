@@ -136,11 +136,19 @@ $(document).ready(function () {
   }
 
 // 不正解判定
+  // function nomatch(e) {
+  //   if (e.key === questions[i].answer_key) {
+  //       trueFlash();
+  //   } else {
+  //       falseFlash(e);
+  //   }
+  // }
+  
   function nomatch(e) {
     if (e.key === questions[i].answer_key) {
         trueFlash();
     } else {
-        falseFlash(e);
+      falseFlash(e);
     }
   }
 
@@ -205,7 +213,11 @@ $(document).ready(function () {
     // alert('keydown');
     //e.metakeyはaltkeyを押しているかどうか
     //e.key === questions[i].answer_keyは、正解のアルファベットを押されているかどうか
-    if (e.key != 'Meta'){
+    if (e.key != 'Meta')
+    if (e.key != 'Alt')
+    if (e.key != 'Shift')
+    if (e.key != 'Control')
+    if (e.keyCode != 32) {
       
     if ((questions[i].synchro_key === 'Meta') && (e.metaKey && e.key === questions[i].answer_key)) {
       //正解メッセージ
@@ -244,7 +256,6 @@ $(document).ready(function () {
     console.log('入力したキー(イベント)', event.key); //meta
     nomatch(e.key);
     } else {
-      loop();
     }
   });
  });
