@@ -136,21 +136,23 @@ $(document).ready(function () {
   }
 
 // 不正解判定
-  // function nomatch(e) {
-  //   if (e.key === questions[i].answer_key) {
-  //       trueFlash();
-  //   } else {
-  //       falseFlash(e);
-  //   }
-  // }
-  
   function nomatch(e) {
     if (e.key === questions[i].answer_key) {
         trueFlash();
     } else {
-      falseFlash(e);
+        falseFlash(e);
     }
   }
+  
+  // function synchro(e) {
+  //   if (e.key != 'Meta') 
+  //   if (e.key != 'Alt') 
+  //   if (e.key != 'Shift')
+  //   if (e.key != 'Control')
+  //   if (e.keyCode != 32) {
+  //   } else {
+  // }
+  // }
 
     //タイマー・終了判定が出たら結果を送信
   function finishAnswer() {
@@ -162,7 +164,7 @@ $(document).ready(function () {
     $(".finish").show();
     // $("#answer").text('');
     var score = $('#answer').html()
-    var end_time = performance.now();
+    var end_time = performance.now(); //かかった時間
     var typing_time = ( (end_time - start_time) / 1000).toFixed(0);
     $timeMessage.text('クリアタイム：'+typing_time+'秒');
     //CSRFトークン
@@ -202,26 +204,24 @@ $(document).ready(function () {
 
   document.addEventListener("keydown", function(e) {
     e.preventDefault(); //デフォルトのキーイベントを無効化
-    console.log('e.key197',e.key);
-    let text = e.key;
-    let command = ' ';
-    text = command + text;
-    $("#output").text(text);
+    // console.log('e.key197',e.key);
     // スペースキーでスタート
     startPress(e)
+    // synchro(e)
     //キー判定
     // alert('keydown');
     //e.metakeyはaltkeyを押しているかどうか
     //e.key === questions[i].answer_keyは、正解のアルファベットを押されているかどうか
-    if (e.key != 'Meta')
-    if (e.key != 'Alt')
+    // 特殊キーは判定しない
+    if (e.key != 'Meta') 
+    if (e.key != 'Alt') 
     if (e.key != 'Shift')
     if (e.key != 'Control')
     if (e.keyCode != 32) {
-      
     if ((questions[i].synchro_key === 'Meta') && (e.metaKey && e.key === questions[i].answer_key)) {
       //正解メッセージ
       trueFlash();
+      // 問題を回している
       loop();
       return;
       //キー判定
@@ -254,7 +254,7 @@ $(document).ready(function () {
     console.log('正解のキー(アルファベットじゃない)', questions[i].synchro_key); //meta
     console.log('入力したキー', e.key); //meta
     console.log('入力したキー(イベント)', event.key); //meta
-    nomatch(e.key);
+    nomatch(e.key); //不正解判定
     } else {
     }
   });
