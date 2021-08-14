@@ -14,7 +14,15 @@ $(document).ready(function () {
   var input = document.querySelector('#input');
   var $timeMessage = $('#time-message');
   var command = document.querySelector('#command');
-
+  var modifier = { meta: '', ctrl: '', alt: '', shift: '' }
+  
+  // Mac/windowsコマンド切り替え
+window.onload = () => {
+    modifier.meta  = (pc === 'Mac')? '<span id="meta"> ⌘ </span>'  : '<span id="meta"> Win </span>';
+    modifier.ctrl  = (pc === 'Mac')? '<span id="ctrl"> ⌃ </span>'  : '<span id="ctrl"> Ctrl </span>';
+    modifier.alt   = (pc === 'Mac')? '<span id="alt"> ⌥ </span>'   : '<span id="alt"> Alt </span>';
+    modifier.shift = (pc === 'Mac')? '<span id="shift"> ⇧ </span>' : '<span id="shift"> Shift </span>';
+};
   var answer = 0;
   var point = 0;
   var i = 0; //問題文
@@ -220,6 +228,7 @@ $(document).ready(function () {
     if (e.keyCode != 32) {
     if ((questions[i].synchro_key === 'Meta') && (e.metaKey && e.key === questions[i].answer_key)) {
       //正解メッセージ
+      command.innerHTML = `${modifier.meta}`;
       trueFlash();
       // 問題を回している
       loop();
