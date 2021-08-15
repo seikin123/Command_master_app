@@ -103,6 +103,11 @@ $(document).ready(function () {
     // console.log(i)
     //キー判定
     // alert('keydown');
+    if (e.key != 'Meta') 
+    if (e.key != 'Alt') 
+    if (e.key != 'Shift')
+    if (e.key != 'Control')
+    if (e.keyCode != 32) {
     if ((questions.synchro_key === 'Meta') && (e.metaKey && e.key === questions.answer_key)) {
     //正解メッセージ
       trueFlash();
@@ -128,5 +133,9 @@ $(document).ready(function () {
       trueFlash();
       return;
     }
+    nomatch(e.key); //不正解判定
+    } else {
+    }
+    
  });
 });
