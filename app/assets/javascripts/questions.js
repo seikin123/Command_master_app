@@ -128,12 +128,19 @@ $(document).ready(function () {
     } else if (!start_game) {
         return;
     }
+    
     // 入力したキーを表示させている部分
-     var text = e.key;
-     var command = ' ';
-    if (e.ctrlKey){
-      text = command + text;
-    }
+     var text = e.key
+    // if text = (e.key === (e.ctrlKey = "⌃")
+     if (e.key = (e.metaKey = "⌘"))
+     if (e.key = (e.altKey = "⌥")) {
+     } else {
+       e.key
+     }
+    // var command = ' ';
+    // if (e.ctrlKey){
+    //   text = command + text;
+    // }
      $("#input").text(text);
   }
 
@@ -216,7 +223,7 @@ $(document).ready(function () {
     //e.metakeyはaltkeyを押しているかどうか
     //e.key === questions[i].answer_keyは、正解のアルファベットを押されているかどうか
     // 特殊キーは判定しない
-  if (e.key != 'Meta') 
+  if (e.key != 'Meta')
   if (e.key != 'Alt')
   if (e.key != 'Shift')
   if (e.key != 'Control')
