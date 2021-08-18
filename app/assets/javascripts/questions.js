@@ -130,13 +130,11 @@ $(document).ready(function () {
     }
     
     // 入力したキーを表示させている部分
-     var text = e.key
+     var text = (e.key = (e.metakey = "⌘")) || (e.key = (e.altkey = "⌥"))
+    // var text = e.key = 
     // if text = (e.key === (e.ctrlKey = "⌃")
-     if (e.key = (e.metaKey = "⌘"))
-     if (e.key = (e.altKey = "⌥")) {
-     } else {
-       e.key
-     }
+    // if (e.key = (e.metaKey = "⌘"))
+    // if (e.key = (e.altKey = "⌥"))
     // var command = ' ';
     // if (e.ctrlKey){
     //   text = command + text;
