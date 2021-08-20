@@ -2,7 +2,7 @@ require_relative '../level/calc_user_level.rb'#レベルあっぷ処理
 
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  # skip_before_action :verify_authenticity_token
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def show
     @user = current_user
@@ -43,5 +43,11 @@ class UsersController < ApplicationController
  private
   def user_params
     params.require(:user).permit(:name, :profile_image, :is_active, :level, :experience_point, :point)
+  end
+  
+  # before_action
+  def correct_user
+    user = User.find(params[:id])
+    redirect_to root_url if current_user != user
   end
 end
