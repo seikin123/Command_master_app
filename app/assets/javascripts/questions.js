@@ -128,9 +128,17 @@ $(document).ready(function () {
     } else if (!start_game) {
         return;
     }
-    
+    var text = e.key
     // 入力したキーを表示させている部分
-     var text = (e.key = (e.metakey = "⌘")) || (e.key = (e.altkey = "⌥"))
+    // var text =  (e.key = (e.metakey = "⌘") || (e.key = (e.altkey = "⌥")))
+    if (text = e.metakey) {
+        var text =  "⌘"
+    } else {
+    }
+    
+    // } else if (e.key = e.altkey)
+    //     var text =  "⌥"
+    
     // var text = e.key = 
     // if text = (e.key === (e.ctrlKey = "⌃")
     // if (e.key = (e.metaKey = "⌘"))
@@ -215,7 +223,12 @@ $(document).ready(function () {
     // console.log('e.key197',e.key);
     // スペースキーでスタート
     startPress(e)
-    // synchro(e)
+    // let check = document.querySelector("#check");
+    // if (check.checked) {
+    //     document.querySelector("#answer").style.display = "inline-block";
+    // }else{
+    //     document.querySelector("#answer").style.display = "none";
+    // }
     //キー判定
     // alert('keydown');
     //e.metakeyはaltkeyを押しているかどうか
@@ -228,7 +241,6 @@ $(document).ready(function () {
   if (e.keyCode != 32) {
     if ((questions[i].synchro_key === 'Meta') && (e.metaKey && e.key === questions[i].answer_key)) {
       //正解メッセージ
-      // command.innerHTML = `${modifier.meta}`;
       trueFlash();
       // 問題を回している
       loop();
