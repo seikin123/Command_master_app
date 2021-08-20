@@ -11,7 +11,7 @@ Question.seed(:id,
  {id: 8, category_id: 1, synchro_key: 'Alt', answer_key: 'ArrowDown', problem: 'カーソル行／選択行をまるっと下移動(複数行対応)', display_key: '⌥ + ↓', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
  {id: 9, category_id: 1, synchro_key: 'Meta', answer_key: 'ArrowLeft', problem: '単語の先頭にジャンプ', display_key: '⌘ + ←', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
  {id: 10, category_id: 1, synchro_key: 'Meta+Shift', answer_key: 'g', problem: 'ソース管理を開く', display_key: '⌘ + ⬆︎ + G', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
- 
+ {id: 11, category_id: 1, synchro_key: 'Meta', answer_key: 'x', problem: '選択範囲を切り取り', display_key: '⌘ + X', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
  #slack
  # {id:11, category_id: 2, synchro_key: 'Meta', answer_key: 'n', problem: '新規メッセージ', display_key: '⌘ + N', pc_type: 0 },
  # {id:12, category_id: 2, synchro_key: 'Meta', answer_key: 'k', problem: '別の会話へ移動', display_key: '⌘ + K', pc_type: 0 },

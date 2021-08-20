@@ -1,6 +1,7 @@
 <div class="container">
-<div class="card" style="width: 30rem;">
-  <h3>Mypage</h3>
+ <div class="card-deck">
+  <div class="card"  style="width: 30rem;">
+   <h3>Mypage</h3>
     <h3 id="profile-img" class="profile-img-card">
     <%= attachment_image_tag @user, :profile_image, size: "140x140", fallback: "no_image.jpg"%>
     </h3>
@@ -25,31 +26,34 @@
         <th></th>
       </tr>
     </table>
-</div>
-
-  
-<% if @like_questions.present? %>
-<h2>BookMark-List</h2>
-  <table class="table table-hover" style="table-layout:fixed">
-    <thead>
-      <tr>
-        <th>基本的な編集</th>
-        <th>コマンド</th>
-      </tr>
-    </thead>
-      <tbody>
-        <% @like_questions.each do |likes| %>
-
-        <tr id="question_<= question.id %>">
-          <td><%=link_to likes.problem, command_path(likes.id) %></td>
-          <td><%= likes.display_key %></td>
-          <!--<td><= render 'likes/like', question: question %></td>-->
-        </tr>
-      </tbody>
-        <% end %>
-    </table>
-    <% else %>
-    <% end %>
   </div>
+
+
+ <div class="card"  style="width: 30rem;">
+  <h2>BookMark-List</h2>
+<% if @like_questions.present? %>
+    <table class="table table-hover" style="table-layout:fixed">
+      <thead>
+        <tr>
+          <th>基本的な編集</th>
+          <th>コマンド</th>
+        </tr>
+      </thead>
+        <tbody>
+          <% @like_questions.each do |likes| %>
+  
+          <tr id="question_<= question.id %>">
+            <td><%=link_to likes.problem, command_path(likes.id) %></td>
+            <td><%= likes.display_key %></td>
+            <!--<td><= render 'likes/like', question: question %></td>-->
+          </tr>
+        </tbody>
+          <% end %>
+      </table>
+    </div>
+  </div>
+<% else %>
+<% end %>
+</div>
 
   <%= javascript_include_tag 'like.js' %>

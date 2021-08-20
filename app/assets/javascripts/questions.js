@@ -14,6 +14,7 @@ $(document).ready(function () {
   var input = document.querySelector('#input');
   var $timeMessage = $('#time-message');
   var command = document.querySelector('#command');
+  
 
   var answer = 0;
   var point = 0;
@@ -95,8 +96,9 @@ $(document).ready(function () {
 
 
   //問題の表示
-  function roop() {
+  function loop() {
     $("#input").text('');
+    
     // スコア更新
     addScore(questions[point].point);
      point++;
@@ -104,7 +106,7 @@ $(document).ready(function () {
       i += 1;
     $('#question-' + i).show();
     //問題終了判定
-    // console.log('lengthTest' + i + ' / ' + questions.length)
+    console.log('lengthTest' + i + ' / ' + questions.length)
     if (i === questions.length){
      finishAnswer();
     }
@@ -126,22 +128,47 @@ $(document).ready(function () {
     } else if (!start_game) {
         return;
     }
-     var text = e.key;
-     var command = ' ';
-    if (e.ctrlKey){
-      text = command + text;
+    var text = e.key
+    // 入力したキーを表示させている部分
+    // var text =  (e.key = (e.metakey = "⌘") || (e.key = (e.altkey = "⌥")))
+    if (text = e.metakey) {
+        var text =  "⌘"
+    } else {
     }
+    
+    // } else if (e.key = e.altkey)
+    //     var text =  "⌥"
+    
+    // var text = e.key = 
+    // if text = (e.key === (e.ctrlKey = "⌃")
+    // if (e.key = (e.metaKey = "⌘"))
+    // if (e.key = (e.altKey = "⌥"))
+    // var command = ' ';
+    // if (e.ctrlKey){
+    //   text = command + text;
+    // }
      $("#input").text(text);
   }
 
 // 不正解判定
   function nomatch(e) {
+    // e.keyに答えのキーが入ったら
     if (e.key === questions[i].answer_key) {
         trueFlash();
     } else {
         falseFlash(e);
     }
   }
+  
+  // function synchro(e) {
+  //   if (e.key != 'Meta') 
+  //   if (e.key != 'Alt') 
+  //   if (e.key != 'Shift')
+  //   if (e.key != 'Control')
+  //   if (e.keyCode != 32) {
+  //   } else {
+  // }
+  // }
 
     //タイマー・終了判定が出たら結果を送信
   function finishAnswer() {
@@ -153,7 +180,7 @@ $(document).ready(function () {
     $(".finish").show();
     // $("#answer").text('');
     var score = $('#answer').html()
-    var end_time = performance.now();
+    var end_time = performance.now(); //かかった時間
     var typing_time = ( (end_time - start_time) / 1000).toFixed(0);
     $timeMessage.text('クリアタイム：'+typing_time+'秒');
     //CSRFトークン
@@ -191,44 +218,65 @@ $(document).ready(function () {
     })
   }
 
-
-
-
   document.addEventListener("keydown", function(e) {
-    e.preventDefault();
+    e.preventDefault(); //デフォルトのキーイベントを無効化
+    // console.log('e.key197',e.key);
     // スペースキーでスタート
     startPress(e)
+    // let check = document.querySelector("#check");
+    // if (check.checked) {
+    //     document.querySelector("#answer").style.display = "inline-block";
+    // }else{
+    //     document.querySelector("#answer").style.display = "none";
+    // }
     //キー判定
     // alert('keydown');
+    //e.metakeyはaltkeyを押しているかどうか
+    //e.key === questions[i].answer_keyは、正解のアルファベットを押されているかどうか
+    // 特殊キーは判定しない
+  if (e.key != 'Meta')
+  if (e.key != 'Alt')
+  if (e.key != 'Shift')
+  if (e.key != 'Control')
+  if (e.keyCode != 32) {
     if ((questions[i].synchro_key === 'Meta') && (e.metaKey && e.key === questions[i].answer_key)) {
       //正解メッセージ
       trueFlash();
-      roop();
+      // 問題を回している
+      loop();
       return;
       //キー判定
     } else if ((questions[i].synchro_key === 'Alt') && (e.altKey && e.key === questions[i].answer_key)) {
       //正解メッセージ
       trueFlash();
-      roop();
+      loop();
       return;
       //キー判定
     }else if ((questions[i].synchro_key === 'ctrl') && (e.ctrlKey && e.key === questions[i].answer_key)) {
       //正解メッセージ
       trueFlash();
-      roop();
+      loop();
       // alert('ctrl');
       return
       // キー判定
-    }else if ((questions[i].synchro_key === 'Meta+Shift') && (e.shiftKey && event.metaKey && e.key === questions[i].answer_key)) {
+    }else if ((questions[i].synchro_key === 'Meta+Shift') && (e.shiftKey && e.metaKey && e.key === questions[i].answer_key)) {
       //正解メッセージ
       trueFlash();
-      roop();
+      loop();
       return;
     } else if  ((questions[i].synchro_key === 'ctrl+Shift') && (e.shiftKey && e.ctrlKey && e.key === questions[i].answer_key)) {
-      // nomatch(event.key);
       trueFlash();
-      roop();
+      loop();
       return;
     }
+    console.log('hoge');
+    console.log('e.metakey', e.metaKey);
+    console.log('正解のキー(アルファベット)', questions[i].answer_key); //back
+    console.log('正解のキー(アルファベットじゃない)', questions[i].synchro_key); //meta
+    console.log('入力したキー', e.key); //meta
+    console.log('入力したキー(イベント)', event.key); //meta
+    nomatch(e.key); //不正解判定
+  } else {
+  }
   });
  });
