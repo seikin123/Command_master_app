@@ -128,17 +128,37 @@ $(document).ready(function () {
     } else if (!start_game) {
         return;
     }
-    var text = e.key
     // 入力したキーを表示させている部分
-    // var text =  (e.key = (e.metakey = "⌘") || (e.key = (e.altkey = "⌥")))
-    if (text = e.metakey) {
-        var text =  "⌘"
+    if (e.key == 'Meta') {
+      var text = "⌘"
+    } else if(e.key == 'Alt') {
+      var text = "⌥"
+    } else if(e.key == 'Shift') {
+      var text = "⬆"
+    } else if(e.key == 'Control') {
+      var text = "⌃"
+    } else if(e.key == 'Enter') {
+      var text = "⏎"
+    } else if(e.key == 'Backspace') {
+      var text = "⌫"
+    } else if(e.key == 'Tab') {
+      var text = "→|"
+    } else if(e.key == 'ArrowDown') {
+      var text = "⇩"
+    } else if(e.key == 'ArrowUp') {
+      var text = "⇧"
+    } else if(e.key == 'ArrowRight') {
+      var text = "⇨"
+    } else if(e.key == 'ArrowLeft') {
+      var text = "⇦"
     } else {
+      var text = e.key
     }
-    
+         $("#input").text(text);
+  }
+  
     // } else if (e.key = e.altkey)
     //     var text =  "⌥"
-    
     // var text = e.key = 
     // if text = (e.key === (e.ctrlKey = "⌃")
     // if (e.key = (e.metaKey = "⌘"))
@@ -147,8 +167,7 @@ $(document).ready(function () {
     // if (e.ctrlKey){
     //   text = command + text;
     // }
-     $("#input").text(text);
-  }
+
 
 // 不正解判定
   function nomatch(e) {
