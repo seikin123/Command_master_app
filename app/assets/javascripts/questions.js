@@ -131,6 +131,8 @@ $(document).ready(function () {
     // 入力したキーを表示させている部分
     if (e.key == 'Meta') {
       var text = "⌘"
+    } else if (e.key === 'Meta' && e.shiftkey) {
+      var text = "⌘ + ⬆"
     } else if(e.key == 'Alt') {
       var text = "⌥"
     } else if(e.key == 'Shift') {
@@ -152,7 +154,7 @@ $(document).ready(function () {
     } else if(e.key == 'ArrowLeft') {
       var text = "⇦"
     } else {
-      var text = e.key
+      // var text = e.key
     }
          $("#input").text(text);
   }
@@ -178,16 +180,6 @@ $(document).ready(function () {
         falseFlash(e);
     }
   }
-  
-  // function synchro(e) {
-  //   if (e.key != 'Meta') 
-  //   if (e.key != 'Alt') 
-  //   if (e.key != 'Shift')
-  //   if (e.key != 'Control')
-  //   if (e.keyCode != 32) {
-  //   } else {
-  // }
-  // }
 
     //タイマー・終了判定が出たら結果を送信
   function finishAnswer() {
@@ -236,6 +228,17 @@ $(document).ready(function () {
       // alert(`タイムは${typing_time}秒です。お疲れ様でした。`);
     })
   }
+  $('#click').on('click', "#hyouji", function() {
+    if (this.value === "ヒントON") {
+        $('input').addClass("clicked");
+        $('#hyouji').replaceWith('<input type="button" id="hyouji" value="表示OFF">');
+        $('#target').replaceWith('<p id="target" class="display">' + questions[i].display_key + '</p>');
+    } else {
+        $('input').removeClass('clicked');
+        $('#hyouji').replaceWith('<input type="button" id="hyouji" value="ヒントON">');
+        $('#target').replaceWith('<div id="target"></div>');
+    }
+  });
 
   document.addEventListener("keydown", function(e) {
     e.preventDefault(); //デフォルトのキーイベントを無効化
@@ -244,9 +247,9 @@ $(document).ready(function () {
     startPress(e)
     // let check = document.querySelector("#check");
     // if (check.checked) {
-    //     document.querySelector("#answer").style.display = "inline-block";
+    //     document.querySelector(".answer").style.display = "inline-block";
     // }else{
-    //     document.querySelector("#answer").style.display = "none";
+    //     document.querySelector(".answer").style.display = "none";
     // }
     //キー判定
     // alert('keydown');

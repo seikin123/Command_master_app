@@ -68,23 +68,23 @@
                             <div class="previewArea__wrap">
                               <%= attachment_image_tag question, :problem_image, size: "545x300", fallback: "giphy.gif" %>
                             </div>
-                          <!--<p id="answer" class="display"><= question.display_key %></p>-->
-                          <!--<div id="input" class="display"></div>-->
-                          <!--<div id="dis" >Fight!!!</div>-->
                         </div>
                       <% end %>
                         <div class="inputarea">
+                          <!--ヒント機能の表示-->
+                          <p id="target" class="display"></p>
+                          <!--トーストの表示-->
                          <div  style="display: none;"></div>
                          <div id="command" style="display: none;"></div>
+                         <!--入力されているキーの表示-->
                          <div id="input" class="display"></div>
                          <div id="dis" >!!!</div>
-                         <!--<span id="meta">-->
+                         
                         </div>
                         <!--終了時に表示されるメッセージ-->
                            <div class="mb15">
                             <div class="finish" id="main" style="display: none;">お疲れ様でした。
-                               <div id="time-message"></div>
-
+                              <div id="time-message"></div>
                               <div><%= link_to "Retry", categories_path, class:"btn btn-primary" %></div>
                               <div><%= link_to "トップ画面へ戻る", root_path, class:"btn btn-info" %></div>
                               <div id="time-message"></div>
@@ -116,7 +116,12 @@
                           <%= link_to "こちら", commands_path, class:"btn btn-primary" %>
                         </ul>
                         <ul>
-                          <!--<input type="checkbox" name="check" value="#">ヒント-->
+                          <!--ヒント機能-->
+                          <div id="click">
+                            <div id="btn_center">
+                              <input type="button" id="hyouji" value="ヒントON">
+                            </div>
+                          </div>
                           
                         </ul>
                         </aside>
