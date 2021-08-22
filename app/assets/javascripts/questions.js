@@ -14,7 +14,7 @@ $(document).ready(function () {
   var input = document.querySelector('#input');
   var $timeMessage = $('#time-message');
   var command = document.querySelector('#command');
-  
+
 
   var answer = 0;
   var point = 0;
@@ -98,7 +98,7 @@ $(document).ready(function () {
   //問題の表示
   function loop() {
     $("#input").text('');
-    
+
     // スコア更新
     addScore(questions[point].point);
      point++;
@@ -131,8 +131,8 @@ $(document).ready(function () {
     // 入力したキーを表示させている部分
     if (e.key == 'Meta') {
       var text = "⌘"
-    } else if (e.key === 'Meta' && e.shiftkey) {
-      var text = "⌘ + ⬆"
+    // } else if ((e.key === 'Meta') && (e.shiftkey && e.metakey)) {
+    //   var text = "⌘ + ⬆"
     } else if(e.key == 'Alt') {
       var text = "⌥"
     } else if(e.key == 'Shift') {
@@ -156,22 +156,10 @@ $(document).ready(function () {
     } else {
       // var text = e.key
     }
-         $("#input").text(text);
+      $("#input").text(text);
   }
-  
-    // } else if (e.key = e.altkey)
-    //     var text =  "⌥"
-    // var text = e.key = 
-    // if text = (e.key === (e.ctrlKey = "⌃")
-    // if (e.key = (e.metaKey = "⌘"))
-    // if (e.key = (e.altKey = "⌥"))
-    // var command = ' ';
-    // if (e.ctrlKey){
-    //   text = command + text;
-    // }
 
-
-// 不正解判定
+  // 不正解判定
   function nomatch(e) {
     // e.keyに答えのキーが入ったら
     if (e.key === questions[i].answer_key) {
@@ -181,7 +169,7 @@ $(document).ready(function () {
     }
   }
 
-    //タイマー・終了判定が出たら結果を送信
+  //タイマー・終了判定が出たら結果を送信
   function finishAnswer() {
 
     i = 0;
@@ -218,6 +206,7 @@ $(document).ready(function () {
       })
       // 処理が上手く行ったら切り替え
     .done(function(data) {
+      console.log('レベルアップ処理終了')
         // window.location.href = '/users/:id';
       // alert(`${typing_time}お疲れ様でした！`);
       // リダイレクトの処理を書く
@@ -232,7 +221,7 @@ $(document).ready(function () {
   $('#click').on('click', "#hyouji", function() {
     if (this.value === "ヒントON") {
         $('input').addClass("clicked");
-        $('#hyouji').replaceWith('<input type="button" id="hyouji" value="表示OFF">');
+        $('#hyouji').replaceWith('<input type="button" id="hyouji" value="ヒントOFF">');
         $('#target').replaceWith('<p id="target" class="display">' + questions[i].display_key + '</p>');
     } else {
         $('input').removeClass('clicked');
@@ -240,6 +229,13 @@ $(document).ready(function () {
         $('#target').replaceWith('<div id="target"></div>');
     }
   });
+  
+    // $(function(){
+    // $("#button").click(function(){
+    // $(this).toggleClass('on');　
+    // $("#text").toggle('fast');　
+    // });
+    // });
 
   document.addEventListener("keydown", function(e) {
     e.preventDefault(); //デフォルトのキーイベントを無効化
