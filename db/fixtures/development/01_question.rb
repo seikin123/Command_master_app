@@ -12,7 +12,27 @@ Question.seed(:id,
  {id: 9, category_id: 1, synchro_key: 'Meta', answer_key: 'ArrowLeft', problem: '単語の先頭にジャンプ', display_key: '⌘ + ←', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
  {id: 10, category_id: 1, synchro_key: 'Meta+Shift', answer_key: 'g', problem: 'ソース管理を開く', display_key: '⌘ + ⬆︎ + G', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
  {id: 11, category_id: 1, synchro_key: 'Meta', answer_key: 'x', problem: '選択範囲を切り取り', display_key: '⌘ + X', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
- #slack
+ 
+ #フォルダ/ワークスペース全体
+ {id: 12, category_id: 1, synchro_key: 'Meta+Shift', answer_key: 'f', problem: 'フォルダ/ワークスペース全体を検索', display_key: '⌘ + ⬆︎ + F', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
+ {id: 13, category_id: 1, synchro_key: 'Meta+Shift', answer_key: 'h', problem: 'フォルダ/ワークスペース全体を置換', display_key: '⌘ + ⬆︎ + H', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
+ # 開く系
+ {id: 14, category_id: 1, synchro_key: 'Meta', answer_key: 'n', problem: '新規にエディタを開く', display_key: '⌘ + N', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
+ {id: 15, category_id: 1, synchro_key: 'Meta', answer_key: 'w', problem: 'エディタを閉じる', display_key: '⌘ + W', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
+ {id: 16, category_id: 1, synchro_key: 'Meta', answer_key: 'p', problem: 'フォルダ／ワークスペース内のファイルを開く', display_key: '⌘ + P', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
+ {id: 17, category_id: 1, synchro_key: 'Meta', answer_key: ',', problem: '設定画面を開く', display_key: '⌘ + ,', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
+ # サイドバー系
+ {id: 18, category_id: 1, synchro_key: 'Meta', answer_key: 'b', problem: 'サイドバーを開く/閉じる', display_key: '⌘ + B', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
+ {id: 19, category_id: 1, synchro_key: 'Meta+Shift', answer_key: 'x', problem: '拡張機能を開く', display_key: '⌘ + ⬆︎ + X', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
+ {id: 20, category_id: 1, synchro_key: 'Meta+Shift', answer_key: 'd', problem: 'デバッグを開く', display_key: '⌘ + ⬆︎ + D', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
+ {id: 21, category_id: 1, synchro_key: 'Meta', answer_key: 's', problem: '上書き保存', display_key: '⌘ + S', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
+ {id: 22, category_id: 1, synchro_key: 'Meta+Shift', answer_key: 's', problem: '名前を付けて保存', display_key: '⌘ + ⬆︎ + S', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
+ 
+ {id: 23, category_id: 1, synchro_key: 'Meta', answer_key: ',', problem: '設定画面を開く', display_key: '⌘ + ,', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
+ {id: 24, category_id: 1, synchro_key: 'Meta', answer_key: ',', problem: '設定画面を開く', display_key: '⌘ + ,', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
+ {id: 25, category_id: 1, synchro_key: 'Meta', answer_key: ',', problem: '設定画面を開く', display_key: '⌘ + ,', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
+ 
+ #slack{id: 11, category_id: 1, synchro_key: 'Meta', answer_key: 'x', problem: '選択範囲を切り取り', display_key: '⌘ + X', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vscode01.gif") },
  # {id:11, category_id: 2, synchro_key: 'Meta', answer_key: 'n', problem: '新規メッセージ', display_key: '⌘ + N', pc_type: 0 },
  # {id:12, category_id: 2, synchro_key: 'Meta', answer_key: 'k', problem: '別の会話へ移動', display_key: '⌘ + K', pc_type: 0 },
  # {id:13, category_id: 2, synchro_key: 'Meta', answer_key: 'g', problem: '検索', display_key: '⌘ + G', pc_type: 0 },

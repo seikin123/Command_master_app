@@ -1,7 +1,7 @@
 //ローディング画面の表示
 $(window).on('load',function(){
   $("#loading").delay(1500).fadeOut('slow');//ローディング画面を1.5秒（1500ms）待機してからフェードアウト
-  $("#loading_box").delay(1400).fadeOut('slow');//ローディングテキストを1.2秒（1200ms）待機してからフェードアウト
+  $("#loading_box").delay(1400).fadeOut('slow');//ローディングテキストを1.4秒（1400ms）待機してからフェードアウト
 });
 
 $(document).ready(function () {
@@ -228,6 +228,7 @@ $(document).ready(function () {
       // alert(`タイムは${typing_time}秒です。お疲れ様でした。`);
     })
   }
+  // ヒントの表示機能
   $('#click').on('click', "#hyouji", function() {
     if (this.value === "ヒントON") {
         $('input').addClass("clicked");
@@ -245,12 +246,6 @@ $(document).ready(function () {
     // console.log('e.key197',e.key);
     // スペースキーでスタート
     startPress(e)
-    // let check = document.querySelector("#check");
-    // if (check.checked) {
-    //     document.querySelector(".answer").style.display = "inline-block";
-    // }else{
-    //     document.querySelector(".answer").style.display = "none";
-    // }
     //キー判定
     // alert('keydown');
     //e.metakeyはaltkeyを押しているかどうか
@@ -278,7 +273,6 @@ $(document).ready(function () {
       //正解メッセージ
       trueFlash();
       loop();
-      // alert('ctrl');
       return
       // キー判定
     }else if ((questions[i].synchro_key === 'Meta+Shift') && (e.shiftKey && e.metaKey && e.key === questions[i].answer_key)) {
