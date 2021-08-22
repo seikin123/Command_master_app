@@ -1,11 +1,11 @@
 <!--アニメーション-->
-<div id="loading">
-  <div id="loading_box">
-    <div class="loading-one animation_loading">
-      <p class="loading-txt">NowLoading<br>※必ずスペースキーを押してから始めてください</p>
-    </div>
-  </div>
-</div>
+<!--<div id="loading">-->
+<!--  <div id="loading_box">-->
+<!--    <div class="loading-one animation_loading">-->
+<!--      <p class="loading-txt">NowLoading<br>※必ずスペースキーを押してから始めてください</p>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
 
 <div class="wrapper fullheight">
      <div class="row contentWidth">
@@ -53,6 +53,7 @@
 
             </div>
             <!--問題表示-->
+            <% if @pc_type = 'Mac' %>
               <div class="col-6">
                 <div class="main__inner">
                     <div class="question__wrap">
@@ -61,9 +62,7 @@
                       </div>
                       <% @questions_json.each_with_index do |question, idx| %>
                         <div id="question-<%= idx %>" class="questions-item" style="<%= idx == 0 ? '' : 'display: none;' %>">
-                          <!--<p><= question.id %></p>-->
                           <div class="problem">問題 :<%= question.problem %></div>
-
                           <p class="c-nav"><%= idx + 1 %> / 10 問</p>
                             <div class="previewArea__wrap">
                               <%= attachment_image_tag question, :problem_image, size: "545x300", fallback: "giphy.gif" %>
@@ -94,7 +93,7 @@
                     </div>
                 </div>
               </div>
-              
+            <% end %>  
               <!--右のメニュー-->
               <div class="rightnav col-3 col-xs-5" id="rightber" style="'display: none;'">
                 <div class="rightnav__inner">
@@ -122,7 +121,8 @@
                               <input type="button" id="hyouji" value="ヒントON">
                             </div>
                           </div>
-                          
+                          <!--<p id="button" >これは#buttonの内容です。</p>-->
+                          <!--<p id="text">これは#textの内容です。</p>-->
                         </ul>
                         </aside>
                       </div>
@@ -136,7 +136,6 @@
     </div>
   </div>
 </div>
-
 
   <!--jsにデータを渡している-->
   <h3>
