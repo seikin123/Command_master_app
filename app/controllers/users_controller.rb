@@ -1,4 +1,4 @@
-require_relative '../level/calc_user_level.rb'#レベルあっぷ処理
+require_relative '../level/calc_user_level.rb'#レベルアップ処理
 
 class UsersController < ApplicationController
   before_action :authenticate_user!
@@ -31,8 +31,6 @@ class UsersController < ApplicationController
       puts "#{user.level}レベルアップ処理前のレベル"
       CalcUserLevel.calc_user_level(user, experience_point)
       puts "#{user.level}レベルアップ処理後のレベル"
-      
-     
     end
   end
 
