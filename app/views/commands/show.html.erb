@@ -15,7 +15,7 @@
               <p class="c-nav">Shift /  ⇧ - Shift</p>
               <p class="c-nav">⌃ - Control</p>
               <p class="c-nav">⏎ - Enter </p>
-              <p class="c-nav">Delete / Fn + ⌫</p>
+              <p class="c-nav">⌫ - Backspace</p>
           </div>
           
           <!--問題表示-->
@@ -26,14 +26,16 @@
                   <div class="previewArea__wrap">
                     <%= attachment_image_tag @questions_json, :problem_image, size: "545x300", fallback: "giphy.gif" %>
                   </div>
-                    <p class="display">  <%= @questions_json.display_key %></p>
-                    <div id="dis" >!!!</div>
+                    <p class="display"><%= @questions_json.display_key %></p>
+                    
                   </div>
                 </div>
                   <div class="inputarea">
                     <div  style="display: none;"></div>
+                    <div id="input" class="display"></div>
                     <div id="command" style="display: none;"></div>
                     <span id="center" style='display: none;'></span>
+                    <div id="dis" >!!!</div>
                   </div>
               </div>
               
@@ -46,7 +48,6 @@
                       <li>Mac/Windows<br>は下記を同時に押さないでください</li>
                       <li> ⌘ + W </li>
                       <li> ⌘ + Q </li>
-                      <!--<span id="center" style='display: none;'></span>-->
                     </ul>
                   </div>
                   <div id="switch"></div>
@@ -72,8 +73,8 @@
     </div>
   </div>
     
-    <h2>
+    <h3>
       <input type="hidden" id="questions_json" value="<%= @questions_json.to_json %>">
       <input type="hidden" id="pc_type" value="<%= @pc_type %>">
-    </h2>
+    </h3>
 <%= javascript_include_tag 'commands.js' %>
