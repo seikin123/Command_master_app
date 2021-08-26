@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   attachment :profile_image
   #バリデーション
-  validates :name, presence: true, length: {maximum: 20, minimum: 5}, uniqueness: true
+  validates :name, presence: true, length: {maximum: 20, minimum: 3}, uniqueness: true
 
   #いいね機能
   has_many :likes, dependent: :destroy

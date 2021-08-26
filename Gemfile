@@ -41,6 +41,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
+# Mysql
 group :production do
   gem 'mysql2'
 end 
@@ -66,15 +67,26 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+<<<<<<< HEAD
 #下記追加
+=======
+# ログイン機能
+>>>>>>> main
 gem 'devise'
+# 画像処理
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
+# 環境変数
 gem 'dotenv-rails'
+# レイアウト
 gem 'bootstrap', '~> 4.5'
 gem "jquery-rails"
+gem 'kaminari','~> 1.2.1'
+
+# 日本語化
 gem 'rails-i18n'
-gem 'enum_help'
 #os判定
+gem 'enum_help'
 gem "rack-user_agent"
+# サンプルデータ作成
 gem 'seed-fu'

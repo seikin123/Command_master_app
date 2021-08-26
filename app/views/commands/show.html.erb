@@ -1,29 +1,80 @@
-<!--<div class="container">-->
-<!--  <h2>コマンド一覧</h2>-->
+<h2>Command-Practice</h2>
 
-<!--  <table class="table table-hover" style="table-layout:fixed">-->
-<!--    <thead>-->
-<!--      <tr>-->
-<!--        <th scope="col">No.</th>-->
-<!--        <th scope="col">基本的な編集</th>-->
-<!--        <th scope="col">コマンド</th>-->
-<!--        <th></th>-->
-<!--      </tr>-->
-<!--    </thead>-->
-<!--      <tbody>-->
-        <!--< @question.each do |question| %>-->
-        
-        <!--<tr id="question_<= question.id %>">-->
+  <div class="card" style="width: 80rem;">
+    <div class="content row">
+      <div class="mx-auto test-box">
+        <div class="row justify-content-around" style="margin-top: 10px;">
           
-          <!--<td><= link_to question.problem, command_path(question.id) %></td>-->
-<!--          <td style="font-size: 20px;"><= @question.display_key %></td>-->
-          <!--<td><= render 'likes/like', question: question %></td>-->
-<!--        </tr>-->
-<!--      </tbody>-->
-      <!--< end %>-->
-<!--  </table>-->
-<!--</div>-->
-
-<!--<= link_to "Back", commands_path %>-->
-
-<!--<= javascript_include_tag 'like.js' %>-->
+          <!---左のナビバー-->
+          <div class="leftnav col-3 col-xs-5" id="leftber">
+            <div class="col-xs-1 justify-content" style="text-align:center;">
+              <h3>Command</h3>
+            </div>
+              <p class="c-nav">Ctrl / ⌘ - Command</p>
+              <p class="c-nav">Alt / ⌥ - Option</p>
+              <p class="c-nav">Shift /  ⇧ - Shift</p>
+              <p class="c-nav">⌃ - Control</p>
+              <p class="c-nav">⏎ - Enter </p>
+              <p class="c-nav">⌫ - Backspace</p>
+          </div>
+          
+          <!--問題表示-->
+          <div class="col-6">
+            <div class="main__inner">
+              <div class="question__wrap">
+                <div class="problem">問題 :<%= @questions_json.problem %></div>
+                  <div class="previewArea__wrap">
+                    <%= attachment_image_tag @questions_json, :problem_image, size: "545x300", fallback: "giphy.gif" %>
+                  </div>
+                    <p class="display"><%= @questions_json.display_key %></p>
+                    
+                  </div>
+                </div>
+                  <div class="inputarea">
+                    <div  style="display: none;"></div>
+                    <div id="input" class="display"></div>
+                    <div id="command" style="display: none;"></div>
+                    <span id="center" style='display: none;'></span>
+                    <div id="dis" >!!!</div>
+                  </div>
+              </div>
+              
+              <!--右のメニュー-->
+              <div class="rightnav col-3 col-xs-5" id="rightber" style="'display: none;'">
+                <div class="rightnav__inner">
+                  <h3 class="c-nav">Stop Command</h3>
+                  <div class="preList_wrap">
+                    <ul class="preList" style="top: 8opx;">
+                      <li>Mac/Windows<br>は下記を同時に押さないでください</li>
+                      <li> ⌘ + W </li>
+                      <li> ⌘ + Q </li>
+                    </ul>
+                  </div>
+                  <div id="switch"></div>
+                    <div class="preList_wrap">
+                      <h5 class="c-nav">↓↓コマンド一覧へ</h5>
+                        <div class="mt20"></div>
+                          <aside class>
+                          <ul class>
+                            <%= link_to "Back", commands_path, class:"btn btn-primary"%>
+                          </ul>
+                          </aside>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+    <h3>
+      <input type="hidden" id="questions_json" value="<%= @questions_json.to_json %>">
+      <input type="hidden" id="pc_type" value="<%= @pc_type %>">
+    </h3>
+<%= javascript_include_tag 'commands.js' %>

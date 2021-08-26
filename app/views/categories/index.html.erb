@@ -1,17 +1,40 @@
   <div class="container">
     <h2>Category-Select</h2>
-    <div class="row">
+      <div class="row">
         <% @categories.each do |category| %>
+          <div class="col-lg-4">
+            <div class="shadow card" style="width: 20rem;">
+                <%= attachment_image_tag category, :category_image, size: "200x200", fallback: "no_image.jpg", class:"card-img-top"  %>
+              <div class="card-body">
+                <h4 class="card-title"><%= category.name %></h4>
+                <p class="card-text"></p>
+                <%= link_to "Lets Go!!!", questions_path(category_id: category.id), class:"btn btn-primary"%>
+              </div>
+            </div>
+          </div>
+        <% end %>
+    
+    
       <div class="col-lg-4">
         <div class="shadow card" style="width: 20rem;">
-            <%= attachment_image_tag category, :category_image, size: "200x200", fallback: "no_image.jpg", class:"card-img-top"  %>
+          <%= image_tag('comming-soon.jpg', size: "200x200", fallback: "no_image.jpg", class:"card-img-top") %>
           <div class="card-body">
-            <h4 class="card-title"><%= category.name %></h4>
+            <h4 class="card-title">Cloud9</h4>
             <p class="card-text"></p>
-            <%= link_to "Lets Go!!!", questions_path(category_id: category.id), class:"btn btn-primary"%>
+            <%= link_to "comming-soon", categories_path, class:"btn btn-primary"%>
           </div>
         </div>
       </div>
-     <% end %>
+      
+      <div class="col-lg-4">
+        <div class="shadow card" style="width: 20rem;">
+          <%= image_tag('comming-soon.jpg', size: "200x200", fallback: "no_image.jpg", class:"card-img-top") %>
+          <div class="card-body">
+            <h4 class="card-title">Excel</h4>
+            <p class="card-text"></p>
+            <%= link_to "comming-soon", categories_path, class:"btn btn-primary"%>
+          </div>
+        </div>
+      </div>
     </div>
   </div>

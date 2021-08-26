@@ -4,7 +4,6 @@
   <table class="table table-hover" style="table-layout:fixed">
     <thead>
       <tr>
-        <th scope="col">No.</th>
         <th scope="col">Category-No.</th>
         <th scope="col">Problem</th>
         <th scope="col">Command</th>
@@ -17,7 +16,6 @@
         <% @questions.each do |question| %>
         
         <tr id="question_<= question.id %>">
-          <td><%= question.id %></td>
           <td><%= question.category_id %></td>
           <td><%= question.problem %></td>
           <td><%= question.display_key %></td>
