@@ -132,45 +132,40 @@ $(document).ready(function () {
     } else if (!start_game) {
         return;
     }
-    // let modifier = { meta: '', ctrl: '', alt: '', shift: '' }
     // 入力したキーを表示させている部分
-    if (e.key == 'Meta') {
+    if (e.key == 'Meta' && (pc = 'Mac')) {
       var text = "⌘"
-    } else if ((e.key == 'Meta' && e.shiftkey)) {
-      console.log('e.shiftkey', e.shiftKey);
-      var text = "⌘ + ⬆"
-    } else if(e.key == 'Alt') {
+    } else if (e.key == 'Meta' && (pc = 'Windows')) {
+      var text = "Win"
+    } else if ((pc = 'Mac') && (e.shiftKey && e.metaKey)) {
+      var text = "⌘ + ⬆" 
+    } else if ((pc = 'Windows') && (e.shiftkey && e.ctrlKey)) {
+      var text = "Ctrl + Shift"
+    } else if (e.key == 'Shift' && (pc = 'Mac')) {
+      var text = "⬆"
+    } else if (e.key == 'Alt' && (pc = 'Mac')) {
       var text = "⌥"
-    } else if(e.key == 'Control') {
+    } else if (e.key == 'Control' && (pc = 'Mac')) {
       var text = "⌃"
-    } else if(e.key == 'Enter') {
+    } else if (e.key == 'Enter') {
       var text = "⏎"
-    } else if(e.key == 'Backspace') {
+    } else if (e.key == 'Backspace') {
       var text = "⌫"
-    } else if(e.key == 'Tab') {
+    } else if (e.key == 'Tab') {
       var text = "→|"
     } else if(e.key == 'ArrowDown') {
       var text = "⇩"
-    } else if(e.key == 'ArrowUp') {
+    } else if (e.key == 'ArrowUp') {
       var text = "⇧"
-    } else if(e.key == 'ArrowRight') {
+    } else if (e.key == 'ArrowRight') {
       var text = "⇨"
-    } else if(e.key == 'ArrowLeft') {
+    } else if (e.key == 'ArrowLeft') {
       var text = "⇦"
     } else {
-      // var text = e.key
+      var text = e.key
     }
-      $("#input").text(text);
+    $("#input").text(text);
   }
-  
-  let modifier = { meta: '', ctrl: '', alt: '', shift: '' }
-  // Mac/windowsコマンド切り替え
-  window.onload = () => {
-    modifier.meta  = (pc === 'Mac')? '<span id="meta"> ⌘ </span>'  : '<span id="meta"> Win </span>';
-    modifier.ctrl  = (pc === 'Mac')? '<span id="ctrl"> ⌃ </span>'  : '<span id="ctrl"> Ctrl </span>';
-    modifier.alt   = (pc === 'Mac')? '<span id="alt"> ⌥ </span>'   : '<span id="alt"> Alt </span>';
-    modifier.shift = (pc === 'Mac')? '<span id="shift"> ⇧ </span>' : '<span id="shift"> Shift </span>';
-  };
 
   // 不正解判定
   function nomatch(e) {
@@ -218,13 +213,13 @@ $(document).ready(function () {
         },
         dataType: 'json'
       })
-      // 処理が上手く行ったら切り替え
+    // 処理が上手く行ったら切り替え
     .done(function(data) {
-      console.log('レベルアップ処理終了')
-        // window.location.href = '/users/:id';
-      // リダイレクトの処理を書く
+    console.log('レベルアップ処理終了')
+    // window.location.href = '/users/:id';
+    // リダイレクトの処理を書く
     })
-      // 処理が上手く行かなかったら失敗の旨を伝えるアラートを表示
+    // 処理が上手く行かなかったら失敗の旨を伝えるアラートを表示
     .fail(function(data) {
     })
   }
@@ -239,7 +234,6 @@ $(document).ready(function () {
         $('#target').replaceWith('<p id="target" class="display">' + questions[i].display_key + '</p>');
     } else {
         console.log("ヒントOFFが押された!")
-        //$('#input').addClass("hidden-hint")
         $('input').removeClass('clicked');
         $('#hyouji').replaceWith('<input type="button" id="hyouji" value="ヒントON">');
         $('#target').replaceWith('<div id="target"></div>');
@@ -248,17 +242,12 @@ $(document).ready(function () {
 
 
   document.addEventListener("keydown", function(e) {
-
-
     e.preventDefault(); //デフォルトのキーイベントを無効化
-    var event_key = e.key.toLowerCase();
+    var event_key = e.key.toLowerCase(); //小文字に変換
     // console.log('e.key197',e.key);
     // スペースキーでスタート
     startPress(e)
     //キー判定
-    // alert('keydown');
-    //e.metakeyはaltkeyを押しているかどうか
-    //e.key === questions[i].answer_keyは、正解のアルファベットを押されているかどうか
     // 特殊キーは判定しない
   if (e.key != 'Meta')
   if (e.key != 'Alt')
@@ -268,7 +257,6 @@ $(document).ready(function () {
     if ((questions[i].synchro_key === 'Meta') && (e.metaKey && e.key === questions[i].answer_key)) {
       //正解メッセージ
       trueFlash();
-
       // 問題の切り替え
       loop();
       return;
@@ -297,12 +285,12 @@ $(document).ready(function () {
       loop();
       return;
     }
-    console.log(event_key);
-    console.log('e.ctrlkey', e.ctrlKey);
-    console.log('正解のキー(アルファベット)', questions[i].answer_key); //back
-    console.log('正解のキー(アルファベットじゃない)', questions[i].synchro_key); //meta
-    console.log('入力したキー', e.key); //meta
-    console.log('入力したキー(イベント)', event.key); //meta
+    // console.log(event_key);
+    // console.log('e.ctrlkey', e.ctrlKey);
+    // console.log('正解のキー(アルファベット)', questions[i].answer_key); //back
+    // console.log('正解のキー(アルファベットじゃない)', questions[i].synchro_key); //meta
+    // console.log('入力したキー', e.key); //meta
+    // console.log('入力したキー(イベント)', event.key); //meta
     nomatch(e.key); //不正解判定
   } else {
   }
