@@ -11,10 +11,10 @@ class Question < ApplicationRecord
   validates :category_id, presence: true
   validates :problem_image, presence: true
   validates :pc_type, presence: true
-  validates :problem, length: { in: 1..75 } 
-  validates :answer_key, presence: true, length: { in: 1..75}
-  validates :synchro_key, presence: true, length: { in: 1..75}
-  validates :display_key, presence: true, length: { in: 1..75}
+  validates :problem, length: { in: 1..75} 
+  validates :answer_key, presence: true, length: { in: 1..50}
+  validates :synchro_key, presence: true, length: { in: 1..50}
+  validates :display_key, presence: true, length: { in: 1..50}
   
   def like?(user)
     like_users.include?(user)

@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   }
   
   root to: "homes#top"
-  get 'about' => 'homes#about'
   
   # ゲストログイン用
   devise_scope :user do
@@ -27,8 +26,6 @@ Rails.application.routes.draw do
   resources :questions
   
   resources :likes, only: [:create]
-  
-  
   
   #お問い合わせ機能のルーティング
   get   'inquiry'         => 'inquiry#index'     # 入力画面
