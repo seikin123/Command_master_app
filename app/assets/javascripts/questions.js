@@ -137,7 +137,7 @@ $(document).ready(function () {
       var text = "⌘ +"
     } else if ((pc = 'Mac') && (e.shiftKey && e.metaKey)) {
       var text = "⌘ + ⬆"
-    } else if ((questions[i].synchro_key === 'Meta') && (e.key == "Shift" && e.ctrlKey)) {
+    } else if ((questions[i].synchro_key === 'Ctrl+Shift') && (e.key == "Shift" && e.ctrlKey)) {
       var text = "Ctrl + Shift"
     } else if (e.key == 'Shift' && (pc = 'Mac')) {
       var text = "⬆"
