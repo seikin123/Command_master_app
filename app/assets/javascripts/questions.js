@@ -98,10 +98,10 @@ $(document).ready(function () {
   function loop() {
     $("#input").text('');
     // inputのvalueを取得
-    let inputElement = $('#hyouji')
+    var inputElement = $('#hyouji')
     inputElement.val("ヒントON")
     $('#target').addClass("hidden-hint")
-    
+
     // スコア更新
     addScore(questions[point].point);
      point++;
@@ -136,7 +136,7 @@ $(document).ready(function () {
     } else if ((pc = 'Mac') && e.key == 'Meta') {
       var text = "⌘ +"
     } else if ((pc = 'Mac') && (e.shiftKey && e.metaKey)) {
-      var text = "⌘ + ⬆" 
+      var text = "⌘ + ⬆"
     } else if ((questions[i].synchro_key === 'Meta') && (e.key == "Shift" && e.ctrlKey)) {
       var text = "Ctrl + Shift"
     } else if (e.key == 'Shift' && (pc = 'Mac')) {
