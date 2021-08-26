@@ -4,10 +4,6 @@ class CommandsController < ApplicationController
   def index
     @categories = Category.all
     @questions = Question.select_pc_type(request.os)
-    
-    
-    # @questions = Question.all
-    # @questions_json = @questions
   end
 
   def show

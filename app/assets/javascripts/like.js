@@ -11,7 +11,6 @@ $(function(){
     });
   // id="link-mark"の箇所(いいねボタン)をクリックしたら
     $('.link-mark').on('click', function(){
-      // console.log("a");
       // thisをglobalに
       var _this = this;
       // 非同期でlikes#createに処理を送信＋その時に情報(question_id)を渡す
@@ -31,7 +30,6 @@ $(function(){
       })
       // 処理が上手く行かなかったら失敗を伝えるアラートを表示
       .fail(function(data) {
-        // alert('いいね！に失敗しました');
       })
     });
   });
