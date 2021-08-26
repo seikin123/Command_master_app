@@ -97,12 +97,8 @@ $(document).ready(function () {
 
  document.addEventListener("keydown", function(e) {
     e.preventDefault();
-      
-    // console.log(e.key)
-    // スペースキーでスタート
-    // console.log(i)
+    var event_key = e.key.toLowerCase();
     //キー判定
-    // alert('keydown');
     if (e.key != 'Meta') 
     if (e.key != 'Alt') 
     if (e.key != 'Shift')
@@ -128,8 +124,7 @@ $(document).ready(function () {
     //正解メッセージ
       trueFlash();
       return;
-    } else if  ((questions.synchro_key === 'ctrl+Shift') && (e.shiftKey && e.ctrlKey && e.key === questions.answer_key)) {
-    // nomatch(event.key);
+    } else if  ((questions.synchro_key === 'ctrl+Shift') && (e.shiftKey && e.ctrlKey && event_key === questions.answer_key)) {
       trueFlash();
       return;
     }
