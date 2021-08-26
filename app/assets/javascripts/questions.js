@@ -8,16 +8,15 @@ $(document).ready(function () {
   if (!$('#questions_json').length) {
     return false;
   }
-  var Json = document.querySelector('#questions_json').value;
+  var Json = document.querySelector('#questions_json').value //value値でquestionのデータをjson形式で受け取る
+  //JSON.perseは文字列を JSON として受け取り、文字列によって記述されているJavaScript の値やオブジェクトを構築する
   var questions = JSON.parse(Json);
-  var pc = document.querySelector('#pc_type').value;
+  var pc = document.querySelector('#pc_type').value; //value値でpc_typeのデータをjson形式で受け取る
   var input = document.querySelector('#input');
   var $timeMessage = $('#time-message'); //かかった時間
   var command = document.querySelector('#command'); //入力コマンド
-
-
-  var answer = 0;
-  var point = 0;
+  var answer = 0; //表示点数
+  var point = 0; //点数
   var i = 0; //問題文
   var start_game = false;　//ゲームスタート
   var start_time = 0; //時間の設定
@@ -110,7 +109,6 @@ $(document).ready(function () {
       i += 1;
     $('#question-' + i).show();
     //問題終了判定
-    console.log('lengthTest' + i + ' / ' + questions.length)
     if (i === questions.length){
      finishAnswer();
     }
@@ -132,14 +130,14 @@ $(document).ready(function () {
     } else if (!start_game) {
         return;
     }
-    // 入力したキーを表示させている部分
-    if (e.key == 'Meta' && (pc = 'Mac')) {
-      var text = "⌘"
-    } else if (e.key == 'Meta' && (pc = 'Windows')) {
+    // 入力したキーを表示部分
+    if ((pc != 'Mac') && e.key == 'Meta') {
       var text = "Win"
+    } else if ((pc = 'Mac') && e.key == 'Meta') {
+      var text = "⌘ +"
     } else if ((pc = 'Mac') && (e.shiftKey && e.metaKey)) {
       var text = "⌘ + ⬆" 
-    } else if ((pc = 'Windows') && (e.shiftkey && e.ctrlKey)) {
+    } else if ((questions[i].synchro_key === 'Meta') && (e.key == "Shift" && e.ctrlKey)) {
       var text = "Ctrl + Shift"
     } else if (e.key == 'Shift' && (pc = 'Mac')) {
       var text = "⬆"
@@ -179,14 +177,12 @@ $(document).ready(function () {
 
   //タイマー・終了判定が出たら結果を送信
   function finishAnswer() {
-
-    i = 0;
-    answer = 0;
-    point = 0;
+    i = 0; //問題数をリセット
+    answer = 0; //合計数のリセット
+    point = 0; //点数のリセット
     $("#target").hide();
     $("#click").hide();
     $(".finish").show();
-    // $("#answer").text('');
     var score = $('#answer').html()
     var end_time = performance.now(); //かかった時間
     var typing_time = ( (end_time - start_time) / 1000).toFixed(0);
@@ -201,10 +197,9 @@ $(document).ready(function () {
         }
       }
     });
-        // 非同期でusers#createに処理を送信＋その時にプレイ情報(user_id)を渡す
+        // 非同期でusers#updateに処理を送信＋その時にプレイ情報を渡す
     $.ajax({
         url: '/users/:user_id/update_user_point',
-        // url: '/user_questions/:id',
         type: 'PUT',
         data: {
          user: {
@@ -217,7 +212,6 @@ $(document).ready(function () {
     .done(function(data) {
     console.log('レベルアップ処理終了')
     // window.location.href = '/users/:id';
-    // リダイレクトの処理を書く
     })
     // 処理が上手く行かなかったら失敗の旨を伝えるアラートを表示
     .fail(function(data) {
@@ -227,24 +221,21 @@ $(document).ready(function () {
   // // ヒントの表示機能
   $('#click').on('click', "#hyouji", function() {
     if (this.value === "ヒントON") {
-        console.log("ヒントONが押された!")
         $('input').addClass("clicked");
         $('#hyouji').replaceWith('<input type="button" id="hyouji" value="ヒントOFF">');
         $('#input').removeClass("hidden-hint")
         $('#target').replaceWith('<p id="target" class="display">' + questions[i].display_key + '</p>');
     } else {
-        console.log("ヒントOFFが押された!")
         $('input').removeClass('clicked');
         $('#hyouji').replaceWith('<input type="button" id="hyouji" value="ヒントON">');
         $('#target').replaceWith('<div id="target"></div>');
     }
   });
 
-
-  document.addEventListener("keydown", function(e) {
+// キーイベント取得
+ document.addEventListener("keydown", function(e) {
     e.preventDefault(); //デフォルトのキーイベントを無効化
     var event_key = e.key.toLowerCase(); //小文字に変換
-    // console.log('e.key197',e.key);
     // スペースキーでスタート
     startPress(e)
     //キー判定
@@ -255,29 +246,22 @@ $(document).ready(function () {
   if (e.key != 'Control')
   if (e.keyCode != 32) {
     if ((questions[i].synchro_key === 'Meta') && (e.metaKey && e.key === questions[i].answer_key)) {
-      //正解メッセージ
-      trueFlash();
-      // 問題の切り替え
-      loop();
+      trueFlash(); //正解のメッセージ
+      loop();// 問題の切り替え
       return;
       //キー判定
     } else if ((questions[i].synchro_key === 'Alt') && (e.altKey && e.key === questions[i].answer_key)) {
-      //正解メッセージ
       trueFlash();
       loop();
       return;
       //キー判定
     }else if ((questions[i].synchro_key === 'Ctrl') && (e.ctrlKey && e.key === questions[i].answer_key)) {
-      //正解メッセージ
       trueFlash();
-
       loop();
       return
       // キー判定
     }else if ((questions[i].synchro_key === 'Meta+Shift') && (e.shiftKey && e.metaKey && e.key === questions[i].answer_key)) {
-      //正解メッセージ
       trueFlash();
-
       loop();
       return;
     } else if  ((questions[i].synchro_key === 'Ctrl+Shift') && (e.ctrlKey && e.shiftKey && event_key === questions[i].answer_key)) {
@@ -285,14 +269,8 @@ $(document).ready(function () {
       loop();
       return;
     }
-    // console.log(event_key);
-    // console.log('e.ctrlkey', e.ctrlKey);
-    // console.log('正解のキー(アルファベット)', questions[i].answer_key); //back
-    // console.log('正解のキー(アルファベットじゃない)', questions[i].synchro_key); //meta
-    // console.log('入力したキー', e.key); //meta
-    // console.log('入力したキー(イベント)', event.key); //meta
     nomatch(e.key); //不正解判定
   } else {
   }
-  });
  });
+});
