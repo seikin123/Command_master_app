@@ -98,7 +98,7 @@ $(document).ready(function () {
   function loop() {
     $("#input").text('');
     // inputのvalueを取得
-    let inputElement = $('#hyouji')
+    var inputElement = $('#hyouji')
     inputElement.val("ヒントON")
     $('#target').addClass("hidden-hint")
     
