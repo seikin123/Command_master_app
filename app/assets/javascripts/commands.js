@@ -9,7 +9,6 @@ $(document).ready(function () {
   var $timeMessage = $('#time-message');
   var command = document.querySelector('#command');
 
-
     // 正解したときのメッセージ
   function trueFlash() {
     toastr.options = {
@@ -31,6 +30,9 @@ $(document).ready(function () {
     }
     Command: toastr["success"](questions.display_key + ' 正解!!!')
     command.innerHTML = '<span id="center">' + questions.display_key + '</span>';
+    // 答えのキー表示
+    var text = questions.display_key
+    $("#input").text(text);
   }
   
   // 不正解メッセージ
@@ -76,17 +78,25 @@ $(document).ready(function () {
     Command: toastr["warning"]('スタート!!!')
   }
 
-  // スタート表示
-  function startPress(e) {
-     var text = e.key;
-     var command = ' ';
-    if (e.ctrlKey){
-      text = command + text;
-    }
-     $("#input").text(text);
+  // 入力キーの表示
+  function andAnswer(e) {
+    if (e.key == 'Meta' && (pc = 'Mac')) {
+      var text = "⌘ +"
+    } else if (e.shiftKey && e.metaKey && (pc = 'Mac')) {
+      var text = "⌘ + ⬆ +"
+    } else if (e.key == 'Alt' && (pc = 'Mac')) {
+      var text = "⌥ +"
+    } else if ((questions.synchro_key === 'Ctrl+Shift') && (e.key == "Shift" && e.ctrlKey)) {
+      var text = "Ctrl + Shift"
+    } else if (e.key == 'Control' && (pc != 'Mac')) {
+      var text = "Ctrl + "
+    } 
+    $("#input").text(text);
   }
-
-// 不正解判定
+  
+  
+  
+  // 不正解判定
   function nomatch(e) {
     if (e.key === questions.answer_key) {
         trueFlash();
@@ -98,6 +108,8 @@ $(document).ready(function () {
  document.addEventListener("keydown", function(e) {
     e.preventDefault();
     var event_key = e.key.toLowerCase();
+    andAnswer(e)
+    // andMetaShift(e)
     //キー判定
     if (e.key != 'Meta') 
     if (e.key != 'Alt') 
@@ -117,10 +129,9 @@ $(document).ready(function () {
     } else if ((questions.synchro_key === 'ctrl') && (e.ctrlKey && e.key === questions.answer_key)) {
     //正解メッセージ
       trueFlash();
-    // alert('ctrl');
       return
     // キー判定
-    } else if ((questions.synchro_key === 'Meta+Shift') && (e.shiftKey && event.metaKey && e.key === questions.answer_key)) {
+    } else if ((questions.synchro_key === 'Meta+Shift') && (e.shiftKey && event.metaKey && event_key === questions.answer_key)) {
     //正解メッセージ
       trueFlash();
       return;
@@ -129,8 +140,6 @@ $(document).ready(function () {
       return;
     }
     nomatch(e.key); //不正解判定
-    } else {
     }
-    
  });
 });
