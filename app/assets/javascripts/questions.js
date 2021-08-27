@@ -132,17 +132,17 @@ $(document).ready(function () {
     }
     // 入力したキーを表示部分
     if ((pc != 'Mac') && e.key == 'Meta') {
-      var text = "Win"
+      var text = "Win +"
     } else if ((pc = 'Mac') && e.key == 'Meta') {
       var text = "⌘ +"
     } else if ((pc = 'Mac') && (e.shiftKey && e.metaKey)) {
-      var text = "⌘ + ⬆"
+      var text = "⌘ + ⬆ +"
     } else if ((questions[i].synchro_key === 'Ctrl+Shift') && (e.key == "Shift" && e.ctrlKey)) {
-      var text = "Ctrl + Shift"
+      var text = "Ctrl + Shift +"
     } else if (e.key == 'Shift' && (pc = 'Mac')) {
       var text = "⬆"
     } else if (e.key == 'Alt' && (pc = 'Mac')) {
-      var text = "⌥"
+      var text = "⌥ +"
     } else if (e.key == 'Control' && (pc = 'Mac')) {
       var text = "⌃"
     } else if (e.key == 'Enter') {
