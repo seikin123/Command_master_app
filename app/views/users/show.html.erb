@@ -22,8 +22,8 @@
        <th>EXP. <%= @user.experience_point %></th>
       </tr>
       <tr>
-        <th><%= link_to "編集", edit_user_path(@user),  class:"btn btn-info btn-block" %></th>
-        <th></th>
+        <th><%= link_to "編集する", edit_user_path(@user),  class:"btn btn-info btn-block" %></th>
+        <th><%= link_to "練習する", categories_path, class:"btn btn-primary btn-block"%></th>
       </tr>
     </table>
   </div>
@@ -55,5 +55,6 @@
 <% else %>
 <% end %>
 </div>
+
 
   <%= javascript_include_tag 'like.js' %>

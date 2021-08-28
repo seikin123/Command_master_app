@@ -210,7 +210,6 @@ $(document).ready(function () {
       })
     // 処理が上手く行ったら切り替え
     .done(function(data) {
-    console.log('レベルアップ処理終了')
     // window.location.href = '/users/:id';
     })
     // 処理が上手く行かなかったら失敗の旨を伝えるアラートを表示
