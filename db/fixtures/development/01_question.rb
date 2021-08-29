@@ -26,6 +26,8 @@ Question.seed(:id,
  { category_id: 1, synchro_key: 'Meta', answer_key: 's', problem: '上書き保存', display_key: '⌘ + S', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vs-21.gif") },
  { category_id: 1, synchro_key: 'Meta+Shift', answer_key: 's', problem: '名前を付けて保存', display_key: '⌘ + ⬆︎ + S', pc_type: 0, problem_image: File.open("db/fixtures/category_images/vs-22.gif") },
  
+ { category_id: 2, synchro_key: 'Meta', answer_key: 's', problem: '名前を付けて保存', display_key: '⌘ + S', pc_type: 0, problem_image: File.open("db/fixtures/category_images/c_cloud9.png") },
+ 
 #Windows
  { category_id: 1, synchro_key: 'Ctrl', answer_key: 'c', problem: 'コピーする際のコマンド', display_key: 'Ctrl + C', pc_type: 1, problem_image: File.open("db/fixtures/category_images/copy-1.gif") },
  { category_id: 1, synchro_key: 'Ctrl', answer_key: 'a', problem: '全選択をする際のコマンド', display_key: 'Ctrl + A', pc_type: 1, problem_image: File.open("db/fixtures/category_images/vs-2.gif") },
