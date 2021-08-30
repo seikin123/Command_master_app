@@ -1,7 +1,7 @@
 //ローディング画面の表示
 $(window).on('load',function(){
   $("#loading").delay(1500).fadeOut('slow');//ローディング画面を1.5秒（1500ms）待機してからフェードアウト
-  $("#loading_box").delay(1400).fadeOut('slow');//ローディングテキストを1.4秒（1400ms）待機してからフェードアウト
+  $("#loading_box").delay(1500).fadeOut('slow');//ローディングテキストを1.4秒（1400ms）待機してからフェードアウト
 });
 
 $(document).ready(function () {
@@ -93,7 +93,6 @@ $(document).ready(function () {
     Command: toastr["warning"]('スタート!!!')
   }
 
-
   //問題の表示
   function loop() {
     $("#input").text('');
@@ -174,11 +173,11 @@ $(document).ready(function () {
         falseFlash(e);
     }
   }
-
+  
   //タイマー・終了判定が出たら結果を送信
   function finishAnswer() {
     i = 0; //問題数をリセット
-    answer = 0; //合計数のリセット
+    answer = 20; //合計数のリセット
     point = 0; //点数のリセット
     $("#target").hide();
     $("#click").hide();
@@ -203,7 +202,7 @@ $(document).ready(function () {
         type: 'PUT',
         data: {
          user: {
-          experience_point: score,
+          experience_point: score
          }
         },
         dataType: 'json'
