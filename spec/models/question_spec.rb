@@ -16,9 +16,9 @@ RSpec.describe Question, type: :model do
     end
   end
   
-  context 'answer_keyが255文字以下の場合' do
+  context 'answer_keyが50文字以下の場合' do
     it '有効であること' do
-      question = build(:question, answer_key: 'a' * 255)
+      question = build(:question, answer_key: 'a' * 50)
       expect(question).to be_valid
     end
   end

@@ -33,7 +33,7 @@ RSpec.describe User, type: :model do
       expect(user.errors[:email]).to include("を入力してください")
     end
     
-    context 'emailが重複している場合' do
+  context 'emailが重複している場合' do
     it '無効であること' do
       user1 = create(:user)
       user2 = build(:user, email: user1.email)
