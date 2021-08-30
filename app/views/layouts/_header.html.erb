@@ -34,7 +34,7 @@
       <li class="nav-item">
         <%= link_to "Category", admin_categories_path, class:"nav-link" %>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" id="logout">
         <%= link_to "Log out", destroy_admin_session_path, method: :delete, class:"nav-link" %>
       </li>
      <% else %>
