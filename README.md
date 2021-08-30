@@ -1,5 +1,5 @@
 # コマンドマスター
-URL http://command-master.com/
+URL https://command-master.com/
 ## サイト概要
 ショートカットキーマスターでは、VScodeのショートカットキーをゲーム感覚で学ぶことができます。  
 直感的に楽しく学ぶことができるアプリとなっています。
