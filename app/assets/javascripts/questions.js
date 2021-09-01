@@ -18,8 +18,8 @@ $(document).ready(function () {
   var answer = 0; //表示点数
   var point = 0; //点数
   var i = 0; //問題文
-  var start_game = false;　//ゲームスタート
   var start_time = 0; //時間の設定
+  var start_game = false;　//ゲームスタート
 
     // スコアの計算
   function addScore(point){
@@ -177,7 +177,7 @@ $(document).ready(function () {
   //タイマー・終了判定が出たら結果を送信
   function finishAnswer() {
     i = 0; //問題数をリセット
-    answer = 20; //合計数のリセット
+    answer = 0; //合計数のリセット
     point = 0; //点数のリセット
     $("#target").hide();
     $("#click").hide();
@@ -202,7 +202,7 @@ $(document).ready(function () {
         type: 'PUT',
         data: {
          user: {
-          experience_point: score
+          experience_point: score,
          }
         },
         dataType: 'json'
