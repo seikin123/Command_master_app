@@ -8,7 +8,7 @@ $(document).ready(function () {
   if (!$('#questions_json').length) {
     return false;
   }
-  var Json = document.querySelector('#questions_json').value //value値でquestionのデータをjson形式で受け取る
+  var Json = document.querySelector('#questions_json').value; //value値でquestionのデータをjson形式で受け取る
   //JSON.perseは文字列を JSON として受け取り、文字列によって記述されているJavaScript の値やオブジェクトを構築する
   var questions = JSON.parse(Json);　
   var pc = document.querySelector('#pc_type').value; //value値でpc_typeのデータをjson形式で受け取る
