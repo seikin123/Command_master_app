@@ -34,13 +34,10 @@
       background-repeat: no-repeat;
   }
 
-  // top画面
-  // top画面の隙間をなくす
+  // // top画面
+  // // top画面の隙間をなくす
   .row {
-   display: flex;
-    flex-wrap: wrap;
-     margin-right: 15px;
-     margin-left: -15px;
+    margin-right: -15px;
   }
 
   // 小見出し文字
