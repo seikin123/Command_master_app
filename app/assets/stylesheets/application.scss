@@ -17,61 +17,62 @@
 
 
 // 全体
-body {
-  height: 100%;
-  margin: 0;
-  display: flex;
-  flex-flow: column;
-  min-height: 100vh;
-}
-
-footer {
-  background-color: #C0C0C0;
-}
-
-body, html {
+  body {
     height: 100%;
-    background-repeat: no-repeat;
-}
+    margin: 0;
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+  }
 
-// 小見出し文字
-h2 {
-  position: relative;
-  padding: 1.5rem;
-  text-align: center;
-}
+  footer {
+    background-color: #C0C0C0;
+  }
 
-h2 span {
-  font-size: 18px;
-  font-size: 1.8rem;
-  display: block;
-}
+  body, html {
+      height: 100%;
+      background-repeat: no-repeat;
+  }
 
-h2:before {
-  position: absolute;
-  bottom: -10px;
-  left: calc(50% - 30px);
-  width: 60px;
-  height: 5px;
-  content: '';
-  border-radius: 3px;
-  background: green;
-}
-// 全体の文字
-.font {
-    font-size: 40px;
-    font-family: 'sans-serif'	, cursive;
-}
-
-// top画面
+  // top画面
   // top画面の隙間をなくす
   .row {
-     display: flex;
-     flex-wrap: wrap;
+   display: flex;
+    flex-wrap: wrap;
      margin-right: 15px;
      margin-left: -15px;
   }
+
+  // 小見出し文字
+  h2 {
+    position: relative;
+    padding: 1.5rem;
+    text-align: center;
+  }
   
+  h2 span {
+    font-size: 18px;
+    font-size: 1.8rem;
+    display: block;
+  }
+  
+  h2:before {
+    position: absolute;
+    bottom: -10px;
+    left: calc(50% - 30px);
+    width: 60px;
+    height: 5px;
+    content: '';
+    border-radius: 3px;
+    background: green;
+  }
+  // 全体の文字
+  .font {
+      font-size: 40px;
+      font-family: 'sans-serif'	, cursive;
+  }
+  
+    
  .jumbotron {
    background:image-url("vs2.jpeg") center no-repeat;
    background-size: cover;
