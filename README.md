@@ -1,7 +1,7 @@
 # Command-Master
 URL https://command-master.com  
 ## デモ  
-・ゲームモード
+・ゲームモード  
 ![game](https://user-images.githubusercontent.com/76866582/132549538-cecc1a24-866f-4174-9c8f-8022ea037080.gif)  
 ・練習モード  
 ![practice](https://user-images.githubusercontent.com/76866582/132548995-e3a74782-e7a9-46bf-97ef-bcd210442146.gif)  
