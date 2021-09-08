@@ -1,5 +1,11 @@
 # Command-Master
-URL https://command-master.com
+URL https://command-master.com  
+## デモ  
+
+![game](https://user-images.githubusercontent.com/76866582/132549538-cecc1a24-866f-4174-9c8f-8022ea037080.gif)  
+
+![practice](https://user-images.githubusercontent.com/76866582/132548995-e3a74782-e7a9-46bf-97ef-bcd210442146.gif)  
+
 ## サイト概要
 コマンドマスターでは、VScodeのショートカットキーをゲーム感覚で学ぶことができます。  
 直感的に楽しく学ぶことができるアプリとなっています。
