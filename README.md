@@ -26,8 +26,8 @@ URL https://command-master.com
 
 
 ## 設計書   
-・ER図 
-![PF](https://user-images.githubusercontent.com/76866582/132534075-1dcaef65-3a62-4fd1-89fa-887de652f195.png)
+
+![ER図](https://user-images.githubusercontent.com/76866582/132534075-1dcaef65-3a62-4fd1-89fa-887de652f195.png)  
 ・ワイヤーフレーム  
 https://drive.google.com/file/d/10rutLDTEoI5WyI22Hg3Eih6cRN9Dcmch/view?usp=sharing  
 ・画面遷移図  
