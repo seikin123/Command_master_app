@@ -2,11 +2,11 @@
 URL https://command-master.com  
 ## デモ  
 
-**ゲームモード**  
+## ゲームモード  
 ![ゲーム](https://user-images.githubusercontent.com/76866582/132550571-c4715ee2-0644-49f7-be56-78db196e912f.gif)    
 
-**練習モード**  
-![practice](https://user-images.githubusercontent.com/76866582/132548995-e3a74782-e7a9-46bf-97ef-bcd210442146.gif)  
+## 練習モード  
+![練習](https://user-images.githubusercontent.com/76866582/132551062-2d17946b-13db-4e10-9b8a-6db43afadbef.gif)  
 
 ## サイト概要
 コマンドマスターでは、VScodeのショートカットキーをゲーム感覚で学ぶことができます。  
