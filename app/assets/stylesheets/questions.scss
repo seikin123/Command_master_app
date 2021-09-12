@@ -3,9 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-  .test-box {
+  .row {
     margin-right: -15px;
+    margin-left: 15px;
   }
+  
 // パンクズリスト
   .bread ul {
     display: flex; /* 子要素(li)を横一列に並べる */
