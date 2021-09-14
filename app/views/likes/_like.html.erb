@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <% unless question.like?(current_user) %>
-    <a class="btn btn-primary text-white link-mark" data-question_id="<%= question.id %>">BookMark</a>
+    <a class="btn btn-light text-black link-mark" data-question_id="<%= question.id %>">☆ Bookmark</a>
   <% else %>
-    <a class="btn btn-secondary text-white link-mark" data-question_id="<%= question.id %>">BookMarkを取り消す</a>
+    <a class="btn btn-primary text-white link-mark" data-question_id="<%= question.id %>">★ Bookmark</a>
   <% end %>
 <% end %>
