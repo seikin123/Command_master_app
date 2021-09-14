@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+    body {
+    font-family: YuGothic, "游ゴシック体", "Yu Gothic", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    letter-spacing: .025em;
+    line-height: 1.8;
+    }
+  
 // パンクズリスト
   .bread ul {
     display: flex; /* 子要素(li)を横一列に並べる */
@@ -93,7 +99,7 @@
   }
   
   .dispPoint {
-    backgrond: lightgreen;
+    // backgrond: lightgreen;
       padding: 0.5em 1em;
       // margin: 2em 0;
       font-weight: bold;
