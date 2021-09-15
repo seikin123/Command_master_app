@@ -31,15 +31,6 @@
       background-repeat: no-repeat;
   }
 
-  // top画面
-  // top画面の隙間をなくす
-  // .row {
-  // display: flex;
-  //   flex-wrap: wrap;
-  //   margin-right: 15px;
-  //   margin-left: -15px;
-  // }
-
   // 小見出し文字
   h2 {
     position: relative;
@@ -64,7 +55,14 @@
     background: green;
   }
   
+  .login_name {
+    color: white;
+  }
     
+  .navbar-brand {
+    size: 100px;
+  }
+  
  .jumbotron {
    background:image-url("vs2.jpeg") center no-repeat;
    background-size: cover;
