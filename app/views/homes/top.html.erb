@@ -2,52 +2,53 @@
       <div class="container">
         <h1 class="command">Command-Master</h1>
         <% if admin_signed_in? || user_signed_in? %>
-         <%= link_to "S T A R T", questions_path, class:"btn btn-primary active" %>
+         <%= link_to "S T A R T", questions_path, class:"btn btn-primary btn-lg" %>
         <% else %>
-          <%= link_to 'ゲストで始める', users_guest_sign_in_path, method: :post, class:"btn btn-primary active" %>
+          <%= link_to 'ゲストで始める', users_guest_sign_in_path, method: :post, class:"btn btn-primary btn-lg" %>
         <% end %>
       </div>
     </div>
     
-    <hr class="featurette-divider">
     <div class="container marketing">
-      <h3>コマンド学習を手軽にできるサービス</h3>
+      <h3 class="cathcopy">コマンド学習を手軽にできるサービス</h3>
     <hr class="featurette-divider">
-    
+
      <div class="row featurette" style="height:400px;">
         <div class="col-md-5">
-          <%= image_tag('top-1.png', class:"card-img-right flex-auto d-none d-lg-block", style:"width: 300px; height: 300px;") %>
+          <%= image_tag('game.png', class:"card-img-right flex-auto d-none d-lg-block", style:"width: 400px; height: 400px;") %>
         </div>
         <div class="col-md-7">
         <h3 class="featurette-heading">
           Practice 
         </h3>
-        <p class="lead">問題が10問ランダムで出題されゲーム感覚でコマンド学習することができます。</p>
+        <p class="lead">問題が10問ランダムで出題されゲーム感覚でコマンド学習することができます。<br>
+        Mac/ Windowsに対応しているので、自動でOSを認識して問題を出題します。</p>
       </div>
      </div>
     
     <hr class="featurette-divider">
-      <h3>お気に入り機能&コマンドの練習</h3>
-      <p>説明が入ります説明が入ります説明が入ります説明が入ります<br>
-      説明が入ります説明が入ります説明が入ります説明が入ります<br>
-      説明が入ります説明が入ります説明が入ります説明が入ります<br></p>
+      <h3 class="cathcopy">お気に入り機能&コマンドの練習</h3>
+      <h5 class="cathcopy">
+      未経験のエンジニアの方からベテランのエンジニアの方<br>
+      幅広く使っていただけるようにVScodeの問題を用意しました。<br>
+      機能を使って効率よく学んでいきましょう</h5>
     <hr class="featurette-divider">
     
-      <!--<div class="row">-->
-        <div class="d-flex justify-content-around align-items-end py-4 mt-4" style="height:250px;">
+      <div class="container-fluid">
+        <div class="d-flex justify-content-around align-items-end py-4 mt-4">
         <div class="col-lg-4">
-          <%= image_tag('bookmark.jpeg', style:"width: 150px; height: 140px;") %>
-          <h3>ブックマーク機能</h3>
+          <%= image_tag('bookmark.jpeg', class:"cathcopy", style:"width: 300px; height: 200px;") %>
+          <h4 class="cathcopy">ブックマーク機能</h4>
           
         </div>
         <div class="col-lg-4">
-          <%= image_tag('top-1.png', style:"width: 250px; height: 140px;") %>
-          <h3>練習機能</h3>
+          <%= image_tag('top-1.png', style:"width: 300px; height: 200px;") %>
+          <h4 class="cathcopy">練習機能</h4>
           
         </div>
         <div class="col-lg-4">
-          <%= image_tag('top-1.png', style:"width: 250px; height: 140px;") %>
-          <h3>個別練習機能</h3>
+          <%= image_tag('command-list.png', style:"width: 300px; height: 200px;") %>
+          <h4 class="cathcopy">個別練習機能</h4>
 
         </div>
       </div>
