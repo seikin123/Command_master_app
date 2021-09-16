@@ -30,7 +30,7 @@
 
 
  <div class="card"  style="width: 30rem;">
-  <h2>BookMark-List</h2>
+  <h3>BookMark-List</h3>
 <% if @like_questions.present? %>
     <table class="table table-hover" style="table-layout:fixed">
       <thead>
@@ -45,7 +45,6 @@
           <tr id="question_<= question.id %>">
             <td><%=link_to likes.problem, command_path(likes.id) %></td>
             <td><%= likes.display_key %></td>
-            <!--<td><= render 'likes/like', question: question %></td>-->
           </tr>
         </tbody>
           <% end %>

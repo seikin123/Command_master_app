@@ -22,10 +22,10 @@ $(function(){
       })
       // 処理が上手く行ったらボタンを切り替えて
       .done(function (data) {
-        if ($(_this).text() === 'BookMark') {
-          $(_this).text('BookMarkを取り消す').removeClass('btn-primary').addClass('btn-secondary');
-        } else if ($(_this).text() === 'BookMarkを取り消す') {
-          $(_this).text('BookMark').removeClass('btn-secondary').addClass('btn-primary');
+        if ($(_this).text() === '☆ Bookmark') {
+          $(_this).text('★ Bookmark').removeClass('btn-light').addClass('btn-primary');
+        } else if ($(_this).text() === '★ Bookmark') {
+          $(_this).text('☆ Bookmark').removeClass('btn-primary').addClass('btn-light');
         }
       })
       // 処理が上手く行かなかったら失敗を伝えるアラートを表示
