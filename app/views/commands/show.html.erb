@@ -1,77 +1,59 @@
 <h2>Command-Practice</h2>
-
-  <div class="card" style="width: 80rem;">
-    <div class="content row">
-      <div class="mx-auto test-box">
-        <div class="row justify-content-around" style="margin-top: 10px;">
-          
-          <!---左のナビバー-->
-          <div class="leftnav col-3 col-xs-5" id="leftber">
-            <div class="col-xs-1 justify-content" style="text-align:center;">
-              <h3>Command</h3>
-            </div>
-              <p class="c-nav">Ctrl / ⌘ - Command</p>
-              <p class="c-nav">Alt / ⌥ - Option</p>
-              <p class="c-nav">Shift /  ⇧ - Shift</p>
-              <p class="c-nav">⌃ - Control</p>
-              <p class="c-nav">⏎ - Enter </p>
-              <p class="c-nav">⌫ - Backspace</p>
-          </div>
-          
-          <!--問題表示-->
-          <div class="col-6">
-            <div class="main__inner">
-              <div class="question__wrap">
-                <div class="problem">問題 :<%= @questions_json.problem %></div>
-                  <div class="previewArea__wrap">
-                    <%= attachment_image_tag @questions_json, :problem_image, size: "545x300", fallback: "giphy.gif" %>
-                  </div>
-                    <p class="display"><%= @questions_json.display_key %></p>
-                    
-                  </div>
+        <!--問題表示-->
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-6 q_list">
+              <div class="problem">問題 :<%= @questions_json.problem %></div>
+                <div class="previewArea__wrap">
+                  <%= attachment_image_tag @questions_json, :problem_image, size: "800x400", fallback: "giphy.gif" %>
                 </div>
+                  <p class="display"><%= @questions_json.display_key %></p>
+                    
                   <div class="inputarea">
-                    <div  style="display: none;"></div>
-                    <div id="input" class="display"></div>
-                    <div id="command" style="display: none;"></div>
-                    <span id="center" style='display: none;'></span>
-                    <div id="dis" >!!!</div>
+                    <!--ヒントの表示-->
+                    <p id="target" class="display"></p>
+                    <!--トーストの表示-->
+                      <div  style="display: none;"></div>
+                      <div id="command" style="display: none;"></div>
+                      <!--入力されているキーの表示-->
+                      <div id="input" class="display"></div>
                   </div>
-              </div>
-              
-              <!--右のメニュー-->
-              <div class="rightnav col-3 col-xs-5" id="rightber" style="'display: none;'">
-                <div class="rightnav__inner">
-                  <h3 class="c-nav">Stop Command</h3>
-                  <div class="preList_wrap">
-                    <ul class="preList" style="top: 8opx;">
-                      <li>Mac/Windows<br>は下記を同時に押さないでください</li>
-                      <li> ⌘ + W </li>
-                      <li> ⌘ + Q </li>
-                    </ul>
-                  </div>
-                  <div id="switch"></div>
-                    <div class="preList_wrap">
-                      <h5 class="c-nav">↓↓コマンド一覧へ</h5>
-                        <div class="mt20"></div>
-                          <aside class>
-                          <ul class>
-                            <%= link_to "Back", commands_path, class:"btn btn-primary"%>
-                          </ul>
-                          </aside>
-                        </div>
+            </div>
+            
+              <div class="card" style="width: 20rem;">
+                <!--ナビバー-->
+                <div class="leftnav col-xs-5" id="leftber">
+                  <div class="col-xs-1 justify-content" style="text-align:center;">
+                    <h4>Command</h4>
+                      </div>
+                        <p class="c-nav">Win / ⌘ - Command</p>
+                        <p class="c-nav">Alt / ⌥ - Option</p>
+                        <p class="c-nav">Shift / ⇧ - Shift</p>
+                        <p class="c-nav">⌃ - Control</p>
+                        <p class="c-nav">⏎ - Enter </p>
+                        <p class="c-nav">⌫ - Backspace</p>
+                          <h4 class="c-nav">Stop Command</h4>
+                            <div class="preList_wrap">
+                              <ul class="preList" style="top: 8opx;">
+                               <li>Mac/Windowsは<br>下記を同時に<br>押さないでください</li>
+                               <li> Ctrl / ⌘ + W </li>
+                               <li> Ctrl / ⌘ + Q </li>
+                               <span id="center" style='display: none;'></span>
+                              </ul>
+                            </div>
+                            <div class="mt20"></div>
+                              <aside class>
+                                <ul>
+                                  <%= link_to "コマンド説明", commands_path, class:"btn btn-primary" %>
+                                </ul>
+                              </aside>
+                            </div>
+                          </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              
-            </div>
-           </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
     
     <h3>
       <input type="hidden" id="questions_json" value="<%= @questions_json.to_json %>">

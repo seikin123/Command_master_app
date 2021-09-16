@@ -1,54 +1,53 @@
 <header>
- <nav class="navbar navbar-expand navbar-dark bg-secondary">
-  <a class="navbar-brand" href="/">Command-master</a>
-   <% if user_signed_in? %>
-    <span>Welcometo！<%= current_user.name %>さん</span>
-   <% end %>
-   <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">-->
+ <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" id="logo" href="/">Command-Master</a>
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav">
       <% if user_signed_in? %>
       <li class="nav-item">
-        <%= link_to "My page", user_path(current_user), class:"nav-link" %>
+        <%= link_to "マイページ", user_path(current_user), class:"nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Command-List", commands_path, class:"nav-link" %>
+        <%= link_to "コマンドリスト", commands_path, class:"nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Inquiry", inquiry_path, class:"nav-link" %>
+        <%= link_to "お問い合わせ", inquiry_path, class:"nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Practice", categories_path, class:"nav-link" %>
+        <%= link_to "練習", categories_path, class:"nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"nav-link" %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav-link btn btn-info" %>
       </li>
       
      <% elsif admin_signed_in? %>
       <li class="nav-item">
-        <%= link_to "Users", admin_users_path, class:"nav-link" %>
+        <%= link_to "ユーザー", admin_users_path, class:"nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Questions", admin_questions_path, class:"nav-link" %>
+        <%= link_to "問題集", admin_questions_path, class:"nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Category", admin_categories_path, class:"nav-link" %>
+        <%= link_to "カテゴリー", admin_categories_path, class:"nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Log out", destroy_admin_session_path, method: :delete, class:"nav-link" %>
+        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"nav-link" %>
       </li>
      <% else %>
       <li class="nav-item">
-        <%= link_to "Practice", categories_path, class:"nav-link" %>
+        <%= link_to "練習", categories_path, class:"nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Signup", new_user_registration_path, class:"nav-link" %>
+        <%= link_to "新規登録", new_user_registration_path, class:"nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Login", new_user_session_path, class:"nav-link" %>
+        <%= link_to "ログイン", new_user_session_path, class:"nav-link" %>
      <% end %>
       </li>
     </ul>
   </div>
+  <% if user_signed_in? %>
+    <h4 class="login_name">Welcometo！<%= current_user.name %>さん</h4>
+   <% end %>
  </nav>
 </header>

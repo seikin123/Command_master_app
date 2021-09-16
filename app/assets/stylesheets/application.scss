@@ -15,6 +15,10 @@
  */
 @import "bootstrap";
 
+#logo {
+  font-size: 30px;
+}
+
 
 // 全体
   body {
@@ -23,16 +27,14 @@
     display: flex;
     flex-flow: column;
     min-height: 100vh;
-  }
-
-  footer {
-    background-color: #C0C0C0;
+    background-color: #F8FCFF;
   }
 
   body, html {
       height: 100%;
       background-repeat: no-repeat;
   }
+
 
   // // top画面
   // // top画面の隙間をなくす
@@ -42,6 +44,7 @@
     margin-right: 15px;
     margin-left: -15px;
   }
+
 
   // 小見出し文字
   h2 {
@@ -66,17 +69,23 @@
     border-radius: 3px;
     background: green;
   }
-  // 全体の文字
-  .font {
-      font-size: 40px;
-      font-family: 'sans-serif'	, cursive;
+  
+  .login_name {
+    color: white;
+  }
+    
+  #logout_btn {
+    text-align:right
+  }
+    
+  .navbar-brand {
+    size: 100px;
   }
   
-    
  .jumbotron {
    background:image-url("vs2.jpeg") center no-repeat;
    background-size: cover;
-   height: 400px;
+   height: 500px;
    border-radius: 0;
  }
 
@@ -86,10 +95,16 @@
 
   .fullheight {
     height: 100%;
-    background: #bbddff;
+    // background: #bbddff;
    }
   .command {
-    color :lightgray;
+    color : white;
+    font-size: 55px;
+  }
+  
+  .cathcopy {
+    text-align: center;
+    padding: 5px;
   }
 
   // ボタン
@@ -267,11 +282,7 @@
     margin: 0;
     padding: 0;
   }
-  body {
-    font-family: YuGothic, "游ゴシック体", "Yu Gothic", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-    letter-spacing: .025em;
-    line-height: 1.8;
-  }
+
   * {
     box-sizing: border-box;
   }
@@ -327,4 +338,8 @@
   .hidden_box {
       margin: 2em 0;/*前後の余白*/
       padding: 0;
+  }
+  
+  .user-favorite {
+    padding: 10px;
   }
