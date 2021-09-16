@@ -15,6 +15,10 @@
  */
 @import "bootstrap";
 
+#logo {
+  font-size: 30px;
+}
+
 
 // 全体
   body {
@@ -59,6 +63,10 @@
     color: white;
   }
     
+  #logout_btn {
+    text-align:right
+  }
+    
   .navbar-brand {
     size: 100px;
   }
@@ -79,7 +87,13 @@
     // background: #bbddff;
    }
   .command {
-    color :lightgray;
+    color : white;
+    font-size: 55px;
+  }
+  
+  .cathcopy {
+    text-align: center;
+    padding: 5px;
   }
 
   // ボタン
@@ -313,4 +327,8 @@
   .hidden_box {
       margin: 2em 0;/*前後の余白*/
       padding: 0;
+  }
+  
+  .user-favorite {
+    padding: 10px;
   }

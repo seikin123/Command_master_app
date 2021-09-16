@@ -1,6 +1,6 @@
 <header>
  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">Command-Master</a>
+  <a class="navbar-brand" id="logo" href="/">Command-Master</a>
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav">
       <% if user_signed_in? %>
@@ -14,10 +14,10 @@
         <%= link_to "お問い合わせ", inquiry_path, class:"nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to "練習", categories_path %>
+        <%= link_to "練習", categories_path, class:"nav-link" %>
       </li>
-      <li class="nav-item logout_btn" >
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn btn-primary" %>
+      <li class="nav-item">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav-link btn btn-info" %>
       </li>
       
      <% elsif admin_signed_in? %>
@@ -47,7 +47,7 @@
     </ul>
   </div>
   <% if user_signed_in? %>
-    <span class="login_name">Welcometo！<%= current_user.name %>さん</span>
+    <h4 class="login_name">Welcometo！<%= current_user.name %>さん</h4>
    <% end %>
  </nav>
 </header>
