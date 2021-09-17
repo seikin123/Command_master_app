@@ -79,6 +79,7 @@
                     </div>
                   </div>
             </div>
+            
               <div class="card col-xs-5" style="width: 17rem;">
                 <!--ナビバー-->
                 <div class="leftnav col-xs-5" id="leftber">
@@ -104,6 +105,14 @@
                               <aside class>
                                 <ul>
                                   <%= link_to "コマンド説明", commands_path, class:"btn btn-primary" %>
+                                </ul>
+                                <ul>
+                                <!--ヒント機能-->
+                                  <div id="click">
+                                    <div id="btn_center">
+                                      <input type="button" id="hyouji" value="ヒントON">
+                                    </div>
+                                  </div>
                                 </ul>
                               </aside>
                             </div>
