@@ -7,11 +7,10 @@
   </div>
 </div>
 
-
-  <div class="wrapper">
-     <div class="row contentWidth">
-             <div class="container">
-          <div class="row">
+  <!--<div class="wrapper">-->
+  <!--   <div class="row contentWidth">-->
+       <div class="container">
+         <div class="row">
         <div class="bread col-9 col-s-10" style="margin-top: 25px;">
          <div class="bread__inner">
            <ul>
@@ -37,13 +36,17 @@
           </div>
         </div>
       </div>
+    </div>
         
-        <div class="container">
+        
+          <div class="container">
           <div class="row">
             <div class="col-xs-6 q_list">
               <div class="start-message">
                 <p class="blinking" id="yomi">「スペースキー」を押すとスタートします</p>
               </div>
+              
+                <div class="previewArea__wrap">
                 <% @questions_json.each_with_index do |question, idx| %>
                   <div id="question-<%= idx %>" class="questions-item" style="<%= idx == 0 ? '' : 'display: none;' %>">
                     <div class="problem">問題 :<%= question.problem %></div>
@@ -53,18 +56,18 @@
                       </div>
                     </div>
                 <% end %>
-                        
-                <div class="inputarea">
-                  <!--ヒントの表示-->
-                  <p id="target" class="display"></p>
+                  <div class="inputarea">
+                    <!--ヒントの表示-->
+                    <p id="target" class="display"></p>
                     <!--トーストの表示-->
-                    <div  style="display: none;"></div>
-                    <div id="command" style="display: none;"></div>
-                    <!--入力されているキーの表示-->
-                    <div id="input" class="display"></div>
-                </div>
-                        
-                <!--終了時に表示されるメッセージ-->
+                      <div  style="display: none;"></div>
+                      <div id="command" style="display: none;"></div>
+                      <!--入力されているキーの表示-->
+                      <div id="input" class="display"></div>
+                  </div>
+            </div>
+            
+                            <!--終了時に表示されるメッセージ-->
                 
                   <div class="mb15">
                     <div class="card finish" id="main" style="display: none;">お疲れ様でした。
@@ -75,22 +78,12 @@
                               獲得経験値: <span id="answer"></sapn>
                     </div>
                   </div>
-                
-                <!--右のメニュー-->
-                <div class="rightnav col-3 col-xs-5" id="rightber" style="'display: none;'">
-                  <div class="rightnav__inner">
-                    <div id="switch"></div>
-                      <div class="preList_wrap">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-            
-                  <div class="card" style="width: 17rem;">
-                    <!---左のナビバー-->
-                    <div class="leftnav col-xs-5" id="leftber">
-                      <div class="col-xs-1 justify-content" style="text-align:center;">
-                        <h4>Command</h4>
+            </div>
+              <div class="card col-xs-5" style="width: 17rem;">
+                <!--ナビバー-->
+                <div class="leftnav col-xs-5" id="leftber">
+                  <div class="col-xs-1 justify-content" style="text-align:center;">
+                    <h4>Command</h4>
                       </div>
                         <p class="c-nav">Win / ⌘ - Command</p>
                         <p class="c-nav">Alt / ⌥ - Option</p>
@@ -100,7 +93,7 @@
                         <p class="c-nav">⌫ - Backspace</p>
                           <h4 class="c-nav">Stop Command</h4>
                             <div class="preList_wrap">
-                              <ul class="preList">
+                              <ul class="preList" style="top: 8opx;">
                                <li>Mac/Windowsは<br>下記を同時に<br>押さないでください</li>
                                <li> Ctrl / ⌘ + W </li>
                                <li> Ctrl / ⌘ + Q </li>
@@ -112,20 +105,23 @@
                                 <ul>
                                   <%= link_to "コマンド説明", commands_path, class:"btn btn-primary" %>
                                 </ul>
-                                <ul>
-                                  <!--ヒント機能-->
-                                  <div id="click">
-                                    <div id="btn_center">
-                                      <input type="button" id="hyouji" value="ヒントON">
-                                    </div>
-                                  </div>
-                                </ul>
                               </aside>
                             </div>
                     </div>
                   </div>
-      </div>
-    </div>
+                </div>
+          
+        </div>     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
     
   <!--jsにデータを渡している-->
   <h3>
