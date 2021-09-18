@@ -4,7 +4,7 @@
         <% if admin_signed_in? || user_signed_in? %>
          <%= link_to "S T A R T", questions_path, class:"btn btn-primary btn-lg" %>
         <% else %>
-          <%= link_to 'ゲストで始める', users_guest_sign_in_path, method: :post, class:"btn btn-primary btn-lg" %>
+          <%= link_to 'ゲストで始める', users_guest_sign_in_path, method: :post, class:"btn btn-primary btn-lg", id:"start-btn" %>
         <% end %>
       </div>
     </div>
