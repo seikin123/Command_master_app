@@ -14,11 +14,11 @@ RSpec.describe Admin, type: :model do
   end
   
   describe '無効な管理者' do
-    # it '名前がなければ無効' do
-    #   admin = Admin.new(name: nil)
-    #   admin.valid?
-    #   expect(admin.errors[:name]).to include("を入力してください")
-    # end
+    it '名前がなければ無効' do
+      admin = Admin.new(name: nil)
+      admin.valid?
+      expect(admin.errors[:name]).to include("を入力してください")
+    end
     
   context '名前が3文字以下の場合' do
     it '無効であること' do
@@ -49,11 +49,11 @@ RSpec.describe Admin, type: :model do
     end
   end
   
-  # context 'パスワードが6文字以下の場合' do
-  #   it '無効であること' do
-  #     admin = build(:admin, password: 'a' * 6)
-  #     expect(admin).to be_invalid
-  #     expect(admin.errors[:password]).to include('入力してください')
-  #   end
-  # end
+  context 'パスワードが6文字以下の場合' do
+    it '無効であること' do
+      admin = build(:admin, password: 'a' * 6)
+      expect(admin).to be_invalid
+      expect(admin.errors[:password]).to include('入力してください')
+    end
+  end
 end
