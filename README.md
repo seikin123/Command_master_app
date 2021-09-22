@@ -48,10 +48,33 @@ https://docs.google.com/spreadsheets/d/1OdN-eTVas1kPd5Q0u45LvyXtNMwQhGkupLwIIJBI
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1RMsxDNuzj0mV4-ZisW9dEEyne3W5kaY5EE100yutUug/edit?usp=sharing
 
-## 開発環境
+## 環境・使用技術
 
-- OS：Linux(CentOS)
-- 言語：HTML,CSS,JavaScript,Ruby,SQL
-- フレームワーク：Ruby on Rails
-- JSライブラリ：jQuery
-- IDE：Cloud9
+### フロントエンド  
+・Bootstrap 4.5.0  
+・SCSS (BEM)  
+・JavaScript、jQuery、Ajax  
+
+### バックエンド  
+・Ruby 2.6.3  
+・Rails 5.2.5  
+
+## 開発環境    
+・MySQL2  
+
+### 本番環境  
+・AWS（EC2, RDSforSQL, Routes53, CloudWatch, S3）  
+・MySQL2  
+・Nginx, Puma  
+・Github Actions  
+
+###　インフラ構成図  
+
+### テスト
+・Rspec（単体/結合）
+
+### その他使用技術  
+・非同期通信(いいね機能、プレイデータ送信)  
+・Action Mailer  
+・HTTPS接続(AWS Certificate Manager)  
+・JavaScriptによるキーバインド取得  
