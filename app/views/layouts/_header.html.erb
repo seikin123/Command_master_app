@@ -12,7 +12,7 @@
       </li>
       <li class="nav-item">
         <%= link_to " お問い合わせ", inquiry_path, class:"nav-link active sample far fa-envelope" %>
-      </li> 
+      </li>
       <li class="nav-item">
         <%= link_to "  練習", categories_path, class:"nav-link active sample fas fa-desktop" %>
       </li>
@@ -29,7 +29,7 @@
       <li class="nav-item">
         <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"btn-outline-info disabled fas fa-sign-out-alt" %>
       </li>
-    
+
      <% else %>
       <li class="nav-item">
         <%= link_to " 練習", categories_path, class:"nav-link active sample fas fa-desktop" %>

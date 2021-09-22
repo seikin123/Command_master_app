@@ -4,32 +4,32 @@
       <p id="profile-name" class="profile-name-card"></p>
      <ul class="alert text-danger"><%= alert %></ul>
     <%= form_with model: @user, url: user_session_path, local: true do |f| %>
-    
+
       <div class="form-inline">
         <%= f.label :name %><br/>
         <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Name", size: 52; %>
       </div>
-    
+
       <div class="field">
         <%= f.label :password %><br />
         <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", size: 52; %>
       </div>
-    
+
       <% if devise_mapping.rememberable? %>
         <div class="field">
           <%= f.check_box :remember_me %>
           <%= f.label :remember_me %>
         </div>
       <% end %>
-    
+
       <div class="actions">
         <%= f.submit "Log in",class:"btn btn-primary btn-block" %>
       </div>
     <% end %>
-    
+
     <div class="card-footer">
-      
+
       <%= render "users/shared/links" %>
-      
+
     </div>
 </div>
