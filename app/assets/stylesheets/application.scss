@@ -15,9 +15,82 @@
  */
 @import "bootstrap";
 
-#logo {
-  font-size: 30px;
-}
+
+  .cathcopy {
+    color: black;
+    padding: 10px;
+    font-size: 30px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all  0.3s ease;
+  }
+  
+  .cathcopy:hover {
+    background-color: #6495ED;
+    padding: 15px;
+    color: white;
+    font-size: 32px;
+  }
+
+
+  .nav-item {
+    padding: 0 2rem;
+    font-size: 15px;
+    list-style: none;
+  }
+  
+  .sample {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all  0.3s ease;
+  }
+  
+  .sample:after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: white;
+    transform: scale(0, 1);
+    transform-origin: center top;
+    transition: transform .3s;
+  }
+  
+  .sample:hover::after {
+    transform: scale(1, 1);
+        color: lightgray;
+    font-size: 19px;
+  }
+  
+  .start-btn {
+    background-color: #3366FF;
+    color: white;
+    padding: 15px;
+    font-size: 30px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all  0.3s ease;
+  }
+  
+  .start-btn:hover {
+    background-color: #3366FF;
+    padding: 18px;
+    color: white;
+    font-size: 32px;
+    border-radius: 12px;
+  }
+  
+  #logo {
+    font-size: 30px;
+  }
 
 
 // 全体
@@ -34,8 +107,11 @@
       height: 100%;
       background-repeat: no-repeat;
   }
-
-
+  
+  footer {
+    text-align: center;
+  }
+  
   // // top画面
   // // top画面の隙間をなくす
   .row {
@@ -59,17 +135,6 @@
     display: block;
   }
 
-  h2:before {
-    position: absolute;
-    bottom: -10px;
-    left: calc(50% - 30px);
-    width: 60px;
-    height: 5px;
-    content: '';
-    border-radius: 3px;
-    background: green;
-  }
-
   .login_name {
     color: white;
   }
@@ -83,7 +148,7 @@
   }
 
  .jumbotron {
-   background:image-url("vs2.jpeg") center no-repeat;
+   background:image-url("top/vs2.jpeg") center no-repeat;
    background-size: cover;
    height: 500px;
    border-radius: 0;
@@ -101,10 +166,9 @@
     color : white;
     font-size: 55px;
   }
-
-  .cathcopy {
-    text-align: center;
-    padding: 5px;
+  
+  .command:hover {
+    color: silver;
   }
 
   // ボタン
@@ -124,10 +188,16 @@
   /*
    * Card component
    */
+   
+  .card-text {
+    text-decoration: none;
+    color: black; 
+  }
+  
   .card {
       background-color: #F7F7F7;
       /* just in case there no content*/
-      padding: 20px 25px 30px;
+      padding: 15px 20px 25px;
       margin: 0 auto 25px;
       margin-top: 25px;
       -moz-border-radius: 2px;
@@ -342,4 +412,9 @@
 
   .user-favorite {
     padding: 10px;
+  }
+  
+
+  .mx-auto {
+    width: 700px;
   }

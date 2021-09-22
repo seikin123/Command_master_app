@@ -1,56 +1,126 @@
-    <div class="jumbotron">
-      <div class="container">
-        <h1 class="command">Command-Master</h1>
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="command">Command-Master</h1>
         <% if admin_signed_in? || user_signed_in? %>
-         <%= link_to "S T A R T", questions_path, class:"btn btn-primary btn-lg" %>
+         <%= link_to " ス タ ー ト ", questions_path, class:"start-btn" %>
         <% else %>
-          <%= link_to 'ゲストで始める', users_guest_sign_in_path, method: :post, class:"btn btn-primary btn-lg", id:"start-btn" %>
+          <%= link_to 'ゲストで始める', users_guest_sign_in_path, method: :post, class:"start-btn" %>
         <% end %>
+    </div>
+  </div>
+    
+  <div class="container marketing">
+    <h3 class="cathcopy"><b>コマンド学習を手軽にできるサービス</h3>
+      <p>日頃仕事で使っているアプリケーションのショートカットキーやコマンドをGifを見ながら楽しく遊んでいるうち直感的に覚えることができます。
+      <br>
+      <br>
+      ショートカットキーを覚えるには反復練習が何より大事です。その反復練習を効率的に素早くできるようにしたのがCommand-Masterです。
+          自動で次々出題される問題を継続的に指を使って素早くキー入力をしていくことで、頭ではなく体でショートカットキーを覚えられるようになりますので、
+          いざと言う時にスムーズにショートカットキーを入力できるようになります。
+      <br>
+      <br>
+          vscode、Cloud9などの開発系のツール、Excelなど広く一般で使われているツール、 一般的なユーザーからプログラムを扱うエンジニアまで、
+      <br>幅広くユーザーのお役に立てるよう開発しました。是非お試しください。
+      <br>
+      <br>
+          尚、Command-Masterは開発途中です。これからも様々なアプリケーションで練習機能を追加していく予定なので、少々お待ちください。</p>
+    <hr class="featurette-divider">
+
+      <div class="row featurette" style="height:400px;">
+        <div class="col-md-5">
+          <%= image_tag('top/game.png', class:"card-img-right flex-auto d-none d-lg-block", style:"width: 400px; height: 400px;") %>
+        </div>
+          <div class="col-md-7">
+            <h3 class="featurette-heading"><b>練習機能 </h3>
+            <p class="lead">問題が10問ランダムで出題されゲーム感覚でコマンド学習することができます。<br>
+            Mac/ Windowsに対応しているので、自動でOSを認識して問題を出題します。</p>
+            <%= link_to " 練 習 す る ", questions_path, class:"start-btn" %>
+          </div>
+      </div>
+    
+      <hr class="featurette-divider">
+        <h3 class="cathcopy"><b>サービス・機能の紹介</h3>
+        <div class="container-fluid">
+          <div class="row">
+          <div class="col-lg-4">
+            <div class="shadow card" style="height: 20rem; width: 20rem;">
+              <%= link_to commands_path do %>
+                <%= image_tag('top/command-list.png', size: "200x190", fallback: "no_image.jpg", class:"card-img-top card-image") %>
+              <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><b>ブックマーク機能</b></h5>
+                <p class="card-text">忘れがちなショートカットを
+                <br>ブックマークしてましょう。</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-4">
+            <div class="shadow card" style="height: 20rem; width: 20rem;">
+              <%= link_to categories_path do %>
+                <%= image_tag('top/top-1.png', size: "200x190", fallback: "no_image.jpg", class:"card-img-top card-image") %>
+              <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><b>練習機能</b></h5>
+                <p class="card-text">10問連続で出題される問題をこなしましょう!</p>
+              </div>
+            </div>
+          </div>
+            
+          
+          <div class="col-lg-4">
+            <div class="shadow card" style="height: 20rem; width: 20rem;">
+              <%= link_to commands_path do %>
+                <%= image_tag('top/kobetsu.png', size: "200x190", fallback: "no_image.jpg", class:"card-img-top card-image") %>
+              <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><b>個別練習機能</b></h5>
+                <p class="card-text">苦手、覚えにくいショートカットを個別で練習できます。</p>
+              </div>
+            </div>
+          </div>
+          
       </div>
     </div>
-    
-    <div class="container marketing">
-      <h3 class="cathcopy">コマンド学習を手軽にできるサービス</h3>
-    <hr class="featurette-divider">
-
-     <div class="row featurette" style="height:400px;">
-        <div class="col-md-5">
-          <%= image_tag('game.png', class:"card-img-right flex-auto d-none d-lg-block", style:"width: 400px; height: 400px;") %>
-        </div>
-        <div class="col-md-7">
-        <h3 class="featurette-heading">
-          Practice 
-        </h3>
-        <p class="lead">問題が10問ランダムで出題されゲーム感覚でコマンド学習することができます。<br>
-        Mac/ Windowsに対応しているので、自動でOSを認識して問題を出題します。</p>
+        
+        <hr class="featurette-divider">
+           <h3 class="cathcopy"><b>人気のショートカット＆コマンドの練習</b></h3>
+            <div class="row">
+            <% @categories.each do |category| %>
+              <div class="col-lg-4">
+                <div class="shadow card" style="height: 19rem; width: 20rem;">
+                  <%= link_to categories_path do %>
+                    <%= image_tag('c_vscode.png', size: "250x150", fallback: "no_image.jpg", class:"card-img-top") %>
+                  <% end %>
+                <div class="card-body">
+                  <h4 class="card-title"><%= category.name %></h4>
+                  <p class="card-text">幅広く愛されているVscodeの<br>
+                    基本的なショートカットキーをしっかり学ぶことができます。</p>
+                </div>
+              </div>
+            </div>
+            <% end %>
+            
+            <div class="col-lg-4">
+              <div class="shadow card" style="height: 19rem; width: 20rem;">
+                <%= image_tag('comming-soon.jpg', size: "200x150", fallback: "no_image.jpg", class:"card-img-top") %>
+                <div class="card-body">
+                  <h4 class="card-title">Cloud9</h4>
+                  <p class="card-text">LinuxやmacOSなどで特に利用されるUNIXコマンドを使ってできる様々な操作を学べます。</p>
+                </div>
+              </div>
+            </div>
+        
+            <div class="col-lg-4">
+              <div class="shadow card" style="height: 19rem; width: 20rem;">
+                <%= image_tag('comming-soon.jpg', size: "200x150", fallback: "no_image.jpg", class:"card-img-top") %>
+                <div class="card-body">
+                  <h4 class="card-title">Excel</h4>
+                  <p class="card-text">ビジネスには欠かせないExcelに関するショートカットをしっかり学べます。</p>
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
-     </div>
-    
-    <hr class="featurette-divider">
-      <h3 class="cathcopy">お気に入り機能&コマンドの練習</h3>
-      <h5 class="cathcopy">
-      未経験のエンジニアの方からベテランのエンジニアの方<br>
-      幅広く使っていただけるようにVScodeの問題を用意しました。<br>
-      機能を使って効率よく学んでいきましょう</h5>
-    <hr class="featurette-divider">
-    
-      <div class="container-fluid">
-        <div class="d-flex justify-content-around align-items-end py-4 mt-4">
-        <div class="col-lg-4">
-          <%= image_tag('bookmark.jpg', class:"cathcopy", style:"width: 300px; height: 200px;") %>
-          <h4 class="cathcopy">ブックマーク機能</h4>
-          
-        </div>
-        <div class="col-lg-4">
-          <%= image_tag('top-1.png', style:"width: 300px; height: 200px;") %>
-          <h4 class="cathcopy">練習機能</h4>
-          
-        </div>
-        <div class="col-lg-4">
-          <%= image_tag('command-list.png', style:"width: 300px; height: 200px;") %>
-          <h4 class="cathcopy">個別練習機能</h4>
-
-        </div>
-      </div>
-      <hr class="featurette-divider">
+    </div>
   </div>

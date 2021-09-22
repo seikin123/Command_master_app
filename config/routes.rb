@@ -23,7 +23,9 @@ Rails.application.routes.draw do
   
   resources :categories
   resources :commands
-  resources :questions
+  resources :questions do
+    get 'questions_thanks', to: 'questions#thanks'
+  end
   
   resources :likes, only: [:create]
   
