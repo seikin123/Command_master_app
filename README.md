@@ -1,58 +1,51 @@
 # Command-Master
-URL https://command-master.com  
-## デモ  
 
-### ゲームモード  
-![ゲーム](https://user-images.githubusercontent.com/76866582/132550571-c4715ee2-0644-49f7-be56-78db196e912f.gif)    
+## 概要  
+「楽しく直感的にショートカット＆コマンドを練習できる」  
+**Command-Master**は、ショートカットキーやコマンドの練習をゲーム感覚で楽しく学べるサービスです。  
+※キーボードを必ず使用するため、スマートフォン対応はしていません。
+## URL  
+https://command-master.com  
 
-### 練習モード  
-![練習](https://user-images.githubusercontent.com/76866582/132551062-2d17946b-13db-4e10-9b8a-6db43afadbef.gif)  
+[ゲストで始める]ボタンからゲストユーザーとしてログインできます。  
 
-## サイト概要
-コマンドマスターでは、VScodeのショートカットキーをゲーム感覚で学ぶことができます。  
-直感的に楽しく学ぶことができるアプリとなっています。
+## 製作の背景  
+少しでも現役のエンジニアの方に近づけるのかと考えました。
+すぐに始められることがベテランのエンジニアに近づくために初学者でもできることはショートカットキーを使いこなすこと  
+・ショートカットキーの一覧表を見ても、なかなか覚えられない、使えない方も多いはず・・・。
 
-### サイトテーマ
-ショートカットキー・コマンドを学べる学習アプリ
+この問題を解消するために実際のコマンドの動きを見ながら、練習できるサービスを制作しました。
+同時に、しっかり学習ができているというゲーム性も追加し、も得られることを目指しました。。
 
-### テーマを選んだ理由
-自分自身ショートカットキーを意識して使うようになり、効率化できる分、他のことについて時間を割くことができるようになったからです。  
-昨今では、仕事の効率化と言われている中で「脱マウス」への関心が高まっています。  
-その背景には、マウスとキーボードの間を手が幾度となく行き来する「時間のムダ」と「作業ストレス」の改善へのニーズがあると考えました。  
-実際に、前職での職場でもショートカットキーなどを使える方が少なかったので、 使える使えないでは、かなり差が出ていてその方達の役に立ちたいと思ったからです。  
-ゲーム感覚で学ぶことができれば、 取り掛かりやすく、より多くの人が学べてコマンド、ショートカットキーを日常的に使えるようになると思いました。
+## 主な利用シーン  
+・学習を始める前や隙間時間  
+・コマンド一覧もご用意しているのでコマンドがわからなくなった時にチートシートとしても利用できます。  
 
-### ターゲットユーザ
-・日々の業務中でショートカットキーをうまく活用できていない方
-・パソコンを日常的に使う方  
+### ターゲット
+・エンジニア未経験、経験の浅い方  
+・一般の会社員の方など幅広く利用していただけるように、Excel,Powerpointなどの問題も追加していく予定です。  
 
+## 機能一覧  
+・正解・不正解判定機能  
+　正解のキーを入力すると答えと緑のメッセージ、また不正解のキーを入力すると間違えたキーを赤色のメッセージとともに瞬時に判定、知らせてくれます。  
+・"rack-user_agent"によるOS(Mac/Windows)判定  
+　ログイン時にOSの判定を行いデバイスに応じた問題を出題します。  
+・ヒント機能  
+　非同期通信を用いて、答えをその都度みることが可能です。  
+・入力キー表示機能 
+・レベルアップ機能  
+・ブックマーク機能  
+・個別練習機能
+・Ajaxを用いたプレイデータの送信  
 
-### 主な利用シーン
-・使えるショートカットキーを増やしたいと思われる方であれば、どのようなシーンでも利用できます。
-一気にショートカットキーのコマンドを覚えるのは難しいと思います。
-そこで、、1日の中で、始業前などの隙間時間で利用していただければ、日常的に使えるコマンドが増えていきます。
-
-
-## 設計書   
-
-![ER図](https://user-images.githubusercontent.com/76866582/132534075-1dcaef65-3a62-4fd1-89fa-887de652f195.png)  
-・ワイヤーフレーム  
-https://drive.google.com/file/d/10rutLDTEoI5WyI22Hg3Eih6cRN9Dcmch/view?usp=sharing  
-・画面遷移図  
-https://drive.google.com/file/d/10rutLDTEoI5WyI22Hg3Eih6cRN9Dcmch/view?usp=sharing  
-・詳細設計  
-https://docs.google.com/spreadsheets/d/1CqD-Dpl0iYyahEASqE3h_a-tChcEEIb2CW9Zpy1F1k8/edit?usp=sharing  
-・テーブル定義書  
-https://docs.google.com/spreadsheets/d/1OdN-eTVas1kPd5Q0u45LvyXtNMwQhGkupLwIIJBInFU/edit?usp=sharing  
-
-## チャレンジ要素一覧
+詳細は下記よりご確認ください。  
 https://docs.google.com/spreadsheets/d/1RMsxDNuzj0mV4-ZisW9dEEyne3W5kaY5EE100yutUug/edit?usp=sharing
 
 ## 環境・使用技術
 
 ### フロントエンド  
 ・Bootstrap 4.5.0  
-・SCSS (BEM)  
+・SCSS  
 ・JavaScript、jQuery、Ajax  
 
 ### バックエンド  
@@ -78,3 +71,7 @@ https://docs.google.com/spreadsheets/d/1RMsxDNuzj0mV4-ZisW9dEEyne3W5kaY5EE100yut
 ・Action Mailer  
 ・HTTPS接続(AWS Certificate Manager)  
 ・JavaScriptによるキーバインド取得  
+・チーム開発を意識したGitHubの活用(プルリク、マージ)  
+
+## ER図  
+![ER図](https://user-images.githubusercontent.com/76866582/132534075-1dcaef65-3a62-4fd1-89fa-887de652f195.png) 
