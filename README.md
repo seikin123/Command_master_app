@@ -59,7 +59,7 @@ https://docs.google.com/spreadsheets/d/1RMsxDNuzj0mV4-ZisW9dEEyne3W5kaY5EE100yut
 ・Ruby 2.6.3  
 ・Rails 5.2.5  
 
-## 開発環境    
+### 開発環境    
 ・MySQL2  
 
 ### 本番環境  
@@ -68,7 +68,7 @@ https://docs.google.com/spreadsheets/d/1RMsxDNuzj0mV4-ZisW9dEEyne3W5kaY5EE100yut
 ・Nginx, Puma  
 ・Github Actions  
 
-###　インフラ構成図  
+### インフラ構成図  
 
 ### テスト
 ・Rspec（単体/結合）
