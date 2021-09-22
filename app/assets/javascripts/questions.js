@@ -1,8 +1,8 @@
 //ローディング画面の表示
-$(window).on('load',function(){
-  $("#loading").delay(1500).fadeOut('slow');//ローディング画面を1.5秒（1500ms）待機してからフェードアウト
-  $("#loading_box").delay(1500).fadeOut('slow');//ローディングテキストを1.4秒（1400ms）待機してからフェードアウト
-});
+// $(window).on('load',function(){
+//   $("#loading").delay(1500).fadeOut('slow');//ローディング画面を1.5秒（1500ms）待機してからフェードアウト
+//   $("#loading_box").delay(1500).fadeOut('slow');//ローディングテキストを1.4秒（1400ms）待機してからフェードアウト
+// });
 
 $(document).ready(function () {
   if (!$('#questions_json').length) {
@@ -181,11 +181,12 @@ $(document).ready(function () {
     point = 0; //点数のリセット
     $("#target").hide();
     $("#click").hide();
+    $("#leftber").hide();
     $(".finish").show();
     var score = $('#answer').html()
     var end_time = performance.now(); //かかった時間
     var typing_time = ( (end_time - start_time) / 1000).toFixed(0);
-    $timeMessage.text('クリアタイム：'+typing_time+'秒');
+    $timeMessage.text(typing_time + '秒');
     //CSRFトークン
     $.ajaxPrefilter( function(options, originalOptions, jqXHR) {
       var token;
@@ -196,7 +197,7 @@ $(document).ready(function () {
         }
       }
     });
-        // 非同期でusers#updateに処理を送信＋その時にプレイ情報を渡す
+    // 非同期でusers#updateに処理を送信＋その時にプレイ情報を渡す
     $.ajax({
         url: '/users/:user_id/update_user_point',
         type: 'PUT',
@@ -207,11 +208,10 @@ $(document).ready(function () {
         },
         dataType: 'json'
       })
-    // 処理が上手く行ったら切り替え
+
     .done(function(data) {
-    // window.location.href = '/users/:id';
     })
-    // 処理が上手く行かなかったら失敗の旨を伝えるアラートを表示
+    
     .fail(function(data) {
     })
   }
