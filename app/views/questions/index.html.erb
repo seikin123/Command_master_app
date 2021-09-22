@@ -7,115 +7,96 @@
   </div>
 </div>
 
-<div class="wrapper fullheight">
-     <div class="row contentWidth">
-
-        <div class="bread col-9 col-s-10" style="margin-top: 20px;">
+       <div class="container">
+         <div class="row">
+        <div class="bread col-9 col-s-10">
          <div class="bread__inner">
            <ul>
-             <li class="bread__li"><%= link_to "Home", root_path %></li>
-             <li class="bread__li"><%= link_to "category", categories_path %></li>
+             <li class="bread__li"><%= link_to "ホーム", root_path %></li>
+             <li class="bread__li"><%= link_to "カテゴリー", categories_path %></li>
              <li class="bread__li"><%= link_to @category.name, categories_path %></li>
            </ul>
          </div>
         </div>
 
-           <div class="level col-3 col-s-10 pl-s10 pr-s10" style="margin-top: 5px;">
-             <div class="dispPoint">
-               <div class="row">
-                 <div class="col-5">
-                  <p class="user_name"><%= @user.name %></p>
-                  <p class="user_name">Lv. <%= @user.level%></p>
-                 </div>
-                 <div class="col-7">
-                  <p class="my_cat_rank">☆☆☆☆☆</p>
-                  <p class="my_point">EX. <%= @user.experience_point %></p>
-                 </div>
-               </div>
-             </div>
-           </div>
-          </div>
-        <div class="card" style="width: 80rem;">
-         <div class="content row">
-            <div class="mx-auto test-box">
-          <div class="row justify-content-around" style="margin-top: 10px;">
-            
-            <!---左のナビバー-->
-            <div class="leftnav col-3 col-xs-5" id="leftber">
-              <div class="col-xs-1 justify-content" style="text-align:center;">
-                <h3>Command</h3>
+        <div class="level col-3 col-s-10 pl-s10 pr-s10">
+          <div class="dispPoint">
+            <div class="row">
+              <div class="col-5">
+                <p><%= @user.name %></p>
+                <p>Lv. <%= @user.level%></p>
               </div>
-                <p class="c-nav">Win / ⌘ - Command</p>
-                <p class="c-nav">Alt / ⌥ - Option</p>
-                <p class="c-nav">Shift / ⇧ - Shift</p>
-                <p class="c-nav">⌃ - Control</p>
-                <p class="c-nav">⏎ - Enter </p>
-                <p class="c-nav">⌫ - Backspace</p>
+              <div class="col-7">
+                <p>☆☆☆☆☆</p>
+                <p>EX. <%= @user.experience_point %></p>
+              </div>
             </div>
-            
-            <!--問題表示-->
-              <div class="col-6">
-                <div class="main__inner">
-                    <div class="question__wrap">
-                      <div class="start-message" >
-                      <p class="blinking" id="yomi">「スペースキー」を押すとスタートします</p>
-                      </div>
-                      <% @questions_json.each_with_index do |question, idx| %>
-                        <div id="question-<%= idx %>" class="questions-item" style="<%= idx == 0 ? '' : 'display: none;' %>">
-                          <div class="problem">問題 :<%= question.problem %></div>
-                          <p class="c-nav"><%= idx + 1 %> / 10 問</p>
-                            <div class="previewArea__wrap">
-                              <%= attachment_image_tag question, :problem_image, size: "545x300", fallback: "giphy.gif" %>
-                            </div>
-                        </div>
-                      <% end %>
-                        <div class="inputarea">
-                          <!--ヒントの表示-->
-                          <p id="target" class="display"></p>
-                          <!--トーストの表示-->
-                         <div  style="display: none;"></div>
-                         <div id="command" style="display: none;"></div>
-                         <!--入力されているキーの表示-->
-                         <div id="input" class="display"></div>
-                         <div id="dis" >!!!</div>
-                        </div>
-                        
-                        <!--終了時に表示されるメッセージ-->
-                           <div class="mb15">
-                            <div class="finish" id="main" style="display: none;">お疲れ様でした。
-                              <div id="time-message"></div>
-                              <div><%= link_to "Retry", categories_path, class:"btn btn-primary" %></div>
-                              <div><%= link_to "トップ画面へ戻る", root_path, class:"btn btn-info" %></div>
-                              <div id="time-message"></div>
-                              獲得経験値: <span id="answer"></sapn>
-                            </div>
-                           </div>
-                    </div>
-                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        
+        
+          <div class="container">
+          <div class="row">
+            <div class="col-xs-6 q_list">
+              <div class="start-message">
+                <p class="blinking" id="yomi">「スペースキー」を押すとスタートします</p>
               </div>
               
-              <!--右のメニュー-->
-              <div class="rightnav col-3 col-xs-5" id="rightber" style="'display: none;'">
-                <div class="rightnav__inner">
-                  <h3 class="c-nav">Stop Command</h3>
-                  <div class="preList_wrap">
-                    <ul class="preList" style="top: 8opx;">
-                      <li>Mac/Windows<br>は下記を同時に押さないでください</li>
-                      <li> Ctrl / ⌘ + W </li>
-                      <li> Ctrl / ⌘ + Q </li>
-                      <span id="center" style='display: none;'></span>
-                    </ul>
+                <div class="previewArea__wrap">
+                <% @questions_json.each_with_index do |question, idx| %>
+                  <div id="question-<%= idx %>" class="questions-item" style="<%= idx == 0 ? '' : 'display: none;' %>">
+                    <div class="problem">問題 :<%= question.problem %></div>
+                      <p class="c-nav"><%= idx + 1 %> / 10 問</p>
+                      <div class="previewArea__wrap">
+                        <%= attachment_image_tag question, :problem_image, size: "800x390", fallback: "giphy.gif" %>
+                      </div>
+                    </div>
+                <% end %>
+                  <div class="inputarea">
+                    <!--ヒントの表示-->
+                    <p id="target" class="display"></p>
+                    <!--トーストの表示-->
+                      <div  style="display: none;"></div>
+                      <div id="command" style="display: none;"></div>
+                      <!--入力されているキーの表示-->
+                      <div id="input" class="display"></div>
                   </div>
-                  <div id="switch"></div>
-                    <div class="preList_wrap">
-                      <h5 class="c-nav">↓↓コマンド説明</h5>
-                      <div class="mt20"></div>
-                        <aside class>
+            </div>
+            
+
+            </div>
+            
+              <div class="card col-xs-5" id="leftber" style="width: 17rem;">
+                <!--ナビバー-->
+                <div class="leftnav col-xs-5">
+                  <div class="col-xs-1 justify-content" style="text-align:center;">
+                    <h4>Command</h4>
+                  </div>
+                    <p class="c-nav">Win / ⌘ - Command</p>
+                    <p class="c-nav">Alt / ⌥ - Option</p>
+                    <p class="c-nav">Shift / ⇧ - Shift</p>
+                    <p class="c-nav">⌃ - Control</p>
+                    <p class="c-nav">⏎ - Enter </p>
+                    <p class="c-nav">⌫ - Backspace</p>
+                    <h4 class="c-nav">Stop Command</h4>
+                      <div class="preList_wrap">
+                        <ul class="preList">
+                          <li>Mac/Windowsは
+                            <br>下記を同時に
+                            <br>押さないでください
+                          </li>
+                          <li> Ctrl / ⌘ + W </li>
+                          <li> Ctrl / ⌘ + Q </li>
+                          <span id="center"></span>
+                        </ul>
+                      </div>
+                      <aside>
                         <ul>
-                          <%= link_to "こちら", commands_path, class:"btn btn-primary" %>
+                          <%= link_to "コマンド説明", commands_path, class:"btn btn-primary" %>
                         </ul>
                         <ul>
-                          
                           <!--ヒント機能-->
                           <div id="click">
                             <div id="btn_center">
@@ -123,23 +104,47 @@
                             </div>
                           </div>
                         </ul>
-                        </aside>
+                      </aside>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-             </div>
+          
+        </div>     
+        
+          <!--終了時に表示されるメッセージ-->
+          <div class="mx-auto finish">
+            <div class="card" id="main">
+              <h2 class="fas fa-child"> 練習結果</h2>
+                <table class="table table-bordered table-light">
+                  <tr>
+                    <th>クリアタイム</th>
+                    <th id="time-message"></th>
+                  </tr>
+                  
+                  <tr>
+                    <th>獲得経験値(EX)</th>
+                   <th id="answer"></th>
+                  </tr>
+                  
+                  <th><%= link_to "リトライ", categories_path, class:"btn btn-outline-info" %></th>
+                  <th><%= link_to "ホーム画面へ戻る", root_path, class:"btn btn-outline-dark" %></th>
+                </table>
             </div>
-      </div>
-    </div>
-  </div>
-</div>
-
+          </div>
+        
+        
+        
+        
+        
+        
+      
+    
   <!--jsにデータを渡している-->
   <h3>
     <input type="hidden" id="questions_json" value="<%= @questions_json.to_json %>">
     <input type="hidden" id="pc_type" value="<%= @pc_type %>">
   </h3>
+  
 <%= javascript_include_tag 'questions.js' %>
 

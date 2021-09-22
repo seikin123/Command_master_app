@@ -1,16 +1,16 @@
 //ローディング画面の表示
 $(window).on('load',function(){
   $("#loading").delay(1500).fadeOut('slow');//ローディング画面を1.5秒（1500ms）待機してからフェードアウト
-  $("#loading_box").delay(1400).fadeOut('slow');//ローディングテキストを1.4秒（1400ms）待機してからフェードアウト
+  $("#loading_box").delay(1500).fadeOut('slow');//ローディングテキストを1.4秒（1400ms）待機してからフェードアウト
 });
 
 $(document).ready(function () {
   if (!$('#questions_json').length) {
     return false;
   }
-  var Json = document.querySelector('#questions_json').value //value値でquestionのデータをjson形式で受け取る
+  var Json = document.querySelector('#questions_json').value; //value値でquestionのデータをjson形式で受け取る
   //JSON.perseは文字列を JSON として受け取り、文字列によって記述されているJavaScript の値やオブジェクトを構築する
-  var questions = JSON.parse(Json);
+  var questions = JSON.parse(Json);　
   var pc = document.querySelector('#pc_type').value; //value値でpc_typeのデータをjson形式で受け取る
   var input = document.querySelector('#input');
   var $timeMessage = $('#time-message'); //かかった時間
@@ -18,8 +18,8 @@ $(document).ready(function () {
   var answer = 0; //表示点数
   var point = 0; //点数
   var i = 0; //問題文
-  var start_game = false;　//ゲームスタート
   var start_time = 0; //時間の設定
+  var start_game = false;　//ゲームスタート
 
     // スコアの計算
   function addScore(point){
@@ -93,7 +93,6 @@ $(document).ready(function () {
     Command: toastr["warning"]('スタート!!!')
   }
 
-
   //問題の表示
   function loop() {
     $("#input").text('');
@@ -132,17 +131,17 @@ $(document).ready(function () {
     }
     // 入力したキーを表示部分
     if ((pc != 'Mac') && e.key == 'Meta') {
-      var text = "Win"
+      var text = "Win +"
     } else if ((pc = 'Mac') && e.key == 'Meta') {
       var text = "⌘ +"
     } else if ((pc = 'Mac') && (e.shiftKey && e.metaKey)) {
-      var text = "⌘ + ⬆"
+      var text = "⌘ + ⬆ +"
     } else if ((questions[i].synchro_key === 'Ctrl+Shift') && (e.key == "Shift" && e.ctrlKey)) {
-      var text = "Ctrl + Shift"
+      var text = "Ctrl + Shift +"
     } else if (e.key == 'Shift' && (pc = 'Mac')) {
       var text = "⬆"
     } else if (e.key == 'Alt' && (pc = 'Mac')) {
-      var text = "⌥"
+      var text = "⌥ +"
     } else if (e.key == 'Control' && (pc = 'Mac')) {
       var text = "⌃"
     } else if (e.key == 'Enter') {
@@ -174,7 +173,7 @@ $(document).ready(function () {
         falseFlash(e);
     }
   }
-
+  
   //タイマー・終了判定が出たら結果を送信
   function finishAnswer() {
     i = 0; //問題数をリセット
@@ -182,11 +181,12 @@ $(document).ready(function () {
     point = 0; //点数のリセット
     $("#target").hide();
     $("#click").hide();
+    $("#leftber").hide();
     $(".finish").show();
     var score = $('#answer').html()
     var end_time = performance.now(); //かかった時間
     var typing_time = ( (end_time - start_time) / 1000).toFixed(0);
-    $timeMessage.text('クリアタイム：'+typing_time+'秒');
+    $timeMessage.text(typing_time + '秒');
     //CSRFトークン
     $.ajaxPrefilter( function(options, originalOptions, jqXHR) {
       var token;
@@ -197,7 +197,7 @@ $(document).ready(function () {
         }
       }
     });
-        // 非同期でusers#updateに処理を送信＋その時にプレイ情報を渡す
+    // 非同期でusers#updateに処理を送信＋その時にプレイ情報を渡す
     $.ajax({
         url: '/users/:user_id/update_user_point',
         type: 'PUT',
@@ -208,12 +208,10 @@ $(document).ready(function () {
         },
         dataType: 'json'
       })
-    // 処理が上手く行ったら切り替え
+
     .done(function(data) {
-    console.log('レベルアップ処理終了')
-    // window.location.href = '/users/:id';
     })
-    // 処理が上手く行かなかったら失敗の旨を伝えるアラートを表示
+    
     .fail(function(data) {
     })
   }

@@ -118,6 +118,8 @@ GEM
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
     ffi (1.15.3)
+    font-awesome-sass (5.4.1)
+      sassc (>= 1.11)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     http-accept (1.7.0)
@@ -331,6 +333,7 @@ DEPENDENCIES
   factory_bot_rails
   dotenv-rails
   enum_help
+  font-awesome-sass (~> 5.4.1)
   jbuilder (~> 2.5)
   jquery-rails
   kaminari (~> 1.2.1)

@@ -28,9 +28,9 @@ class UsersController < ApplicationController
       user = current_user
       experience_point = params[:user][:experience_point].to_i
       current_user.increment!(:experience_point, experience_point)
-      puts "#{user.level}レベルアップ処理前のレベル"
+      # puts "#{user.level}レベルアップ処理前のレベル"
       CalcUserLevel.calc_user_level(user, experience_point)
-      puts "#{user.level}レベルアップ処理後のレベル"
+      # puts "#{user.level}レベルアップ処理後のレベル"
     end
   end
 

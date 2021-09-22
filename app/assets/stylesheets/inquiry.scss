@@ -1,3 +1,7 @@
 // Place all the styles related to the inquiry controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+main {
+  flex: 1; //画面の高さから他の同レイヤーの要素の高さを引いた値に
+}

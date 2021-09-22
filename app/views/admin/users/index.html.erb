@@ -14,6 +14,7 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Level</th>
                 <th>Status</th>
               </tr>
             </thead>
@@ -23,6 +24,7 @@
                 <td><%= user.id %></td>
                 <td><%= link_to user.name, admin_user_path(user) %></td>
                 <td><%= user.email %></td>
+                <td><%= user.level %></td>
               <td>
               <% if user.is_active == true %>
                 <span class="text-success">有効</span>
@@ -36,7 +38,6 @@
           </table>
         </div>
       </div>
-      <!--<div class="row justify-content-center"><= paginate @users %></div>-->
     </div>
   </div>
 </div>
