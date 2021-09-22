@@ -91,7 +91,20 @@
   #logo {
     font-size: 30px;
   }
-
+  
+  .card-img-top {
+    padding: 3px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all  0.3s ease;
+  }
+  
+  .card-img-top:hover {
+    background-color: white;
+    padding: 0px;
+    color: white;
+  }
 
 // 全体
   body {
@@ -152,7 +165,7 @@
    background-size: cover;
    height: 500px;
    border-radius: 0;
- }
+  }
 
   html {
     height: 100%;
