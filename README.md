@@ -1,6 +1,6 @@
 # Command-Master
 
-![demo](https://user-images.githubusercontent.com/76866582/134400056-60821761-9c93-4d33-a810-7134950ed313.gif)
+![デモ](https://user-images.githubusercontent.com/76866582/134400459-7634a97d-9e5d-450e-9c80-d0f91337e894.gif)
 
   
 ## 概要  
