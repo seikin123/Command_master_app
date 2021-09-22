@@ -1,6 +1,8 @@
 # Command-Master
 
-![デモ](https://user-images.githubusercontent.com/76866582/134398888-5036c712-2765-4af0-b3bc-cad54d183b45.gif)  
+![demo](https://user-images.githubusercontent.com/76866582/134399739-ee5e51d6-30aa-4f96-9f01-e1dcfd53389f.gif)
+
+  
 ## 概要  
 「楽しく直感的にショートカット＆コマンドを練習できる」  
   
