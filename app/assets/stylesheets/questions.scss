@@ -13,12 +13,13 @@
   .bread ul {
     display: flex; /* 子要素(li)を横一列に並べる */
     list-style-type: none; /* リスト要素に表示されている"・"を非表示 */
+    margin-top: 25px;
   }
   
   .bread li a {
     padding: 5px; /* リンク間の間隔を調整 */
     color: black; /* リンクの文字色を調整 */
-    font-size: 20px; /* リンクの文字サイズを調整 */
+    font-size: 17px; /* リンクの文字サイズを調整 */
     text-decoration: none; /* リンクの下線を非表示 */
   }
   
@@ -37,6 +38,10 @@
   
   #main {
     text-align: center;
+  }
+  
+  #center {
+    display: none;
   }
   
   #contents {
@@ -100,11 +105,11 @@
   }
   
   .dispPoint {
-    // backgrond: lightgreen;
-      padding: 0.5em 1em;
-      // margin: 2em 0;
-      font-weight: bold;
-      // border: solid 3px #000000;
+    font-weight: bold;
+    margin: 7px 5px 5px 0px;
+    border: 3px solid #AAAAAA;
+    padding: 10px 0px 0px 30px;
+    border-radius: 8px;
   }
   
   .number_questions {
@@ -141,8 +146,16 @@
       border: solid 3px #000000;
   }
   
-  // question画面
+  .finish {
+    display: none;
+    font-size: 40px;
+  }
   
+  .preList {
+    top: 8px;
+  }
+  
+  // question画面
   .leftnav {
     background: #f0f0f0;
      border-radius: 8px;
@@ -176,3 +189,4 @@
     margin: 0;
     padding: 0;
   }
+  

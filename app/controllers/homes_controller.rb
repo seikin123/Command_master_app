@@ -1,6 +1,7 @@
 class HomesController < ApplicationController
-  def top
   
+  def top
+    @categories = Category.all
   end
   
 end
