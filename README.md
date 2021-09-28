@@ -67,6 +67,8 @@ https://docs.google.com/spreadsheets/d/1RMsxDNuzj0mV4-ZisW9dEEyne3W5kaY5EE100yut
 
 ### インフラ構成図  
 
+![インフラ](https://user-images.githubusercontent.com/76866582/135058865-48347e27-c25d-4ac5-8a8d-d942a43fb284.png)  
+
 ### テスト
 ・Rspec（単体/結合）
 
